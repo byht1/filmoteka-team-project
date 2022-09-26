@@ -1,0 +1,19 @@
+// mixin
+@import './vendors/mixin';
+
+// global
+@import './utils/reset';
+@import './utils/value';
+@import './utils/global';
+
+// components
+@import './components/header';
+@import './components/search';
+@import './components/myLibrary';
+@import './components/interface';
+@import './components/genere';
+@import './components/movie';
+@import './components/footer';
+@import './components/modalMovie';
+@import './components/modalTeam';
+@import './components/preLoader';
