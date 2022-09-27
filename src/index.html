@@ -14,17 +14,18 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <div>
-      <include src="./partials/preLoader.html"></include>
+    <include src="./partials/preLoader.html"></include>
+
+    <header>
       <!-- Header -->
-      <include src="./partials/header.html"></include>
+      <include src="./partials/nav.html"></include>
       <!-- Поля для пошуку яке доступне тільки на головній сторінці -->
       <include src="./partials/index/search.html"></include>
       <!-- Кнопки які доступні тільки на сторінці бібліотеки -->
       <include src="./partials/watched/myLibrary.html"></include>
       <!-- Зміна мови, теми, авторизація -->
       <include src="./partials/interface.html"></include>
-    </div>
+    </header>
 
     <main>
       <!-- Фільтрація по жанрам -->
