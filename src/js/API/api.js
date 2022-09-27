@@ -100,10 +100,3 @@ export const dataTrailer = async id => {
     console.error(error);
   }
 };
-
-async function methodName() {
-  const data = await dataMovieList();
-  console.log(data);
-}
-
-methodName();
