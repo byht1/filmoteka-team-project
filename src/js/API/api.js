@@ -2,6 +2,7 @@ import axios from 'axios';
 const KEY = '8478375b0b2eb45c66ac10717e1ab9a2';
 const URL = 'https://api.themoviedb.org/';
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+export const IMG_URL_ORIGINAL = 'https://image.tmdb.org/t/p/original/';
 
 axios.defaults.baseURL = URL;
 
@@ -99,3 +100,10 @@ export const dataTrailer = async id => {
     console.error(error);
   }
 };
+
+async function methodName() {
+  const data = await dataMovieList();
+  console.log(data);
+}
+
+methodName();
