@@ -1,0 +1,211 @@
+:root {
+  --modal-input-color: #eee;
+  --modal-bg-color: rgba(0, 0, 0, 0.2);
+  --main-bg-color: #ffffff;
+  --main-title-color: #ffffff;
+  --second-title-color: #212121;
+  --btn-close-border-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #ff001b;
+  --logo-color: #000000;
+  --text-color: #757575;
+  --header-color: #212121;
+  --modal-placeholder-text-color: #333;
+  --modal-btn-hover-color: #e50914;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.registartion__backdrop {
+  position: fixed;
+  top: 0;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg-color);
+}
+
+.registartion__backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.registartion__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: top left;
+  padding: 40px;
+  background: var(--main-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 93.7vw;
+  height: 76.5vh;
+  overflow-y: auto;
+  max-width: 450px;
+
+  @include tablet {
+    min-height: 465px;
+    padding: 60px 69px 40px 68px;
+  }
+
+  @include desktop {
+    width: 528px;
+  }
+}
+
+.registartion__backdrop.is-hidden .registartion__modal {
+  transform: scale(0.3);
+}
+.registartion__modal-title {
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--second-title-color);
+}
+@media screen and (min-width: 1200px) {
+  .registartion__modal-title {
+    line-height: 1.15;
+  }
+}
+.registartion__modal-field {
+  margin-bottom: 10px;
+}
+.registartion__modal-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--modal-input-color);
+  color: var(--modal-placeholder-text-color);
+  background-color: var(--modal-input-color);
+  border-radius: 4px;
+  padding: 11px 12px 11px 15px;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &::placeholder {
+    font-size: 14px;
+  }
+}
+.registartion__modal-input:focus {
+  border-color: var(--accent-color);
+}
+
+.btn-close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15px;
+  right: 15px;
+  background-color: var(--main-bg-color);
+  border: 1px solid var(--btn-close-border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon-close {
+  fill: var(--logo-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-close:hover .icon-close {
+  fill: var(--accent-color);
+}
+
+.textarea-link {
+  display: block;
+  color: var(--accent-color);
+}
+
+.check-field {
+  margin-bottom: 30px;
+}
+
+.check-wrap {
+  margin-right: 8px;
+  border: solid 2px var(--header-color);
+  border-radius: 2px;
+  width: 16px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 1200px) {
+  .check-wrap {
+    margin-right: 8.38px;
+  }
+}
+
+.check-icon {
+  fill: transparent;
+}
+
+.input-check:checked + .checkbox-label .check-wrap {
+  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.input-check:checked + .checkbox-label .check-icon {
+  fill: var(--main-title-color);
+}
+
+.checkbox-label {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include desktop {
+    font-size: 14px;
+  }
+}
+
+.checkbox-btn {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px 55px 10px 56px;
+  width: 100%;
+  height: 50px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--main-title-color);
+  background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+  border-radius: 4px;
+}
+.checkbox-btn:hover,
+.checkbox-btn:focus {
+  background-color: var(--modal-btn-hover-color);
+}
+
+.checkbox-wrap {
+  @include flexCenter;
+}
+
+.registartion__modal-new {
+  margin-top: 60px;
+  color: var(--modal-placeholder-text-color);
+}
+
+.registartion__modal-link {
+  color: var(--modal-placeholder-text-color);
+  font-weight: 600;
+}

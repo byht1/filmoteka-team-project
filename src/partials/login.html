@@ -1,0 +1,64 @@
+<div>
+  <button type="button" data-login-open>LogIn</button>
+  <button type="button" data-logup-open>LogUp</button>
+</div>
+<div class="registartion__backdrop" data-modal>
+  <div class="registartion__modal">
+    <button type="button" class="btn-close" data-modal-close>
+      <svg class="icon-close" width="18" height="18">
+        <use href="./images/symbol-defs.svg#icon-close-black"></use>
+      </svg>
+    </button>
+    <p class="registartion__modal-title">Sign In</p>
+    <form>
+      <div class="registartion__modal-field">
+        <input
+          type="email"
+          name="email"
+          class="registartion__modal-input"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="registartion__modal-field">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="registartion__modal-input"
+          required
+        />
+      </div>
+      <button class="checkbox-btn" type="submit">Sign In</button>
+      <div class="check-field">
+        <input
+          type="checkbox"
+          id="input-check"
+          name="policy"
+          value="policy"
+          class="visually-hidden checkbox-hidden input-check"
+          required
+          checked
+        />
+        <label for="input-check" class="checkbox-label">
+          <div class="checkbox-wrap">
+            <span class="check-wrap">
+              <svg class="check-icon" width="11" height="8">
+                <use href="./images/symbol-defs.svg#icon-checked"></use>
+              </svg>
+            </span>
+            <span>Remember me</span>
+          </div>
+          <a href="#" class="textarea-link">Need help?</a></label
+        >
+      </div>
+    </form>
+    <div class="registartion__modal-new">
+      <p>
+        New to Filmoteka?
+        <a href="#" class="registartion__modal-link">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <script src="./js/modal.js"></script> -->
