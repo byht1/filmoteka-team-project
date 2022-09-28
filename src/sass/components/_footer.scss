@@ -1,0 +1,32 @@
+.footer-class {
+    background-color: var(--footer-background-color);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-box {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.36;
+        align-items: center;
+        text-align: center;
+        color: var(--footer-text);
+
+}
+
+.footer-pic {
+margin-left: 10px;
+margin-right: 10px;
+animation: puls 1000ms infinite alternate;
+}
+
+@keyframes puls {
+        0% {
+                transform: scale(0.5, 0.5)
+        }
+
+        100% {
+        transform: scale(1.5, 1.5);
+        }
+
+}
