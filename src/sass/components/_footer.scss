@@ -1,0 +1,23 @@
+.footer-class {
+    background-color: var(--footer-background-color);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-box {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.36;
+        align-items: center;
+        text-align: center;
+        color: var(--footer-text);
+        @media screen and (max-width: 767px) {
+                font-size: 14px;
+                line-height: 1.14;
+        }
+}
+
+.footer-pic {
+margin-left: 10px;
+margin-right: 10px;
+}
