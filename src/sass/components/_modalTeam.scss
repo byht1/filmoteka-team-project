@@ -54,11 +54,11 @@
     top: 8px;
     right: 8px;
 
-    // transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    // &:hover,
-    // &:focus {
-    //     fill: var(--color-button);
-    // }
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        fill: var(--accent);
+    }
 }
 
 // .team-info-box {
@@ -243,6 +243,16 @@
     @include desktop {
         font-size: 13px;
         // margin-left: 30px;
+    }
+
+    & a {
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    & a:hover,
+    & a:focus {
+        color: var(--accent);
+        text-shadow: 0px 3px 1px rgb(0 0 0 / 15%);
     }
 }
 
