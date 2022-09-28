@@ -48,104 +48,58 @@ header{
             }
         }
 
-// .header--home {
-//     background-color: #000000b0;
-//         background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@1x.jpg);
-//         background-position: center;
-//         background-repeat: no-repeat;
-//         background-size: cover;
-//         overflow-x: hidden;
-    
-//         @media (min-device-pixel-ratio: 2),
-//         (min-resolution: (192dpi)),
-//         (min-resolution: (2dppx)) {
-//             background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@2x.jpg);
-//             ;
-//         }
-    
-//         @include tablet {
-//             background-color: #000000b0;
-//             background-image: url('../images/header-home/abstract-background-with-red-lines-table@1s.jpg');
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             overflow-x: hidden;
-    
-//             @media (min-device-pixel-ratio: 2),
-//             (min-resolution: (192dpi)),
-//             (min-resolution: (2dppx)) {
-//                 background-image: url('../images/header-home/abstract-background-with-red-lines-table@2x.jpg');
-//                 ;
-//             }
-//         }
-    
-//         @include desktop {
-//             background-color: #000000b0;
-//             background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@1x.jpg');
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             overflow-x: hidden;
-    
-//             @media (min-device-pixel-ratio: 2),
-//             (min-resolution: (192dpi)),
-//             (min-resolution: (2dppx)) {
-//                 background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@2x.jpg');
-//                 ;
-//             }
-//         }
-// }
+.header--library {
 
-
-
-// .header--library {
-//     display: none;
-//     background-color: #000000b0;
-//         background-image: url(../images/header-library/Rectangle-mobail@1x.jpg);
-//         background-position: center;
-//         background-repeat: no-repeat;
-//         background-size: cover;
-//         overflow-x: hidden;
+    height: 230px;
+        min-width: 320px;
+        width: 100%;
+        padding-top: 20px;
+    background-color: #000000b0;
+        background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
     
-//         @media (min-device-pixel-ratio: 2),
-//         (min-resolution: (192dpi)),
-//         (min-resolution: (2dppx)) {
-//             background-image: url(../images/header-library/Rectangle-mobail@2x.jpg);
-//             ;
-//         }
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: (192dpi)),
+        (min-resolution: (2dppx)) {
+            background-image: url('../images/header-library/Rectangle-mobail@2x.jpg');
+            ;
+        }
     
-//         @include tablet {
-//             background-color: #000000b0;
-//             background-image: url('../images/header-library/Rectangle-tablet@1x.jpg');
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             overflow-x: hidden;
+        @include tablet {
+            background-color: #000000b0;
+            background-image: url('../images/header-library/Rectangle-tablet@1x.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
     
-//             @media (min-device-pixel-ratio: 2),
-//             (min-resolution: (192dpi)),
-//             (min-resolution: (2dppx)) {
-//                 background-image: url('../images/header-library/Rectangle-tablet@2x.jpg');
-//                 ;
-//             }
-//         }
+            @media (min-device-pixel-ratio: 2),
+            (min-resolution: (192dpi)),
+            (min-resolution: (2dppx)) {
+                background-image: url('../images/header-library/Rectangle-tablet@2x.jpg');
+                ;
+            }
+        }
     
-//         @include desktop {
-//             background-color: #000000b0;
-//             background-image: url('../images/header-library/Rectangle-desktop@1x.jpg');
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             overflow-x: hidden;
+        @include desktop {
+            background-color: #000000b0;
+            background-image: url('../images/header-library/Rectangle-desktop@1x.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
     
-//             @media (min-device-pixel-ratio: 2),
-//             (min-resolution: (192dpi)),
-//             (min-resolution: (2dppx)) {
-//                 background-image: url('../images/header-library/Rectangle-desktop@2x.jpg');
-//                 ;
-//             }
-//         }
-// }
+            @media (min-device-pixel-ratio: 2),
+            (min-resolution: (192dpi)),
+            (min-resolution: (2dppx)) {
+                background-image: url('../images/header-library/Rectangle-desktop@2x.jpg');
+                ;
+            }
+        }
+}
 
 
 
@@ -192,11 +146,12 @@ header{
 .navigation__link {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
 }
 
 .navigation__logo {
     display: flex;
-    flex-direction: row-reverse;
+    
 }
 .logo-name{
     color: #ffffff;
