@@ -14,6 +14,7 @@ export const refs = {
   // interface
   // genere
   // movie
+  movieGallery: document.querySelector('.movie-gallery'),
   // footer
   // modalMovie
   // modalTeam
