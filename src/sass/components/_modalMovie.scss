@@ -1,4 +1,4 @@
-.movie-card {
+.movie-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,12 +11,12 @@
   z-index: 2;
 }
 
-.movie-card.is-open {
+.movie-modal.is-open {
   opacity: 1;
   pointer-events: initial;
 }
 
-.movie-card__backdrop {
+.movie-modal__backdrop {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +25,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.movie-card__container {
+.movie-modal__container {
   position: relative;
   overflow-x: auto;
   top: 2%;
@@ -75,7 +75,7 @@
   }
 }
 
-.movie-card__wrapper {
+.movie-modal__wrapper {
   @include tablet {
     margin-left: 68px;
     display: flex;
@@ -168,11 +168,11 @@
   margin-bottom: 20px;
 }
 
-.movie-card__buttons-wrapper {
+.movie-modal__buttons-wrapper {
   display: flex;
 }
 
-.movie-card__button {
+.movie-modal__button {
   width: 110px;
   height: 44px;
 
@@ -205,11 +205,11 @@
   }
 }
 
-.movie-card__button:first-child {
+.movie-modal__button:first-child {
   margin-right: 15px;
 }
 
-.movie-card__close-btn {
+.movie-modal__close-btn {
   position: absolute;
   top: 8px;
   right: 8px;
