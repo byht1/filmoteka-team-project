@@ -1,35 +1,41 @@
 <div>
-  <button type="button" data-login-open>LogIn</button>
-  <button type="button" data-logup-open>LogUp</button>
+  <button
+    type="submit"
+    class="registration__modal-btn header__registration-btn"
+    data-signin-open
+  >
+    Sign In
+  </button>
 </div>
-<div class="registartion__backdrop" data-modal>
-  <div class="registartion__modal">
+<!---------------------SignIn Enter --------------------------->
+<div class="registration__backdrop is-hidden" data-modal>
+  <div class="registration__modal">
     <button type="button" class="btn-close" data-modal-close>
       <svg class="icon-close" width="18" height="18">
         <use href="./images/symbol-defs.svg#icon-close-black"></use>
       </svg>
     </button>
-    <p class="registartion__modal-title">Sign In</p>
+    <p class="registration__modal-title">Sign In</p>
     <form>
-      <div class="registartion__modal-field">
+      <div class="registration__modal-field">
         <input
           type="email"
           name="email"
-          class="registartion__modal-input"
+          class="registration__modal-input"
           placeholder="Email"
           required
         />
       </div>
-      <div class="registartion__modal-field">
+      <div class="registration__modal-field">
         <input
           type="password"
           name="password"
           placeholder="Password"
-          class="registartion__modal-input"
+          class="registration__modal-input"
           required
         />
       </div>
-      <button class="checkbox-btn" type="submit">Sign In</button>
+      <button class="registration__modal-btn" type="submit">Sign In</button>
       <div class="check-field">
         <input
           type="checkbox"
@@ -53,12 +59,61 @@
         >
       </div>
     </form>
-    <div class="registartion__modal-new">
+    <div class="registration__modal-new">
       <p>
         New to Filmoteka?
-        <a href="#" class="registartion__modal-link">Sign in</a>
+        <a href="#" class="registration__modal-link" data-modal-link
+          >Sign up now</a
+        >
       </p>
     </div>
   </div>
 </div>
-<!-- <script src="./js/modal.js"></script> -->
+
+<!---------------------SignUP Enter --------------------------->
+<div class="registration__backdrop is-hidden" data-modal-signup>
+  <div class="registration__modal">
+    <button type="button" class="btn-close" data-modal-signup-close>
+      <svg class="icon-close" width="18" height="18">
+        <use href="./images/symbol-defs.svg#icon-close-black"></use>
+      </svg>
+    </button>
+    <p class="registration__modal-title registration__modal-title--signup">
+      Create account
+    </p>
+    <p class="registration__modal-text">
+      Enter your email to create your membership
+    </p>
+    <form>
+      <div class="registration__modal-field">
+        <input
+          type="email"
+          name="email"
+          class="registration__modal-input"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="registration__modal-field">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="registration__modal-input"
+          required
+        />
+      </div>
+      <button class="registration__modal-btn" type="submit">Sign In</button>
+      <div class="check-field">
+        <input
+          type="checkbox"
+          id="input-check"
+          name="policy"
+          value="policy"
+          class="visually-hidden checkbox-hidden input-check"
+          required
+          checked
+        />
+    </form>
+  </div>
+</div>
