@@ -1,0 +1,64 @@
+.library-button__container{
+    padding-top: 40px;
+    margin-bottom: 60px;
+    @include flexCenter()
+}
+
+.library-button__watched {
+    font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 44px;
+    width: 130px;
+    margin-right: 20px;
+    @include tablet {
+        margin-right: 15px;
+            width: 152px;
+        }
+
+    @include desktop {
+        margin-right: 15px;
+        width: 148px;
+    }
+    &:hover {
+            border: none;
+            background-color: #FF6B01;
+        }
+    
+        &:focus {
+            border: none;
+            background-color: #FF6B01;
+        }
+}
+
+.library-button__queue{
+    font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+    color: #fff;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        background-color: transparent;
+    height: 44px;
+        width: 130px;
+        @include tablet {
+            width: 152px;
+        }
+                @include desktop {
+                    width: 148px;
+                }
+    &:hover{
+        border: none;
+        background-color: #FF6B01;
+    }
+    &:focus{
+        border: none;
+            background-color: #FF6B01;
+    }
+}
