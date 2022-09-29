@@ -36,6 +36,24 @@
   }
 }
 
+.img-wrap {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+
+  @include tablet {
+    height: 455px;
+  }
+
+  @include desktop {
+    height: 574px;
+  }
+}
+
+.movie-img {
+  height: 100%;
+}
+
 .movie-name {
   font-weight: 500;
   font-size: 12px;
