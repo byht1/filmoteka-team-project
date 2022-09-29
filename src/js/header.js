@@ -1,5 +1,12 @@
 import { refs } from './refs';
 
+window.addEventListener('resize', function () {
+  if (window.innerWidth < 767) {
+    refs.logoText.classList.add('visually-hidden');
+  }
+  refs.logoText.classList.remove('visually-hidden');
+});
+
 refs.navPageHome.addEventListener('click', homeBtnClick);
 refs.navLogo.addEventListener('click', homeBtnClick);
 refs.navPageLib.addEventListener('click', libBtnClick);
@@ -14,6 +21,10 @@ function homeBtnClick(e) {
 
 function libBtnClick(e) {
   e.preventDefault();
+  const loginvalue = Math.random();
+  if (loginvalue > 0.3) {
+    return alert('pls login');
+  }
   refs.header.classList.add('header--library');
   refs.navPageLib.classList.add('current');
   refs.navPageHome.classList.remove('current');
