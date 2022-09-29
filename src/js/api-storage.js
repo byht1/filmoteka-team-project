@@ -1,9 +1,9 @@
 import { saveToStorage, loadFromStorage } from './storage';
 import { refs } from './refs';
 
-refs.movieGallery.addEventListener('click', onGalleryClick);
-
 let idOfMovie = '';
+
+refs.movieGallery.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(e) {
   const swatchEl = e.target;
@@ -13,11 +13,6 @@ function onGalleryClick(e) {
 
   const parentEl = swatchEl.closest('.movie-card');
 
-  console.log(parentEl.dataset.id);
-
-  console.log(typeof parentEl.dataset.id);
-
-  idOfMovie += parentEl.dataset.id;
+  idOfMovie = parentEl.dataset.id;
+  console.log(idOfMovie);
 }
-
-console.log(idOfMovie);
