@@ -1,10 +1,10 @@
-import { IMG_URL, dataMovieList, dataGenre } from './API/api';
+import { IMG_URL, dataMovieList, dataSearch, dataGenre } from './API/api';
 import { refs } from './refs';
 
-renderMovies();
+renderMovies(dataMovieList());
 
-async function renderMovies() {
-  const movies = await dataMovieList();
+export async function renderMovies(films) {
+  const movies = await films;
   const genresData = (await dataGenre()).genres;
 
   //   console.log(movies.results);
@@ -39,15 +39,3 @@ async function renderMovies() {
 
   refs.movieGallery.innerHTML = markup;
 }
-
-/* async function genres(genresId) {
-  const allGenres = await dataGenre();
-  //   console.log(allGenres);
-  let genresMovie = [];
-
-  for (const id of genresId) {
-    const genreId = allGenres.genres.findIndex(genre => genre.id === id);
-    genresMovie.push(allGenres.genres[genreId].name);
-  }
-  return genresMovie;
-} */
