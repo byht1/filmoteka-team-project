@@ -7,7 +7,7 @@
 .backdrop {
     position: fixed;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100vw;
     height: 100%;
     overflow-y: auto;
@@ -22,8 +22,6 @@
 }
 
 .team-modal {
-    // border: solid 1px red;
-
     position: relative;
     background-color: var(--modal-background-color);
     padding: 15px 15px;
@@ -45,25 +43,32 @@
     }
 }
 
-.close-btm-icon {
-    // width: 30px;
-    // height: 30px;
-    // background-color: #ffffff;
+.modal-close-btn {
+    background-color: var(--modal-background-color);
 
     position: absolute;
     top: 8px;
     right: 8px;
 
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+
+    width: 30px;
+    height: 30px;
+
     &:hover,
     &:focus {
-        fill: var(--accent);
+        svg {
+            fill: var(--accent);
+        }
     }
 }
 
-// .team-info-box {
-//     margin-right: 70px;
-// }
+.close-btm-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .team-cast-box {
     @include tablet {
@@ -108,16 +113,25 @@
 
 .team-name {
     margin-top: 12px;
-    color: var(--color-title);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.15;
-    @include tablet {
+
+    & a {
+        color: var(--color-title);
+        font-style: normal;
+        font-weight: 500;
         font-size: 20px;
+        line-height: 1.15;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        @include desktop {
+            font-size: 30px;
+        }
     }
-    @include desktop {
-        font-size: 30px;
+
+    & a:hover,
+    & a:focus {
+        color: var(--accent);
+        text-shadow: 0px 3px 1px rgb(0 0 0 / 15%);
     }
 }
 
@@ -139,7 +153,7 @@
 }
 
 .info-caption {
-    color: #8c8c8c;
+    color: var(--params-name);
 
     font-style: normal;
     font-weight: 500;
@@ -208,8 +222,7 @@
 }
 
 .cast-role {
-    // такі самі як і в .info-caption
-    color: #8c8c8c;
+    color: var(--params-name);
 
     font-style: normal;
     font-weight: 500;
@@ -226,19 +239,7 @@
 }
 
 .cast-name {
-    // такі самі як і в .info-discription
-    color: var(--color-title);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
     text-align: end;
-
-    // margin-left: 30px;
-
-    // &:not(:last-child) {
-    //     margin-bottom: 20px;
-    // }
 
     @include desktop {
         font-size: 13px;
@@ -246,6 +247,11 @@
     }
 
     & a {
+        color: var(--color-title);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
