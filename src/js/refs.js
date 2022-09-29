@@ -8,7 +8,7 @@ export const refs = {
   navPageHome: document.querySelector('.navigation__page-home'),
   navPageLib: document.querySelector('.navigation__page-library'),
   header: document.querySelector('header'),
-
+  logoText: document.querySelector('.logo-name'),
   // search
   // myLibrary
   // interface

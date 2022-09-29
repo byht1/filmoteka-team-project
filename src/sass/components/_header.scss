@@ -126,20 +126,57 @@ header{
     font-size: 12px;
     line-height: 14px;
     font-weight: 500;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     &:last-child {
-
             margin-left: 40px;}
+    &:active{
+        font-size: 12px;
+            line-height: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    &:focus {
+        font-size: 12px;
+            line-height: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
 }
 
-.current{
-    &::after{
+
+.current::after{
         content: "";
             border: 1px solid #FF001B;
             position: absolute;
             width: 100%;
             bottom: 30%;
             left: 0;
+    }
+
+
+.current:active {
+    &::after {
+        content: "";
+
+        border: 2px solid #FF001B;
+        position: absolute;
+        width: 100%;
+        bottom: 30%;
+        left: 0;
+    }
+}
+.current:hover {
+    &::after {
+        content: "";
+
+        border: 2px solid #FF001B;
+        position: absolute;
+        width: 100%;
+        bottom: 30%;
+        left: 0;
     }
 }
 
@@ -151,7 +188,11 @@ header{
 
 .navigation__logo {
     display: flex;
-    
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus{
+        transform: scale(1.1);
+    }
 }
 .logo-name{
     color: #ffffff;
