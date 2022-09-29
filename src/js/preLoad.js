@@ -13,7 +13,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const mediaFiles = document.querySelectorAll('body');
+    const mediaFiles = document.querySelectorAll('.movie-card');
     let i = 0
 
 
