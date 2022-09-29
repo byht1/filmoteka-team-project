@@ -8,19 +8,19 @@
 .box {
     display: flex;
    
-
 }
 
 .text {
     font-weight: bold;
     color: rgb(55, 49, 49);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
 }
 .genere-box {
+    margin: 0 auto;
     // display: flex;
     flex-wrap: wrap;
-    // columns: 3;
     gap: 20px;
-padding-left: 10px;
 @media screen and (max-width: 767px) {
 columns: 3;
 }
@@ -28,8 +28,12 @@ columns: 3;
 columns: 4;
 }
 @media screen and (min-width: 1280px) {
-columns: 7;
+columns: 6;
 }
+// display: flex;
+// flex-wrap: wrap;
+// justify-content: center;
+// gap: 15px;
 }
 
 .click {
@@ -38,7 +42,6 @@ border: 1mm outset rgba(124, 124, 121, 0.529);
     // border-radius: 3px solis grey;
     // margin-left: 10px;
     margin-bottom: 5px;
-    
    white-space: nowrap;
 
    @media screen and (max-width: 767px) {

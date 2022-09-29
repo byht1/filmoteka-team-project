@@ -11,7 +11,7 @@ async function outputGenre() {
     console.log(allGenres);
          const markup = allGenres.genres
              .map((genre) => {
-    return ` <div class="genere-box">
+    return ` <div class="genere-list">
     <button class = "click">${genre.name}</button>
     </div>
     `
