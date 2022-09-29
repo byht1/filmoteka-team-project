@@ -1,40 +1,46 @@
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 .container {
-  width: 100%;
-  padding: 0 20px;
-  margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
 
-  @media screen and (min-width: 480px) {
-    width: 440px;
-  }
+    @media screen and (min-width: 480px) {
+        width: 440px;
+    }
 
-  @include tablet {
-    padding: 0 32px;
-    width: 768px;
-  }
-  @include desktop {
-    width: 1280px;
-  }
+    @include tablet {
+        padding: 0 32px;
+        width: 768px;
+    }
+    @include desktop {
+        width: 1280px;
+    }
 }
 
 .none {
-  display: none;
+    display: none;
 }
 
 .hidden {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .is-open {
-  opacity: 0;
+    opacity: 0;
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: 0;
+    visibility: hidden;
 }
