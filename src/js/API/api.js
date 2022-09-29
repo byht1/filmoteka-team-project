@@ -100,3 +100,16 @@ export const dataTrailer = async id => {
     console.error(error);
   }
 };
+
+// Пошук по жанрам
+export const dataSearchGenre = async (id, page = 1, language = 'en-US') => {
+  try {
+    const server = await axios.get(
+      `discover/movie?api_key=${KEY}&${language}&with_genres=${id}&page=${page}&sort_by=popularity.desc&include_adult=false&include_video=false`
+    );
+    const data = await server.data;
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
