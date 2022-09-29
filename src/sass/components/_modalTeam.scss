@@ -1,8 +1,8 @@
-// .is-hidden {
-//     opacity: 0;
-//     pointer-events: 0;
-//     visibility: hidden;
-// }
+.is-hidden {
+    opacity: 0;
+    pointer-events: 0;
+    visibility: hidden;
+}
 
 .backdrop {
     position: fixed;
@@ -43,16 +43,31 @@
     }
 }
 
-.close-btm-icon {
+.modal-close-btn {
+    background-color: var(--modal-background-color);
+
     position: absolute;
     top: 8px;
     right: 8px;
 
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+
+    width: 30px;
+    height: 30px;
+
     &:hover,
     &:focus {
-        fill: var(--accent);
+        svg {
+            fill: var(--accent);
+        }
     }
+}
+
+.close-btm-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-cast-box {
