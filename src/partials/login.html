@@ -1,0 +1,131 @@
+<!---------------------SignIn Enter --------------------------->
+<div class="registration__backdrop is-hidden" data-modal-signin>
+  <div class="registration__modal">
+    <button type="button" class="btn-close" data-modal-close-form>
+      <svg class="icon-close" width="18" height="18">
+        <use href="./images/symbol-defs.svg#icon-close-black"></use>
+      </svg>
+    </button>
+    <p class="registration__modal-title">Sign In</p>
+    <form>
+      <div class="registration__modal-field">
+        <input
+          type="email"
+          name="email"
+          class="registration__modal-input"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="registration__modal-input"
+          required
+        />
+      </div>
+      <button class="registration__modal-btn" type="submit">Sign In</button>
+      <div class="check-field">
+        <input
+          type="checkbox"
+          id="input-check"
+          name="policy"
+          value="policy"
+          class="visually-hidden checkbox-hidden input-check"
+          required
+          checked
+        />
+        <label for="input-check" class="checkbox-label">
+          <div class="checkbox-wrap">
+            <span class="check-wrap">
+              <svg class="check-icon" width="11" height="8">
+                <use href="./images/symbol-defs.svg#icon-checked"></use>
+              </svg>
+            </span>
+            <span>Remember me</span>
+          </div>
+          <!-- <a href="#" class="textarea-link">Need help?</a>-->
+        </label>
+      </div>
+    </form>
+    <div class="registration__modal-new">
+      <p>
+        New to Filmoteka?
+        <a href="#" class="registration__modal-link" data-modal-link
+          >Sign up now</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<!---------------------SignUP Enter --------------------------->
+<div class="registration__backdrop is-hidden" data-modal-signup>
+  <div class="registration__modal">
+    <button type="button" class="btn-close" data-modal-signup-close>
+      <svg class="icon-close" width="18" height="18">
+        <use href="./images/symbol-defs.svg#icon-close-black"></use>
+      </svg>
+    </button>
+    <p class="registration__modal-title registration__modal-title--signup">
+      Create account
+    </p>
+    <p class="registration__modal-text">
+      Enter your email to create your membership
+    </p>
+    <form autocomplete="off" data-signup>
+      <div class="registration__modal-field">
+        <input
+          type="email"
+          name="email"
+          class="registration__modal-input"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="registration__modal-input"
+          required
+          data-password
+        />
+        <input
+          type="password"
+          name="passwordRepeat"
+          placeholder="Repeat your password"
+          class="registration__modal-input"
+          required
+          data-password-repeat
+        />
+      </div>
+      <p class="registration__modal-alert is-hidden" data-not-match>
+        Passwords do not match, please try again
+      </p>
+      <button
+        class="registration__modal-btn registration__modal-signUp"
+        type="submit"
+      >
+        Sign up
+      </button>
+      <div class="check-field">
+        <input
+          type="checkbox"
+          name="policy"
+          value="policy"
+          class="visually-hidden checkbox-hidden input-check"
+          required
+          checked
+        />
+      </div>
+    </form>
+    <div class="registration__modal-new registration__modal-linkSignin">
+      <p>
+        Have account?
+        <a href="#" class="registration__modal-link" data-modal-link-signin
+          >Sign in now</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
