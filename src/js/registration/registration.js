@@ -7,6 +7,7 @@ const {
   signUpLink,
   backdropSignUp,
   signUpCloseBtn,
+  signInLink,
 } = refs;
 
 const onSignInBtn = () => {
@@ -23,7 +24,13 @@ const onSignUpClose = () => {
   backdropSignUp.classList.toggle('is-hidden');
 };
 
+const onSignInLink = () => {
+  backdropSignUp.classList.toggle('is-hidden');
+  backdropSignIn.classList.toggle('is-hidden');
+};
+
 signInBtn.addEventListener('click', onSignInBtn);
 signInCloseBtn.addEventListener('click', onModalClose);
 signUpLink.addEventListener('click', onSignUp);
 signUpCloseBtn.addEventListener('click', onSignUpClose);
+signInLink.addEventListener('click', onSignInLink);

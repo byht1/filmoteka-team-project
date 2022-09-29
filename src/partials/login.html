@@ -25,8 +25,6 @@
           placeholder="Email"
           required
         />
-      </div>
-      <div class="registration__modal-field">
         <input
           type="password"
           name="password"
@@ -55,8 +53,9 @@
             </span>
             <span>Remember me</span>
           </div>
-          <a href="#" class="textarea-link">Need help?</a></label
-        >
+          <!-- <a href="#" class="textarea-link">Need help?</a>-->
+          </label> 
+        
       </div>
     </form>
     <div class="registration__modal-new">
@@ -85,7 +84,7 @@
       Enter your email to create your membership
     </p>
     <form>
-      <div class="registration__modal-field">
+      <div class="registration__modal-field ">
         <input
           type="email"
           name="email"
@@ -93,12 +92,17 @@
           placeholder="Email"
           required
         />
-      </div>
-      <div class="registration__modal-field">
         <input
           type="password"
           name="password"
           placeholder="Password"
+          class="registration__modal-input"
+          required
+        />
+         <input
+          type="password"
+          name="password"
+          placeholder="Repeat your password"
           class="registration__modal-input"
           required
         />
@@ -107,7 +111,6 @@
       <div class="check-field">
         <input
           type="checkbox"
-          id="input-check"
           name="policy"
           value="policy"
           class="visually-hidden checkbox-hidden input-check"
@@ -115,5 +118,13 @@
           checked
         />
     </form>
+     <div class="registration__modal-new registration__modal-linkSignin">
+      <p>
+        Have account?
+        <a href="#" class="registration__modal-link" data-modal-link-signin
+          >Sign in now</a
+        >
+      </p>
+    </div>
   </div>
 </div>

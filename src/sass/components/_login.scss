@@ -54,17 +54,13 @@
     color: var(--registration-modal-title-color);
 
     &--signup {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       text-align: center;
     }
 
     @include desktop {
       line-height: 1.15;
     }
-  }
-
-  &-field {
-    margin-bottom: 10px;
   }
 
   &-input {
@@ -81,7 +77,7 @@
       font-size: 14px;
     }
     &:focus {
-      border-color: var(--registration-modal-accent-color);
+      border-color: var(--accent);
     }
   }
 }
@@ -108,13 +104,13 @@
   fill: var(--text-color-button);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   .btn-close:hover & {
-    fill: var(--registration-modal-accent-color);
+    fill: var(--accent);
   }
 }
 
 .textarea-link {
   display: block;
-  color: var(--registration-modal-accent-color);
+  color: var(--accent);
 }
 
 .check-field {
@@ -142,8 +138,8 @@
 }
 
 .input-check:checked + .checkbox-label .check-wrap {
-  background-color: var(--registration-modal-accent-color);
-  border: 2px solid var(--registration-modal-accent-color);
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
 .input-check:checked + .checkbox-label .check-icon {
@@ -174,7 +170,7 @@
   text-align: center;
   letter-spacing: 0.06em;
   color: var(--modal-background-color);
-  background-color: var(--registration-modal-accent-color);
+  background-color: var(--accent);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-color: transparent;
@@ -191,7 +187,7 @@
 }
 
 .registration__modal-new {
-  margin-top: 60px;
+  margin-top: 30px;
   color: var(--params-name);
 }
 
@@ -212,3 +208,15 @@
   text-transform: uppercase;
   height: 40px;
 }
+
+.registration__modal-field input:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.registration__modal-linkSign {
+  margin-top: 30px;
+}
+
+// .registration__modal-input {
+//   margin-bottom: 10px;
+// }

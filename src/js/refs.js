@@ -5,6 +5,7 @@ export const refs = {
   signUpLink: document.querySelector('[data-modal-link]'),
   backdropSignUp: document.querySelector('[data-modal-signup]'),
   signUpCloseBtn: document.querySelector('[data-modal-signup-close]'),
+  signInLink: document.querySelector('[data-modal-link-signin]'),
   // preLoader
   // header
   // search
