@@ -5,22 +5,34 @@ renderMovies();
 
 async function renderMovies() {
   const movies = await dataMovieList();
+  const genresData = (await dataGenre()).genres;
 
-  //console.log(movies.results);
+  //   console.log(movies.results);
 
   const markup = movies.results
     .map(movie => {
+      const genresList = movie.genre_ids
+        .map(idNum => {
+          for (const obj of genresData) {
+            if (idNum === obj.id) {
+              return obj.name;
+            }
+          }
+        })
+        .join(', ');
+
       return `<li class="movie-card">
       <div class="img-wrap">
-      <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
-        movie.original_title
-      }" />
+      <img class = "movie-img" data-id="${movie.id}" src="${IMG_URL}${
+        movie.poster_path
+      }" alt="${movie.original_title}" />
       </div>
         
         <p class="movie-name">${movie.original_title}</p>
-        <p class="movie-genre">${movie.genre_ids.join(
-          ', '
-        )} | ${movie.release_date.slice(0, 4)}</p>
+        <p class="movie-genre">${genresList}} | ${movie.release_date.slice(
+        0,
+        4
+      )}</p>
       </li>`;
     })
     .join('');
