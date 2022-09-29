@@ -10,15 +10,18 @@ async function renderMovies() {
 
   const markup = movies.results
     .map(movie => {
-      return `<div class="movie-card">
-        <img src="${IMG_URL}${movie.poster_path}" alt="${
+      return `<li class="movie-card">
+      <div class="img-wrap">
+      <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
         movie.original_title
       }" />
+      </div>
+        
         <p class="movie-name">${movie.original_title}</p>
         <p class="movie-genre">${movie.genre_ids.join(
           ', '
         )} | ${movie.release_date.slice(0, 4)}</p>
-      </div>`;
+      </li>`;
     })
     .join('');
 
