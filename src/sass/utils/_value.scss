@@ -16,8 +16,18 @@ html {
 
   //   Modal
   --modal-background-color: #ffffff;
+  --modal-text-color: #000000;
+  --modal-white-text-color: #ffffff;
   --params-name: #8c8c8c;
+  --button-bg-color: #ffffff;
   --border-button-color: #000000;
   --text-color-button: #000000;
   --text-revers-color-button: #ffffff;
+
+  //   Modal registration
+  --registration-modal-input-color: #eee;
+  --registartion-btn-border-color: rgba(0, 0, 0, 0.1);
+  --registration-modal-title-color: #212121;
+  --registartion-backdrop-color: rgba(0, 0, 0, 0.2);
+  --registration-modal-hover-color: #ff5800;
 }

@@ -1,0 +1,293 @@
+.is-hidden {
+    opacity: 0;
+    pointer-events: 0;
+    visibility: hidden;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100%;
+    overflow-y: auto;
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-modal {
+    position: relative;
+    background-color: var(--modal-background-color);
+    padding: 15px 15px;
+    margin: 0 auto;
+
+    width: 280px;
+    max-height: 940px;
+
+    @include tablet {
+        padding: 20px 30px;
+        width: 704px;
+        height: 552px;
+    }
+
+    @include desktop {
+        padding: 20px 45px;
+        width: 806px;
+        height: 558px;
+    }
+}
+
+.modal-close-btn {
+    background-color: var(--modal-background-color);
+
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+
+    width: 30px;
+    height: 30px;
+
+    &:hover,
+    &:focus {
+        svg {
+            fill: var(--accent);
+        }
+    }
+}
+
+.close-btm-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-cast-box {
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.logo-team {
+    width: 200px;
+    height: 140px;
+    background-color: rgb(165, 159, 159);
+    border-radius: 5px;
+    margin: 0 auto;
+
+    @include tablet {
+        width: 270px;
+        height: 160px;
+    }
+
+    @include desktop {
+        width: 280px;
+        height: 140px;
+    }
+}
+
+.team-slogan {
+    margin-top: 13px;
+
+    color: var(--params-name);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    // font-style: italic;
+    text-align: center;
+
+    @include desktop {
+        font-size: 14px;
+    }
+}
+
+.team-name {
+    margin-top: 12px;
+
+    & a {
+        color: var(--color-title);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.15;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        @include desktop {
+            font-size: 30px;
+        }
+    }
+
+    & a:hover,
+    & a:focus {
+        color: var(--accent);
+        text-shadow: 0px 3px 1px rgb(0 0 0 / 15%);
+    }
+}
+
+.team-info-list {
+    margin-top: 8px;
+    @include tablet {
+        margin-top: 12px;
+    }
+}
+
+.team-info-list-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+
+    @include tablet {
+        margin-bottom: 10px;
+    }
+}
+
+.info-caption {
+    color: var(--params-name);
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    @include desktop {
+        font-size: 13px;
+    }
+}
+
+.info-description {
+    color: var(--color-title);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    @include desktop {
+        font-size: 13px;
+    }
+}
+
+// ----------------------
+
+.cast-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+
+    color: var(--color-title);
+
+    margin-bottom: 8px;
+    margin-top: 15px;
+
+    @include tablet {
+        margin-bottom: 20px;
+    }
+    @include desktop {
+        font-size: 14px;
+        margin-bottom: 27px;
+    }
+}
+
+.cast-list-item {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    @include tablet {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    @include desktop {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.cast-role {
+    color: var(--params-name);
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    @include tablet {
+        width: 170px;
+    }
+    @include desktop {
+        font-size: 13px;
+        min-width: 230px;
+    }
+}
+
+.cast-name {
+    text-align: end;
+
+    @include desktop {
+        font-size: 13px;
+        // margin-left: 30px;
+    }
+
+    & a {
+        color: var(--color-title);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    & a:hover,
+    & a:focus {
+        color: var(--accent);
+        text-shadow: 0px 3px 1px rgb(0 0 0 / 15%);
+    }
+}
+
+// -----------------------------
+.about-box {
+    margin-top: 15px;
+
+    @include desktop {
+        margin-top: 20px;
+    }
+}
+
+.about-title {
+    color: var(--color-title);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+
+    @include desktop {
+        font-size: 14px;
+    }
+}
+
+.about-text {
+    color: var(--color-title);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+}
