@@ -21,11 +21,11 @@ export async function renderMovies(films) {
         })
         .join(', ');
 
-      return `<li class="movie-card">
+      return `<li class="movie-card" data-id="${movie.id}">
       <div class="img-wrap">
-      <img class = "movie-img" data-id="${movie.id}" src="${IMG_URL}${
-        movie.poster_path
-      }" alt="${movie.original_title}" />
+      <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
+        movie.original_title
+      }" />
       </div>
         
         <p class="movie-name">${movie.original_title}</p>
