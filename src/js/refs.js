@@ -10,6 +10,8 @@ export const refs = {
   header: document.querySelector('header'),
   addToWachedBtn: document.querySelector('[data-click="addToWached"]'),
   logoText: document.querySelector('.logo-name'),
+  queueButton: document.querySelector('.library-button__queue'),
+  watchedButton: document.querySelector('.library-button__watched'),
   // search
   // myLibrary
   // interface

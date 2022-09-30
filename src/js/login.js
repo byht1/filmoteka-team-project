@@ -56,3 +56,5 @@ function handleSub(event) {
     passwordNotMatchAlert.classList.toggle('is-hidden');
   }
 }
+
+export { onSignInBtn };

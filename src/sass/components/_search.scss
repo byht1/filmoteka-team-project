@@ -13,6 +13,7 @@
 }
 
 .search-bar {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 280px;
     border: none;
         @include tablet {
@@ -22,22 +23,24 @@
 }
 
 .search-bar__input{
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid var(--header-border-button-color);
     
 
     outline: 0;
-    color: #ffffff;
+    color: var(--header-color-text);
     &::placeholder{
-        color: #ffffff;
+        color: var(--header-color-text);
         font-style: normal;
             font-weight: 400;
             font-size: 14px;
             line-height: 16px;
     }
     &:focus{
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
         &::placeholder{
             color: transparent;
         }
@@ -48,7 +51,7 @@
 }
 
 .search-bar__wrong-querry {
-    color: #FF001B;
+    color: var(--error);
     width: 280px;
     margin: 15px auto 0;
     font-style: normal;
@@ -58,15 +61,23 @@
     @include tablet{
         width: 393px;
         padding-left: auto;
+ 
     }
 }
 
+
 .search-form__button{
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: transparent;
+    
     position: relative;
     right: 11px;
+    &:focus{
+        transform: scale(1.2);
+    }
     @include tablet {
             right: 38px;
         }
+
 }
 
