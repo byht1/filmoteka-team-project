@@ -1,6 +1,6 @@
 import { IMG_URL, dataMovieList, dataSearch, dataGenre } from './API/api';
 import { refs } from './refs';
-import createPagination from './pagination/pagination-api'
+import createPagination from './pagination/pagination-api';
 
 renderMovies(dataMovieList());
 
@@ -12,9 +12,11 @@ export async function renderMovies(films) {
 
 export async function renderFilmGallery(movies) {
   const genresData = (await dataGenre()).genres;
-  
-    const markup = movies.results.map(movie => {
-      const genresList = movie.genre_ids.map(idNum => {
+
+  const markup = movies.results
+    .map(movie => {
+      const genresList = movie.genre_ids
+        .map(idNum => {
           for (const obj of genresData) {
             if (idNum === obj.id) {
               return obj.name;
@@ -30,9 +32,6 @@ export async function renderFilmGallery(movies) {
         movie.original_title
       }" loading="lazy"/>
       </div>
-        <p class="movie-name">${movie.original_title}</p>
-        <p class="movie-genre">${genresList}} | ${movie.release_date.slice(0, 4)}</p>
-        
         <p class="movie-name">${
           movie.original_title
         }</p><div class="movie-info">
@@ -47,4 +46,4 @@ export async function renderFilmGallery(movies) {
     .join('');
 
   refs.movieGallery.innerHTML = markup;
-  }
+}
