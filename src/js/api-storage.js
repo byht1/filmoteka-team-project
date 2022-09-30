@@ -7,8 +7,8 @@ import {
 } from './shiftActionOfBtn';
 import { refs } from './refs';
 
-const SAVED_WATCHED_MOVIES = 'watched-movies';
-const SAVED_QUEUE_MOVIE = 'movies-queue';
+export const SAVED_WATCHED_MOVIES = 'watched-movies';
+export const SAVED_QUEUE_MOVIE = 'movies-queue';
 
 let idOfMovie = '';
 
