@@ -1,13 +1,13 @@
-.is-hidden {
-    opacity: 0;
-    pointer-events: 0;
-    visibility: hidden;
-}
+// .is-hidden {
+//     opacity: 0;
+//     pointer-events: 0;
+//     visibility: hidden;
+// }
 
 .backdrop {
     position: fixed;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--backdrop-color);
     width: 100vw;
     height: 100%;
     overflow-y: auto;
@@ -22,6 +22,7 @@
 }
 
 .team-modal {
+    border-radius: 10px;
     position: relative;
     background-color: var(--modal-background-color);
     padding: 15px 15px;
@@ -31,13 +32,13 @@
     max-height: 940px;
 
     @include tablet {
-        padding: 20px 30px;
+        padding: 30px 30px;
         width: 704px;
         height: 552px;
     }
 
     @include desktop {
-        padding: 20px 45px;
+        padding: 30px 45px;
         width: 806px;
         height: 558px;
     }
@@ -45,6 +46,8 @@
 
 .modal-close-btn {
     background-color: var(--modal-background-color);
+    border: solid 1px var(--params-name);
+    border-radius: 50%;
 
     position: absolute;
     top: 8px;
@@ -67,6 +70,7 @@
 }
 
 .close-btm-icon {
+    fill: var(--color-title);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -113,6 +117,7 @@
 
 .team-name {
     margin-top: 12px;
+    text-align: center;
 
     & a {
         color: var(--color-title);
@@ -193,6 +198,7 @@
 
     @include tablet {
         margin-bottom: 20px;
+        margin-top: 5px;
     }
     @include desktop {
         font-size: 14px;
@@ -241,11 +247,6 @@
 .cast-name {
     text-align: end;
 
-    @include desktop {
-        font-size: 13px;
-        // margin-left: 30px;
-    }
-
     & a {
         color: var(--color-title);
         font-style: normal;
@@ -253,6 +254,10 @@
         font-size: 12px;
         line-height: 1.33;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        @include desktop {
+            font-size: 13px;
+        }
     }
 
     & a:hover,

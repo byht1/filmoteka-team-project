@@ -25,7 +25,7 @@ export async function renderMovies(films) {
       <div class="img-wrap">
       <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
         movie.original_title
-      }" />
+      }" loading="lazy"/>
       </div>
         
         <p class="movie-name">${movie.original_title}</p>

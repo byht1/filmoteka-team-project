@@ -7,7 +7,7 @@
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  transition: opacity var(--transition-cubic) 400ms;
   z-index: 2;
 }
 
@@ -43,6 +43,7 @@
     height: 562px;
     display: flex;
     padding: 40px 72px 40px 36px;
+    overflow: hidden;
   }
 
   @include desktop {
@@ -75,6 +76,59 @@
   }
 }
 
+.movie-modal__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  text-align: center;
+  padding-top: 210px;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  transform: translateY(-100%);
+  transition: transform 500ms var(--transition-cubic);
+
+  .movie-modal__link:hover & {
+    transform: translateY(0);
+  }
+
+  .movie-modal__link:focus & {
+    transform: translateY(0);
+  }
+}
+
+.wrapper__btn {
+  padding: 0;
+  margin: 0;
+
+  background-color: transparent;
+
+  transform: scale(0.8);
+  transition: transform var(--transition-cubic) 300ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(1);
+  }
+}
+
 .movie-modal__wrapper {
   @include tablet {
     margin-left: 68px;
@@ -89,13 +143,11 @@
 
 .data__title {
   margin-bottom: 20px;
-  font-size: 20px;
-  line-height: 1.15;
+  @include font(500, 20px, 1.15);
   text-transform: uppercase;
 
   @include desktop {
-    font-size: 30px;
-    line-height: 1.17;
+    @include font(500, 30px, 1.17);
   }
 }
 
@@ -105,10 +157,11 @@
 
 .list__item {
   display: flex;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
-.list__item:nth-child(4) {
+.list__item:nth-child(5) {
   margin-bottom: 0;
 }
 
@@ -118,17 +171,38 @@
     min-width: 108px;
   }
 
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
+  @include font(500, 12px, 1.33);
   color: var(--params-name);
 }
 
 .data__info {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
+  @include font(500, 12px, 1.33);
   color: var(--modal-text-color);
+}
+
+.data__button {
+  width: 55px;
+  height: 25px;
+
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include font(500, 10px, 1.33);
+
+  border-radius: 3px;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  border: 1px solid var(--border-button-color);
+
+  transition: all var(--transition-cubic) 250ms;
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent);
+    color: var(--modal-white-text-color);
+    border: 1px solid var(--accent);
+  }
 }
 
 .data__info--upper {
@@ -136,7 +210,7 @@
 }
 
 .data__span--orange {
-  font-weight: 500;
+  @include font(500, null, null);
   padding-left: 10px;
   padding-right: 10px;
   color: var(--modal-white-text-color);
@@ -149,22 +223,18 @@
   margin-left: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #f7f7f7;
+  background-color: var(--span-color);
   border-radius: 5px;
 }
 
 .data__about {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
+  @include font(500, 12px, 1.33);
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 .data__about-text {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.67;
+  @include font(500, 12px, 1.67);
   margin-bottom: 20px;
 }
 
@@ -179,16 +249,15 @@
   text-align: center;
   text-transform: uppercase;
 
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
+  @include font(500, 12px, 1.33);
 
   border-radius: 5px;
   background-color: var(--button-bg-color);
   cursor: pointer;
   border: 1px solid var(--border-button-color);
 
-  transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  transition: all var(--transition-cubic) 250ms;
+
   &:hover,
   &:focus {
     background-color: var(--accent);
@@ -228,8 +297,12 @@
 
   outline: none;
 
+  transform: rotate(0deg);
+  transition: all var(--transition-cubic) 500ms;
+
   &:hover,
   &:focus {
+    transform: rotate(180deg);
     color: var(--accent);
   }
 }

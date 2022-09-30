@@ -1,0 +1,233 @@
+.no-scroll {
+    overflow: hidden;
+}
+
+.registration__backdrop {
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop-color);
+
+    &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+}
+
+.registration__modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: top left;
+    padding: 50px 69px 40px 68px;
+    background: var(--modal-background-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6), 0px 1px 1px rgba(245, 87, 87, 0.14), 0px 2px 1px rgba(255, 32, 32, 0.2);
+    border-radius: 10px;
+    width: 93.7vw;
+    height: 76.5vh;
+    overflow-y: auto;
+    max-width: 450px;
+    max-height: 470px;
+
+    @include tablet {
+    }
+
+    @include desktop {
+        width: 528px;
+    }
+
+    &-title {
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: 0.03em;
+        color: var(--registration-modal-title-color);
+
+        &--signup {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        @include desktop {
+            line-height: 1.15;
+        }
+    }
+
+    &-input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid var(--registration-modal-input-color);
+        color: var(--params-name);
+        background-color: var(--registration-modal-input-color);
+        border-radius: 4px;
+        padding: 11px 12px 11px 15px;
+        outline: none;
+        transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &::placeholder {
+            font-size: 14px;
+        }
+        &:focus {
+            border-color: var(--accent);
+        }
+    }
+}
+
+.registration__backdrop.is-hidden .registration__modal {
+    transform: scale(0.3);
+}
+
+.btn-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 15px;
+    right: 15px;
+    background-color: var(--modal-background-color);
+    border: 1px solid var(--registartion-btn-border-color);
+    border-radius: 50%;
+}
+
+.icon-close {
+    fill: var(--text-color-button);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    .btn-close:hover & {
+        fill: var(--accent);
+    }
+}
+
+.textarea-link {
+    display: block;
+    color: var(--accent);
+}
+
+.check-field {
+    margin-bottom: 30px;
+}
+
+.check-wrap {
+    margin-right: 8px;
+    border: solid 2px var(--registration-modal-title-color);
+    border-radius: 2px;
+    width: 16px;
+    height: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include desktop {
+        margin-right: 8.5px;
+    }
+}
+
+.check-icon {
+    fill: transparent;
+}
+
+.input-check:checked + .checkbox-label .check-wrap {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.input-check:checked + .checkbox-label .check-icon {
+    fill: var(--modal-background-color);
+}
+
+.checkbox-label {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include desktop {
+        font-size: 14px;
+    }
+}
+
+.registration__modal-btn {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 10px 55px 10px 56px;
+    width: 100%;
+    height: 50px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    letter-spacing: 0.06em;
+    // color: var(--modal-background-color);
+    // background-color: var(--accent);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    // border-color: transparent;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus {
+        background-color: var(--accent);
+    }
+}
+
+.checkbox-wrap {
+    @include flexCenter;
+}
+
+.registration__modal-new {
+    margin-top: 60px;
+    color: var(--params-name);
+}
+
+.registration__modal-link {
+    color: var(--registration-modal-title-color);
+    font-weight: 500;
+}
+
+.registration__modal-text {
+    margin-bottom: 20px;
+}
+
+.header__registration-btn {
+    width: 75px;
+    padding: 0;
+    font-size: 12px;
+    margin: 0;
+    text-transform: uppercase;
+    height: 40px;
+    // background-color: transparent;
+    // border: 1px solid var(--accent);
+}
+
+.registration__modal-field input:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.registration__modal-linkSignin {
+    margin-top: 30px;
+}
+
+.registration__modal-signUp {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.registration__modal-alert {
+    font-size: 12px;
+    margin-top: 10px;
+    color: var(--error);
+}
+
+.regisration__btn-wrap {
+    text-align: end;
+}
