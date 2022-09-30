@@ -20,6 +20,6 @@ export const refs = {
   // modalMovie
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
-  addWatchedBtn: document.querySelector('[data-action="addWatchedById"]'),
+  watchedBtn: document.querySelector('.button-watched'),
   // modalTeam
 };
