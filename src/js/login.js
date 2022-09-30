@@ -20,6 +20,7 @@ const {
     signInErrorText,
 } = refs;
 
+// &відкриває модалку авторизації
 export function onSignInBtn() {
     backdropSignIn.classList.toggle('is-hidden');
     signInErrorText.classList.add('none');
@@ -30,34 +31,45 @@ export function onSignInBtn() {
     backdropSignIn.addEventListener('click', onBackdropClick);
 }
 
+// &відкриває модалку реєстрації
+function onSignUp() {
+    backdropSignUp.classList.toggle('is-hidden');
+    backdropSignIn.classList.toggle('is-hidden');
+
+    backdropSignUp.addEventListener('click', onBackdropClick);
+}
+
+function closeAllModalClose() {
+    backdropSignUp.classList.add('is-hidden');
+    backdropSignIn.classList.add('is-hidden');
+
+    // delete event listener on escape and backdrop
+    document.removeEventListener('keydown', onEscapeClick);
+    backdropSignIn.removeEventListener('click', onBackdropClick);
+    backdropSignUp.removeEventListener('click', onBackdropClick);
+}
+
 // if Escape push - modal close
 function onEscapeClick(evt) {
     if (evt.key == 'Escape') {
-        onModalClose();
+        closeAllModalClose();
     }
 }
 
 // if on backdrop click - modal close
 function onBackdropClick(evt) {
     if (evt.target == evt.currentTarget) {
-        onModalClose();
+        closeAllModalClose();
     }
 }
 
 function onModalClose() {
     backdropSignIn.classList.toggle('is-hidden');
+}
 
-    // delete event listener on escape and backdrop
-    console.log('~ delete event listener on escape and backdrop');
-    document.removeEventListener('keydown', onEscapeClick);
-    backdropSignIn.removeEventListener('click', onBackdropClick);
-}
-function onSignUp() {
-    backdropSignUp.classList.toggle('is-hidden');
-    backdropSignIn.classList.toggle('is-hidden');
-}
 function onSignUpClose() {
-    backdropSignUp.classList.toggle('is-hidden');
+    backdropSignUp.classList.add('is-hidden');
+    backdropSignIn.classList.add('is-hidden');
 }
 
 function onSignInLink() {
