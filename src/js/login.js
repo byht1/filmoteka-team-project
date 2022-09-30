@@ -11,9 +11,7 @@ const {
   signInLink,
   formSignUp,
   passwordNotMatchAlert,
-  toSignUpBtn,
   accountCreatedText,
-  btnValueIn,
   btnValueOut,
   btnLoginWrap,
   signInForm,
@@ -67,20 +65,6 @@ function handleSub(event) {
   } else {
     passwordNotMatchAlert.classList.add('none');
     getSignUpRes(userInfo);
-
-    // const res = await signUp(userInfo);
-    // if (res === 409) {
-    //   accountCreatedText.classList.toggle('none');
-    // } else {
-    //   toSignUpBtn.disabled = true;
-    //   accountCreatedText.classList.add('none');
-    //   onSignUpClose();
-    //   toggleHeaderBtnValue();
-    //   btnLoginWrap.insertAdjacentHTML(
-    //     'afterbegin',
-    //     `<p>Hello, ${userInfo.email}</p>`
-    //   );
-    // }
   }
 }
 
@@ -102,6 +86,8 @@ async function getSignUpRes(userInfo) {
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
     await logIn(userInfo);
+    const response = await logIn(userInfo);
+    localStorage.setItem('token', response.token);
   }
 }
 // ----------------------------- LogOut
@@ -130,11 +116,9 @@ function onSignInModalBtn(event) {
   signInModalRes(userInfo);
 }
 
-// async function validationRes
-
 async function signInModalRes(userData) {
   const res = await logIn(userData);
-  console.log(res);
+
   if (res === 401) {
     signInErrorText.classList.remove('none');
   } else {
@@ -144,5 +128,6 @@ async function signInModalRes(userData) {
       'afterbegin',
       `<p data-hello>Hello, ${userData.email}</p>`
     );
+    localStorage.setItem('token', res.token);
   }
 }
