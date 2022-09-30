@@ -82,7 +82,7 @@ export default class Pagination {
 
   renderElement(value) {
     const isPage = typeof value === 'number';
-    const el = document.createElement(isPage ? 'button' : 'span');
+    const el = document.createElement(isPage ? 'button' : 'div');
     el.classList.add('pagination-item');             
     el.textContent = value;
     
