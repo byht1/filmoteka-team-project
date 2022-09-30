@@ -7,7 +7,7 @@
       </svg>
     </button>
     <p class="registration__modal-title">Sign In</p>
-    <form>
+    <form data-signIn-form>
       <div class="registration__modal-field">
         <input
           type="email"
@@ -24,7 +24,16 @@
           required
         />
       </div>
-      <button class="registration__modal-btn" type="submit">Sign In</button>
+      <p class="registration__modal-alert none" data-signin-errorText>
+        Email or password is wrong
+      </p>
+      <button
+        class="registration__modal-btn"
+        type="submit"
+        data-modalbtn-toSignin
+      >
+        Sign In
+      </button>
       <div class="check-field">
         <input
           type="checkbox"
@@ -99,12 +108,16 @@
           data-password-repeat
         />
       </div>
-      <p class="registration__modal-alert is-hidden" data-not-match>
+      <p class="registration__modal-alert none" data-not-match>
         Passwords do not match, please try again
+      </p>
+      <p class="registration__modal-alert none" data-acc-already-created>
+        This email is already registered
       </p>
       <button
         class="registration__modal-btn registration__modal-signUp"
         type="submit"
+        data-toSignUp-btn
       >
         Sign up
       </button>
