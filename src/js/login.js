@@ -20,7 +20,7 @@ const {
   signInErrorText,
 } = refs;
 
-function onSignInBtn() {
+export function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
   signInErrorText.classList.add('none');
 }
