@@ -7,3 +7,6 @@ import './js/login';
 import './js/modalMovie';
 import './js/modalActors';
 import './js/changeColorTheme';
+
+//translation
+import './js/translation/translationModalTeam';
