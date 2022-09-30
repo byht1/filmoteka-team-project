@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const server = axios.create({
-  baseURL: 'https://filmoteka-server.herokuapp.com/user',
+export const server = axios.create({
+  baseURL: 'https://filmoteka-server.herokuapp.com',
 });
 
 export const token = {
@@ -16,7 +16,7 @@ export const token = {
 // Регистрація
 export const signUp = async body => {
   try {
-    const response = await server.post('/signup', body);
+    const response = await server.post('/user/signup', body);
 
     return response;
   } catch (error) {
@@ -27,7 +27,7 @@ export const signUp = async body => {
 // Авторизація
 export const logIn = async body => {
   try {
-    const { data } = await server.post('/', body);
+    const { data } = await server.post('/user/', body);
     token.set(data.token);
 
     return data;
@@ -39,7 +39,7 @@ export const logIn = async body => {
 // Вихід
 export const logOut = async () => {
   try {
-    const { status } = await server.get('/');
+    const { status } = await server.get('/user/');
 
     if (status === 204) {
       token.unset();
@@ -54,7 +54,7 @@ export const logOut = async () => {
 // Перевірка. Користувач авторизований? (токен дійчний чи ні?)
 export const validate = async () => {
   try {
-    const response = await server.get('/validate');
+    const response = await server.get('/user/validate');
     return response;
   } catch (error) {
     console.error(error);
