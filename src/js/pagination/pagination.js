@@ -1,3 +1,13 @@
+import { refs } from "../refs";
+
+const leftBtn = document.createElement('button');
+leftBtn.classList.add('pagination-item');
+leftBtn.classList.add('left');
+
+const rightBtn = document.createElement('button');
+rightBtn.classList.add('pagination-item');
+rightBtn.classList.add('right');
+
 export default class Pagination {
   constructor(root, options) {
     this.root = root;
@@ -49,6 +59,8 @@ export default class Pagination {
     if (hasEllipsisLeft) ellipsisPos.push(isCollapsed ? start : start + 1);
     if (hasEllipsisRright) ellipsisPos.push(isCollapsed ? end : end - 1);
     
+    
+
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
       showLast = !isCollapsed && i == end && hasEllipsisRright;
@@ -63,6 +75,9 @@ export default class Pagination {
         this.renderElement(i);
       }
     }
+
+    refs.paginationList.prepend(leftBtn);
+    refs.paginationList.append(rightBtn);
   }
 
   renderElement(value) {
@@ -83,7 +98,6 @@ export default class Pagination {
         el.classList.add('active');   
       }
     }
-    
     return this.items.push(this.root.appendChild(el));
   }
 }

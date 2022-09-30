@@ -48,4 +48,6 @@ export const refs = {
   inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
   formSignUp: document.querySelector('[data-signup]'),
   passwordNotMatchAlert: document.querySelector('[data-not-match]'),
+  //pagination
+  paginationList: document.querySelector('[data-pagination]')
 };

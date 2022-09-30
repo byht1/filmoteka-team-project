@@ -5,7 +5,7 @@ import { dataMovieList } from '../API/api'
 
 export default function createPagination(data) {
     const totalPages = data.total_pages;
-    const pagination = new Pagination(document.querySelector(".pagination-list"), {
+    const pagination = new Pagination(document.querySelector("[data-pagination]"), {
     curr: 1,
     //   slots: 11,
     slots: 9,
