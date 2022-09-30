@@ -10,6 +10,8 @@ export const refs = {
   header: document.querySelector('header'),
   addToWachedBtn: document.querySelector('[data-click="addToWached"]'),
   logoText: document.querySelector('.logo-name'),
+  queueButton: document.querySelector('.library-button__queue'),
+  watchedButton: document.querySelector('.library-button__watched'),
   // search
   // myLibrary
   loadWathedBtn: document.querySelector('.library-button__watched'),
@@ -40,6 +42,7 @@ export const refs = {
   actorsModal: document.querySelector('[data-actors-modal]'),
   //login
   signInBtn: document.querySelector('[data-signin-open]'),
+  btnLoginWrap: document.querySelector('[data-btn-login-wrap]'),
   signInCloseBtn: document.querySelector('[data-modal-close-form]'),
   backdropSignIn: document.querySelector('[data-modal-signin]'),
   signUpLink: document.querySelector('[data-modal-link]'),
@@ -50,4 +53,10 @@ export const refs = {
   inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
   formSignUp: document.querySelector('[data-signup]'),
   passwordNotMatchAlert: document.querySelector('[data-not-match]'),
+  accountCreatedText: document.querySelector('[data-acc-already-created]'),
+  toSignUpBtn: document.querySelector('[data-toSignUp-btn]'),
+  btnValueIn: document.querySelector('[data-btn-value-in]'),
+  btnValueOut: document.querySelector('[data-btn-value-out]'),
+  signInForm: document.querySelector('[data-signIn-form]'),
+  signInErrorText: document.querySelector('[data-signin-errorText]'),
 };
