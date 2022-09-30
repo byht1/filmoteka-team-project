@@ -2,15 +2,19 @@ import { saveToStorage, loadFromStorage } from './storage';
 import {
   shiftActionToRemoveByWatched,
   shiftActionToAddByWatched,
+  shiftActionToRemoveByQueue,
+  shiftActionToAddByQueue,
 } from './shiftActionOfBtn';
 import { refs } from './refs';
 
-const SAVED_WATCHED_MOVIE = 'saved-to-storage-watched-movies';
+const SAVED_WATCHED_MOVIES = 'watched-movies';
+const SAVED_QUEUE_MOVIE = 'movies-queue';
 
 let idOfMovie = '';
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
 refs.watchedBtn.addEventListener('click', onAddWatchedBtnClick);
+refs.queueBtn.addEventListener('click', onQueueBtnClick);
 
 function onGalleryClick(e) {
   const swatchEl = e.target;
@@ -24,25 +28,28 @@ function onGalleryClick(e) {
   idOfMovie = parentEl.dataset.id;
   console.log(idOfMovie);
 
-  const arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIE);
+  const watchedOfStorage = loadFromStorage(SAVED_WATCHED_MOVIES);
 
-  if (arrayOfStorage && arrayOfStorage.includes(idOfMovie)) {
-    shiftActionToRemoveByWatched(refs.watchedBtn);
-    return;
-  }
+  watchedOfStorage && watchedOfStorage.includes(idOfMovie)
+    ? shiftActionToRemoveByWatched(refs.watchedBtn)
+    : shiftActionToAddByWatched(refs.watchedBtn);
 
-  shiftActionToAddByWatched(refs.watchedBtn);
+  const queueOfStorage = loadFromStorage(SAVED_QUEUE_MOVIE);
+
+  queueOfStorage && queueOfStorage.includes(idOfMovie)
+    ? shiftActionToRemoveByQueue(refs.queueBtn)
+    : shiftActionToAddByQueue(refs.queueBtn);
 }
 
 function onAddWatchedBtnClick(e) {
-  let arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIE);
+  let arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIES);
 
   if (e.target.dataset.action === 'removeById') {
     const filteredArrayOfStorage = arrayOfStorage.filter(
       element => element !== idOfMovie
     );
 
-    saveToStorage(SAVED_WATCHED_MOVIE, filteredArrayOfStorage);
+    saveToStorage(SAVED_WATCHED_MOVIES, filteredArrayOfStorage);
 
     shiftActionToAddByWatched(e.target);
 
@@ -54,7 +61,32 @@ function onAddWatchedBtnClick(e) {
   }
 
   arrayOfStorage.push(idOfMovie);
-  saveToStorage(SAVED_WATCHED_MOVIE, arrayOfStorage);
+  saveToStorage(SAVED_WATCHED_MOVIES, arrayOfStorage);
 
   shiftActionToRemoveByWatched(e.target);
+}
+
+function onQueueBtnClick(e) {
+  let arrayOfStorage = loadFromStorage(SAVED_QUEUE_MOVIE);
+
+  if (e.target.dataset.action === 'removeById') {
+    const filteredArrayOfStorage = arrayOfStorage.filter(
+      element => element !== idOfMovie
+    );
+
+    saveToStorage(SAVED_QUEUE_MOVIE, filteredArrayOfStorage);
+
+    shiftActionToAddByQueue(e.target);
+
+    return;
+  }
+
+  if (!arrayOfStorage) {
+    arrayOfStorage = [];
+  }
+
+  arrayOfStorage.push(idOfMovie);
+  saveToStorage(SAVED_QUEUE_MOVIE, arrayOfStorage);
+
+  shiftActionToRemoveByQueue(e.target);
 }

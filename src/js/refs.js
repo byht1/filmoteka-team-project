@@ -21,5 +21,6 @@ export const refs = {
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
   watchedBtn: document.querySelector('.button-watched'),
+  queueBtn: document.querySelector('.button-queue'),
   // modalTeam
 };
