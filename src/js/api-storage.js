@@ -86,6 +86,7 @@ function onQueueBtnClick(e) {
   }
 
   arrayOfStorage.push(idOfMovie);
+
   saveToStorage(SAVED_QUEUE_MOVIE, arrayOfStorage);
 
   shiftActionToRemoveByQueue(e.target);
