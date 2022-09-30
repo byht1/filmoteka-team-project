@@ -40,10 +40,15 @@
 .theme-change-btn {
     display: flex;
     justify-content: space-between;
-    width: 130px;
+    width: 90px;
     position: relative;
     margin: 0 auto;
     margin-top: 10px;
+}
+
+.icon-sun,
+.icon-moon {
+    fill: var(--color-title);
 }
 
 #toggle-theme {
@@ -54,9 +59,9 @@
     background-color: var(--background-color);
     border-radius: 50%;
     position: absolute;
-    top: 50%;
+    top: 42%;
     right: 0;
-    left: 35%;
+    left: 28%;
     display: block;
     width: 40px;
     height: 20px;
@@ -70,6 +75,7 @@
     width: 10px;
     height: 10px;
     border: 2px solid #ff6b08;
+    background-color: #ff6b08;
 }
 
 .theme-cange-label:after {
@@ -103,6 +109,7 @@
     width: 10px;
     height: 10px;
     border-color: #089cff;
+    background-color: #089cff;
 }
 
 #toggle-theme:checked + .theme-cange-label:before {
@@ -111,4 +118,5 @@
     width: 40px;
     height: 20px;
     border-color: #cfcfcf;
+    background-color: var(--footer-background-color);
 }
