@@ -3,7 +3,7 @@ header{
     min-width: 320px;
     width: 100%;
     padding-top: 20px;
-    background-color: #000000b0;
+    background-color: var(--background-color);
         background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@1x.jpg);
         background-position: center;
         background-repeat: no-repeat;
@@ -17,7 +17,7 @@ header{
             ;
         }
         @include tablet {
-        background-color: #000000b0;
+        background-color: var(--background-color);
             background-image: url('../images/header-home/abstract-background-with-red-lines-table@1s.jpg');
             background-position: center;
             background-repeat: no-repeat;
@@ -32,7 +32,7 @@ header{
             }
         }
         @include desktop {
-            background-color: #000000b0;
+            background-color: var(--background-color);
                 background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@1x.jpg');
                 background-position: center;
                 background-repeat: no-repeat;
@@ -54,7 +54,7 @@ header{
         min-width: 320px;
         width: 100%;
         padding-top: 20px;
-    background-color: #000000b0;
+    background-color: var(--background-color);
         background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
         background-position: center;
         background-repeat: no-repeat;
@@ -69,7 +69,7 @@ header{
         }
     
         @include tablet {
-            background-color: #000000b0;
+            background-color: var(--background-color);
             background-image: url('../images/header-library/Rectangle-tablet@1x.jpg');
             background-position: center;
             background-repeat: no-repeat;
@@ -85,7 +85,7 @@ header{
         }
     
         @include desktop {
-            background-color: #000000b0;
+            background-color: var(--background-color);
             background-image: url('../images/header-library/Rectangle-desktop@1x.jpg');
             background-position: center;
             background-repeat: no-repeat;
@@ -121,7 +121,7 @@ header{
     display: block;
     padding: 20px 0;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--header-color-text);
     text-decoration: none;
     font-size: 12px;
     line-height: 14px;
@@ -134,14 +134,14 @@ header{
         font-size: 12px;
             line-height: 14px;
             font-weight: 500;
-            color: #ffffff;
+            color: var(--header-color-text);
             text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     }
     &:focus {
         font-size: 12px;
             line-height: 14px;
             font-weight: 500;
-            color: #ffffff;
+            color: var(--header-color-text);
             text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     }
 }
@@ -149,7 +149,7 @@ header{
 
 .current::after{
         content: "";
-            border: 1px solid #FF001B;
+            border: 1px solid var(--error);
             position: absolute;
             width: 100%;
             bottom: 30%;
@@ -161,7 +161,7 @@ header{
     &::after {
         content: "";
 
-        border: 2px solid #FF001B;
+        border: 2px solid var(--error);
         position: absolute;
         width: 100%;
         bottom: 30%;
@@ -172,7 +172,7 @@ header{
     &::after {
         content: "";
 
-        border: 2px solid #FF001B;
+        border: 2px solid var(--error);
         position: absolute;
         width: 100%;
         bottom: 30%;
@@ -195,7 +195,7 @@ header{
     }
 }
 .logo-name{
-    color: #ffffff;
+    color: var(--header-color-text);
     font-style: normal;
         font-weight: 500;
         font-size: 30px;

@@ -146,3 +146,5 @@ async function signInModalRes(userData) {
     );
   }
 }
+
+export { onSignInBtn };
