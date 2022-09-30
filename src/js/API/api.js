@@ -18,6 +18,7 @@ export const dataMovieList = async (page = 1, language = 'en-US') => {
     );
 
     const data = await server.data;
+    console.log("server.data", data)
 
     return data;
   } catch (error) {
