@@ -33,11 +33,11 @@ html {
 }
 
 [data-mode='dark'] {
-    --accent: #089cff;
+    --accent: #fff008;
 
     // Header
     --header-color-text: #c4c4c4;
-    --header-border-button-color: #002b47;
+    --header-border-button-color: #292b2c;
     --error: #ff001b;
 
     //   main
@@ -50,9 +50,9 @@ html {
 
     //   Modal
     --modal-background-color: #292929;
-    --modal-text-color: #d3d3d3;
-    --modal-white-text-color: #9e9e9e;
-    --params-name: #474747;
+    --modal-text-color: #b8b8b8;
+    --modal-white-text-color: #535353;
+    --params-name: #5c5c5c;
     --button-bg-color: #000000;
     --border-button-color: #ffffff;
     --text-color-button: #ffffff;
@@ -63,7 +63,7 @@ html {
     --registration-modal-input-color: #3f3f3f;
     --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
     --registration-modal-title-color: #c5c5c5;
-    --registration-modal-hover-color: #089cff;
+    --registration-modal-hover-color: #fff008;
 }
 
 [data-mode='grey'] {
@@ -75,27 +75,27 @@ html {
     --error: #ff001b;
 
     //   main
-    --background-color: #000000;
+    --background-color: #242424;
     --color-title: #ffffff;
 
     //   footer
-    --footer-background-color: #333333;
+    --footer-background-color: #050505;
     --footer-text: #d6d6d6;
 
     //   Modal
     --modal-background-color: #292929;
     --modal-text-color: #d3d3d3;
-    --modal-white-text-color: #9e9e9e;
+    --modal-white-text-color: #272727;
     --params-name: #474747;
     --button-bg-color: #000000;
     --border-button-color: #ffffff;
     --text-color-button: #ffffff;
     --text-revers-color-button: #000000;
-    --backdrop-color: rgba(0, 0, 0, 0.4);
+    --backdrop-color: rgba(138, 138, 138, 0.4);
 
     //   Modal registration
-    --registration-modal-input-color: rgb(29, 29, 29);
-    --registartion-btn-border-color: rgba(0, 0, 0, 0.1);
-    --registration-modal-title-color: #212121;
-    --registration-modal-hover-color: #ff5800;
+    --registration-modal-input-color: #3f3f3f;
+    --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
+    --registration-modal-title-color: #c5c5c5;
+    --registration-modal-hover-color: #089cff;
 }

@@ -4,7 +4,7 @@ refs.goItStud.addEventListener('click', onGoItStudentsClick);
 refs.closeModalBtn.addEventListener('click', closeModal);
 
 function onGoItStudentsClick() {
-    refs.modalBackdrop.classList.remove('is-hidden');
+    refs.modalBackdrop.classList.remove('visually-hidden');
 
     addEventListener();
 }
@@ -27,7 +27,7 @@ function onBackdropClick(evt) {
 }
 
 function closeModal() {
-    refs.modalBackdrop.classList.add('is-hidden');
+    refs.modalBackdrop.classList.add('visually-hidden');
 
     removeEventListener();
 }

@@ -82,7 +82,7 @@
 }
 
 .logo-team {
-    width: 200px;
+    width: 210px;
     height: 140px;
     background-color: rgb(165, 159, 159);
     border-radius: 5px;
@@ -182,6 +182,15 @@
     }
 }
 
+.span-orange {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--modal-white-text-color);
+    background-color: var(--accent);
+
+    border-radius: 5px;
+}
+
 // ----------------------
 
 .cast-title {
@@ -199,6 +208,7 @@
     @include tablet {
         margin-bottom: 20px;
         margin-top: 5px;
+        width: 320px;
     }
     @include desktop {
         font-size: 14px;

@@ -21,6 +21,7 @@ export async function renderFilmGallery(movies) {
             }
           }
         })
+        .slice(0, 3)
         .join(', ');
 
       return `<li class="movie-card" data-id="${movie.id}">
@@ -31,6 +32,16 @@ export async function renderFilmGallery(movies) {
       </div>
         <p class="movie-name">${movie.original_title}</p>
         <p class="movie-genre">${genresList}} | ${movie.release_date.slice(0, 4)}</p>
+        
+        <p class="movie-name">${
+          movie.original_title
+        }</p><div class="movie-info">
+        <p class="movie-genre">${genresList} | ${movie.release_date.slice(
+        0,
+        4
+      )}</p><span class="movie-raiting">${movie.vote_average.toFixed(
+        1
+      )}</span></div>
       </li>`;
     })
     .join('');

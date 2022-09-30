@@ -20,7 +20,7 @@ export const signUp = async body => {
 
     return response;
   } catch (error) {
-    console.error(error);
+    return error.response.status;
   }
 };
 
@@ -32,7 +32,7 @@ export const logIn = async body => {
 
     return data;
   } catch (error) {
-    console.error(error);
+    return error.response.status;
   }
 };
 
@@ -47,7 +47,7 @@ export const logOut = async () => {
 
     return status;
   } catch (error) {
-    console.error(error);
+    return error.response.status;
   }
 };
 
@@ -55,7 +55,6 @@ export const logOut = async () => {
 export const validate = async () => {
   try {
     const response = await server.get('/validate');
-
     return response;
   } catch (error) {
     console.error(error);
