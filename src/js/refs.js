@@ -17,10 +17,19 @@ export const refs = {
   movieGallery: document.querySelector('.movie-gallery'),
   // footer
   goItStud: document.querySelector('.goItStud-js'),
-  // modalMovie
+  // modalTeam
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
-  // modalTeam
+  // modalMovie
+  openMovieModal: document.querySelector('[data-movie-modal-open]'),
+  closeMovieModalBtn: document.querySelector('[data-movie-modal-close]'),
+  movieModalBackdrop: document.querySelector('[data-movie-modal-backdrop]'),
+  movieModal: document.querySelector('[data-movie-modal]'),
+  // modalActors
+  openActorsModalBtn: document.querySelector('[data-actors-modal-open]'),
+  closeActorsModalBtn: document.querySelector('[data-actors-modal-close]'),
+  actorsModalBackdrop: document.querySelector('[data-actors-modal-backdrop]'),
+  actorsModal: document.querySelector('[data-actors-modal]'),
   //login
   signInBtn: document.querySelector('[data-signin-open]'),
   signInCloseBtn: document.querySelector('[data-modal-close-form]'),

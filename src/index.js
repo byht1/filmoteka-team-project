@@ -4,3 +4,5 @@ import './js/movies';
 import './js/genre';
 import './js/modalTeam';
 import './js/login';
+import './js/modalMovie';
+import './js/modalActors';
