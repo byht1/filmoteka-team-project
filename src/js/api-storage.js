@@ -1,4 +1,8 @@
 import { saveToStorage, loadFromStorage } from './storage';
+import {
+  shiftActionToRemoveByWatched,
+  shiftActionToAddByWatched,
+} from './shiftActionOfBtn';
 import { refs } from './refs';
 
 const SAVED_WATCHED_MOVIE = 'saved-to-storage-watched-movies';
@@ -23,30 +27,25 @@ function onGalleryClick(e) {
   const arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIE);
 
   if (arrayOfStorage && arrayOfStorage.includes(idOfMovie)) {
-    console.log(refs.watchedBtn);
-    refs.watchedBtn.setAttribute('data-action', 'removeById');
-    refs.watchedBtn.innerText = 'Remove from watched';
-    console.log(refs.watchedBtn);
+    shiftActionToRemoveByWatched(refs.watchedBtn);
+    return;
   }
+
+  shiftActionToAddByWatched(refs.watchedBtn);
 }
 
 function onAddWatchedBtnClick(e) {
   let arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIE);
 
-  console.log(arrayOfStorage);
-
   if (e.target.dataset.action === 'removeById') {
-    console.log(e.target.dataset.action);
-
     const filteredArrayOfStorage = arrayOfStorage.filter(
       element => element !== idOfMovie
     );
 
-    console.log(filteredArrayOfStorage);
-
     saveToStorage(SAVED_WATCHED_MOVIE, filteredArrayOfStorage);
-    e.target.setAttribute('data-action', 'addById');
-    e.target.innerText = 'Add to watched';
+
+    shiftActionToAddByWatched(e.target);
+
     return;
   }
 
@@ -57,8 +56,5 @@ function onAddWatchedBtnClick(e) {
   arrayOfStorage.push(idOfMovie);
   saveToStorage(SAVED_WATCHED_MOVIE, arrayOfStorage);
 
-  console.log(arrayOfStorage);
-
-  e.target.setAttribute('data-action', 'removeById');
-  e.target.innerText = 'Remove from watched';
+  shiftActionToRemoveByWatched(e.target);
 }
