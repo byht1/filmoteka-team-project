@@ -1,4 +1,7 @@
 import { refs } from './refs';
+import { IMG_URL, dataMovieList, dataSearch, dataGenre } from './API/api';
+import { refs } from './refs';
+import { renderMovies } from './movies';
 
 window.addEventListener('resize', function () {
   if (window.innerWidth < 767) {
@@ -30,4 +33,5 @@ function libBtnClick(e) {
   refs.navPageHome.classList.remove('current');
   refs.searchWrap.classList.add('visually-hidden');
   refs.libWrap.classList.remove('visually-hidden');
+  renderMovies(dataSearch('titanic'));
 }

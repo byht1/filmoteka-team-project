@@ -12,6 +12,8 @@ export const refs = {
   logoText: document.querySelector('.logo-name'),
   // search
   // myLibrary
+  loadWathedBtn: document.querySelector('.library-button__watched'),
+  loadQueueBtn: document.querySelector('.library-button__queue'),
   // interface
   // genere
   // movie
