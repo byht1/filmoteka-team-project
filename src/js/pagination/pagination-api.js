@@ -1,6 +1,7 @@
 import { refs } from "../refs";
 import Pagination from "./pagination";
-import { renderMovies } from "../movies";
+import { renderFilmGallery } from "../movies";
+import { dataMovieList } from '../API/api'
 
 export default function createPagination(data) {
     const totalPages = data.total_pages;
@@ -16,12 +17,11 @@ export default function createPagination(data) {
         pagination.init();
 }
 
-function getListPerPage(page) {
-    console.log("Yeah, its works, we on:", page);
+async function getListPerPage(page) {
+    // console.log("Yeah, its works, we on:", page);
     clearFilmsContainer();
-    // const data = await dataMovieList(page, language = 'en-US');
-    // renderFilmGallery(data); //wrong page
-    // renderMovies(page);
+    const data = await dataMovieList(page, language = 'en-US');
+    renderFilmGallery(data);
 }
 
 function clearFilmsContainer() {
