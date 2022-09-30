@@ -1,26 +1,38 @@
 import { refs } from './refs';
 
-const btnDark = document.querySelector('.btn-dark-theme');
-const btnLight = document.querySelector('.btn-light-theme');
-const themeCangeBtn = document.querySelector('.theme-cange-btn');
+refs.toggleTheme.addEventListener('input', changeTheme);
+console.log('~ refs.toggleTheme', refs.toggleTheme);
 
-btnDark.addEventListener('click', onBtnDarkClick);
-
-btnLight.addEventListener('click', onBtnLightClick);
-
-function onBtnDarkClick(evt) {
-    console.log('~ evt', evt);
-    refs.html.setAttribute('data-mode', 'dark');
-
-    changeBtn();
+function changeTheme(ent) {
+    ent.target.checked ? refs.html.setAttribute('data-mode', 'dark') : refs.html.setAttribute('data-mode', 'light');
 }
 
-function onBtnLightClick() {
+// ====================================================
+const lightTheme = document.querySelector('.light-theme-js');
+const darkTheme = document.querySelector('.dark-theme-js');
+const greyTheme = document.querySelector('.grey-theme-js');
+const changeThemeBtn = document.querySelector('.change-theme');
+const changeThemeList = document.querySelector('.change-theme-list');
+
+changeThemeBtn.addEventListener('click', enableChangeThemeList);
+
+lightTheme.addEventListener('click', turnLightTheme);
+darkTheme.addEventListener('click', turnDarkTheme);
+greyTheme.addEventListener('click', turnGreyTheme);
+
+function enableChangeThemeList() {
+    changeThemeList.classList.toggle('visually-hidden');
+}
+
+function turnLightTheme() {
     refs.html.setAttribute('data-mode', 'light');
-    changeBtn();
+    console.log('Light theme');
 }
-
-function changeBtn() {
-    btnDark.classList.toggle('is-hidden');
-    btnLight.classList.toggle('is-hidden');
+function turnDarkTheme() {
+    refs.html.setAttribute('data-mode', 'dark');
+    console.log('Dark theme');
+}
+function turnGreyTheme() {
+    refs.html.setAttribute('data-mode', 'grey');
+    console.log('Grey theme');
 }
