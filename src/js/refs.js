@@ -14,6 +14,8 @@ export const refs = {
   watchedButton: document.querySelector('.library-button__watched'),
   // search
   // myLibrary
+  loadWathedBtn: document.querySelector('.library-button__watched'),
+  loadQueueBtn: document.querySelector('.library-button__queue'),
   // interface
   // genere
   // movie

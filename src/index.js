@@ -10,4 +10,4 @@ import './js/login';
 import './js/modalMovie';
 import './js/modalActors';
 import './js/changeColorTheme';
-import './js/API/auth';
+import './js/myLibrary';
