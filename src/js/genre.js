@@ -6,16 +6,15 @@ const findDiv = document.querySelector('.genere-box');
 outputGenre();
 
 async function outputGenre() {
-    
-    const allGenres = await dataGenre();
-    console.log(allGenres);
-         const markup = allGenres.genres
-             .map((genre) => {
-    return ` <div class="genere-list">
+  const allGenres = await dataGenre();
+  // console.log(allGenres);
+  const markup = allGenres.genres
+    .map(genre => {
+      return ` <div class="genere-list">
     <button class = "click">${genre.name}</button>
     </div>
-    `
-})
-       .join("");
+    `;
+    })
+    .join('');
   findDiv.innerHTML = markup;
 }

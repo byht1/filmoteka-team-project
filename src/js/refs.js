@@ -1,4 +1,12 @@
 export const refs = {
+  //html
+  html: document.querySelector('html'),
+  // footer
+  goItStud: document.querySelector('.goItStud-js'),
+  toggleTheme: document.querySelector('#toggle-theme'),
+  //change language
+  changeLanguage: document.querySelector('#toggle-language'),
+  modalTeamLanguage: document.querySelector('.box-team-js'),
   // preLoader
   // header
   navLogo: document.querySelector('.navigation__logo'),
@@ -8,15 +16,23 @@ export const refs = {
   navPageHome: document.querySelector('.navigation__page-home'),
   navPageLib: document.querySelector('.navigation__page-library'),
   header: document.querySelector('header'),
+  addToWachedBtn: document.querySelector('[data-click="addToWached"]'),
   logoText: document.querySelector('.logo-name'),
+  queueButton: document.querySelector('.library-button__queue'),
+  watchedButton: document.querySelector('.library-button__watched'),
   // search
   // myLibrary
+  loadWathedBtn: document.querySelector('.library-button__watched'),
+  loadQueueBtn: document.querySelector('.library-button__queue'),
   // interface
   // genere
   // movie
   movieGallery: document.querySelector('.movie-gallery'),
-  // footer
-  goItStud: document.querySelector('.goItStud-js'),
+  // modalMovie
+  closeModalBtn: document.querySelector('.modal-close-btn'),
+  modalBackdrop: document.querySelector('.backdrop'),
+  watchedBtn: document.querySelector('.button-watched'),
+  queueBtn: document.querySelector('.button-queue'),
   // modalTeam
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
@@ -43,6 +59,8 @@ export const refs = {
   inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
   formSignUp: document.querySelector('[data-signup]'),
   passwordNotMatchAlert: document.querySelector('[data-not-match]'),
+  //pagination
+  paginationList: document.querySelector('[data-pagination]'),
   accountCreatedText: document.querySelector('[data-acc-already-created]'),
   btnValueOut: document.querySelector('[data-btn-value-out]'),
   signInForm: document.querySelector('[data-signIn-form]'),

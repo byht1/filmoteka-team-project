@@ -5,11 +5,38 @@
         <svg class="footer-pic" width="14" height="12">
             <use href="../src/images/symbol-defs.svg#icon-favorite"></use>
         </svg>
-        by <span class="line goItStud-js">GoIT Students</span>>
+        by <span class="line goItStud-js">GoIT Students</span>
         
         <div class="theme-change-btn">
-            <button type="button" class="btn-dark-theme">Dark</button>
-            <button type="button" class="btn-light-theme is-hidden">Light</button>
+            <div class="light-theme">
+                <svg class="icon-sun" width="14" height="14">
+                    <use href="./images/symbol-defs.svg#icon-sun"></use>
+                </svg>
+            </div>
+            <input type="checkbox" id="toggle-theme"/>
+            <label class="theme-cange-label" for="toggle-theme"></label>
+                <div class="dark-theme">                
+                    <svg class="icon-moon" width="16" height="16">
+                        <use href="./images/symbol-defs.svg#icon-moon"></use>
+                    </svg>
+                </div>
         </div>
+
+        <!-- <button class="eng-btn" type="button">Language/Мова</button> -->
+        <div class="language-change-btn">
+            <div class="usa-language">                
+                <img class="usa-img" src="./images/country-flag/united-states.png" alt="usa" width="16" height="16">
+            </div>
+
+            <input type="checkbox" id="toggle-language"/>
+            <label class="language-cange-label" for="toggle-language"></label>
+
+            <div class="uk-language">
+                <img class="uk-img" src="./images/country-flag/ukraine.png" alt="ukraine" width="16" height="16">
+            </div>
+        </div>
+
+
     </div>
 </footer>
+

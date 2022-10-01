@@ -4,20 +4,22 @@ import { loginReload } from './loginReload';
 import { token, validate } from './API/auth';
 
 const {
-  signInBtn,
-  signInCloseBtn,
-  backdropSignIn,
-  signUpLink,
-  backdropSignUp,
-  signUpCloseBtn,
-  signInLink,
-  formSignUp,
-  passwordNotMatchAlert,
-  accountCreatedText,
-  btnValueOut,
-  btnLoginWrap,
-  signInForm,
-  signInErrorText,
+    signInBtn,
+    signInCloseBtn,
+    backdropSignIn,
+    signUpLink,
+    backdropSignUp,
+    signUpCloseBtn,
+    signInLink,
+    formSignUp,
+    passwordNotMatchAlert,
+    toSignUpBtn,
+    accountCreatedText,
+    btnValueIn,
+    btnValueOut,
+    btnLoginWrap,
+    signInForm,
+    signInErrorText,
 } = refs;
 
 // &відкриває модалку авторизації
@@ -33,12 +35,12 @@ export function onSignInBtn() {
 
 // &відкриває модалку реєстрації
 function onSignUp() {
+
   backdropSignUp.classList.toggle('is-hidden');
   backdropSignIn.classList.toggle('is-hidden');
 
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
-
 function closeAllModalClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
@@ -47,6 +49,11 @@ function closeAllModalClose() {
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
+    backdropSignUp.classList.toggle('is-hidden');
+    backdropSignIn.classList.toggle('is-hidden');
+
+    backdropSignUp.addEventListener('click', onBackdropClick);
+}
 }
 
 // if Escape push - modal close
@@ -70,13 +77,16 @@ function onModalClose() {
 function onSignUpClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
+    if (evt.target == evt.currentTarget) {
+        closeAllModalClose();
+    }
 }
 
 function onSignInLink() {
-  backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');
-  signInForm.reset();
-  signInErrorText.classList.remove('none');
+    backdropSignUp.classList.toggle('is-hidden');
+    backdropSignIn.classList.toggle('is-hidden');
+    signInForm.reset();
+    signInErrorText.classList.remove('none');
 }
 
 signInBtn.addEventListener('click', onSignInBtn);
@@ -107,8 +117,8 @@ function handleSub(event) {
 }
 
 function toggleHeaderBtnValue() {
-  signInBtn.classList.toggle('none');
-  btnValueOut.classList.toggle('none');
+    signInBtn.classList.toggle('none');
+    btnValueOut.classList.toggle('none');
 }
 
 async function getSignUpRes(userInfo) {
@@ -133,25 +143,25 @@ async function getSignUpRes(userInfo) {
 btnValueOut.addEventListener('click', logoutRes);
 
 async function logoutRes() {
-  toggleHeaderBtnValue();
-  btnLoginWrap.firstChild.remove();
-  await logOut();
+    toggleHeaderBtnValue();
+    btnLoginWrap.firstChild.remove();
+    await logOut();
 }
 //-----------------------------SignIn
 
 signInForm.addEventListener('submit', onSignInModalBtn);
 
 function onSignInModalBtn(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const userInfo = { password: null, email: null };
-  const {
-    elements: { password, email },
-  } = event.currentTarget;
+    const userInfo = { password: null, email: null };
+    const {
+        elements: { password, email },
+    } = event.currentTarget;
 
-  userInfo.email = email.value;
-  userInfo.password = password.value;
-  signInModalRes(userInfo);
+    userInfo.email = email.value;
+    userInfo.password = password.value;
+    signInModalRes(userInfo);
 }
 
 // async function validationRes

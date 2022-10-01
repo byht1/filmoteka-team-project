@@ -62,10 +62,19 @@
         </div>
 
         <div class="movie-modal__buttons-wrapper">
-          <button type="button" class="movie-modal__button button-watched">
+          <button
+            type="button"
+            class="movie-modal__button button-watched"
+            data-click="addToWached"
+            data-action="addById"
+            class="movie-modal__button button-watched"
             Add to watched
           </button>
-          <button type="button" class="movie-modal__button button-queue">
+          <button
+            type="button"
+            data-action="addById"
+            class="movie-modal__button button-queue"
+          >
             Add to queue
           </button>
         </div>
