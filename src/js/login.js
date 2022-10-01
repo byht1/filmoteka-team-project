@@ -1,6 +1,7 @@
 import { refs } from './refs';
-// import { signUp, logIn, logOut, validate } from './API/auth';
-import { signUp, logIn, logOut, validate } from './API/auth';
+import { signUp, logIn, logOut } from './API/auth';
+import { loginReload } from './loginReload';
+import { token, validate } from './API/auth';
 
 const {
   signInBtn,
@@ -39,7 +40,6 @@ function onSignUp() {
 
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
-
 function closeAllModalClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
@@ -48,6 +48,15 @@ function closeAllModalClose() {
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
+
+  // delete event listener on escape and backdrop
+  document.removeEventListener('keydown', onEscapeClick);
+  backdropSignIn.removeEventListener('click', onBackdropClick);
+  backdropSignUp.removeEventListener('click', onBackdropClick);
+  backdropSignUp.classList.toggle('is-hidden');
+  backdropSignIn.classList.toggle('is-hidden');
+
+  backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
 // if Escape push - modal close
@@ -71,6 +80,9 @@ function onModalClose() {
 function onSignUpClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
+  if (evt.target == evt.currentTarget) {
+    closeAllModalClose();
+  }
 }
 
 function onSignInLink() {
@@ -104,20 +116,6 @@ function handleSub(event) {
   } else {
     passwordNotMatchAlert.classList.add('none');
     getSignUpRes(userInfo);
-
-    // const res = await signUp(userInfo);
-    // if (res === 409) {
-    //   accountCreatedText.classList.toggle('none');
-    // } else {
-    //   toSignUpBtn.disabled = true;
-    //   accountCreatedText.classList.add('none');
-    //   onSignUpClose();
-    //   toggleHeaderBtnValue();
-    //   btnLoginWrap.insertAdjacentHTML(
-    //     'afterbegin',
-    //     `<p>Hello, ${userInfo.email}</p>`
-    //   );
-    // }
   }
 }
 
@@ -139,6 +137,8 @@ async function getSignUpRes(userInfo) {
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
     await logIn(userInfo);
+    const response = await logIn(userInfo);
+    localStorage.setItem('token', response.token);
   }
 }
 // ----------------------------- LogOut
@@ -171,7 +171,6 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
-  console.log(res);
   if (res === 401) {
     signInErrorText.classList.remove('none');
   } else {
@@ -181,5 +180,6 @@ async function signInModalRes(userData) {
       'afterbegin',
       `<p data-hello>Hello, ${userData.email}</p>`
     );
+    localStorage.setItem('token', res.token);
   }
 }
