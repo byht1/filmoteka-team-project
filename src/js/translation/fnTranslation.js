@@ -25,7 +25,6 @@ function changeLanguage(evt) {
 }
 
 // localStorage.removeItem('lang');
-// console.log(localStorage.getItem('data-mode'));
 
 function chechedLocalStorageLanguage() {
     if (localStorage.getItem('lang') == null) {
@@ -35,6 +34,8 @@ function chechedLocalStorageLanguage() {
         let lang = localStorage.getItem('lang');
 
         refs.html.setAttribute('lang', `${lang}`);
+
+        lang == 'uk' ? (refs.changeLanguage.checked = true) : (refs.changeLanguage.checked = false);
     }
 
     callTranslationFunctions();

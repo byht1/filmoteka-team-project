@@ -12,16 +12,17 @@ function changeTheme(evt) {
     }
 }
 
-// localStorage.removeItem('data-mode');
-// console.log(localStorage.getItem('data-mode'));
-
 function chechedLocalStorageTheme() {
     if (localStorage.getItem('data-mode') == null) {
         return;
     } else {
         let dataMode = localStorage.getItem('data-mode');
+
         refs.html.setAttribute('data-mode', `${dataMode}`);
+
+        dataMode == 'dark' ? (refs.toggleTheme.checked = true) : (refs.toggleTheme.checked = false);
     }
 }
 
 chechedLocalStorageTheme();
+// localStorage.removeItem('data-mode');
