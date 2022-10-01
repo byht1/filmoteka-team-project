@@ -21,8 +21,10 @@ const {
   signInForm,
   signInErrorText,
 } = refs;
-
 loginReload();
+let TOKEN = 'token';
+
+export default TOKEN;
 
 // &відкриває модалку авторизації
 export function onSignInBtn() {
@@ -146,6 +148,7 @@ async function logoutRes() {
   toggleHeaderBtnValue();
   btnLoginWrap.firstChild.remove();
   await logOut();
+  localStorage.removeItem(TOKEN);
 }
 //-----------------------------SignIn
 
@@ -178,6 +181,7 @@ async function signInModalRes(userData) {
       'afterbegin',
       `<p data-hello>Hello, ${userData.email}</p>`
     );
-    localStorage.setItem('token', res.token);
+    localStorage.setItem(TOKEN, res.token);
+    console.log(localStorage.getItem(TOKEN));
   }
 }

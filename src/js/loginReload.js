@@ -1,19 +1,22 @@
 import { token, validate, logIn } from './API/auth';
+import TOKEN from './login';
 
-export const loginReload = () => {
-  const tokenLokal = localStorage.getItem('token');
+export function loginReload() {
+  const tokenLokal = localStorage.getItem(TOKEN);
   token.set(tokenLokal);
+  console.log(tokenLokal);
   getValidateRes();
-};
+}
 
 async function getValidateRes() {
   const res = await validate();
 
   console.log(res.data);
   if (res.data.message === 'Not authorized') {
-    console.log('fsd');
+    console.log('Не авторизован');
+    localStorage.removeItem(TOKEN);
   } else {
-    localStorage.setItem('token', res.data.token);
+    localStorage.setItem(TOKEN, res.data.token);
     await logIn({ password: '1', email: res.data.email });
   }
 }
