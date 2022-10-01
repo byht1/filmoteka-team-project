@@ -23,7 +23,8 @@ export const refs = {
     movieGallery: document.querySelector('.movie-gallery'),
     // footer
     goItStud: document.querySelector('.goItStud-js'),
-    footerChangeLanguage: document.querySelector('.footer-box-text-js'),
+    footerTextChangeLanguage: document.querySelector('.footer-box-text-js'),
+    footerByChangeLanguage: document.querySelector('.footer-box-text-by-js'),
     // modalTeam
     closeModalBtn: document.querySelector('.modal-close-btn'),
     modalBackdrop: document.querySelector('.backdrop'),
@@ -57,7 +58,7 @@ export const refs = {
     modalLoginErrorText: document.querySelector('.registration__modal-alert'),
     modalLoginRememberText: document.querySelector('.modal-login-checkbox-text-js'),
     modalLoginNewMemberText: document.querySelector('.registration-text-js > p > span'),
-    modalLoginRegistrationLink: document.querySelector('.registration__modal-link'),
+    // modalLoginRegistrationLink: document.querySelector('.registration__modal-link'),
     // signUp translation
     modalSignUpTitle: document.querySelector('.registration__modal-title--signup'),
     modalSignUpText: document.querySelector('.registration__modal-text'),

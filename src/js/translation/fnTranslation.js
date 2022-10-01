@@ -26,5 +26,4 @@ function changeLanguage(evt) {
     changeLanguageLogin();
 }
 
-// console.log('hello world');
-console.log('test', refs.modalSignUpTitle.textContent);
+console.log('hello world', refs.footerByChangeLanguage.textContent);
