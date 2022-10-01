@@ -8,3 +8,10 @@ export const loginReload = () => {
 };
 
 loginReload();
+<<<<<<< Updated upstream
+=======
+
+async function getValidateRes() {
+  const res = await validate();
+}
+>>>>>>> Stashed changes

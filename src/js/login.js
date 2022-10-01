@@ -1,5 +1,7 @@
 import { refs } from './refs';
-import { signUp, logIn, logOut, validate } from './API/auth';
+import { signUp, logIn, logOut } from './API/auth';
+import { loginReload } from './loginReload';
+import { token, validate } from './API/auth';
 
 const {
   signInBtn,
@@ -18,20 +20,72 @@ const {
   signInErrorText,
 } = refs;
 
+<<<<<<< Updated upstream
 function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
   signInErrorText.classList.add('none');
+=======
+// &відкриває модалку авторизації
+export function onSignInBtn() {
+  backdropSignIn.classList.toggle('is-hidden');
+  signInErrorText.classList.add('none');
+
+  // add event listner on document/escape
+  document.addEventListener('keydown', onEscapeClick);
+  // add event listner on backdrop/click
+  backdropSignIn.addEventListener('click', onBackdropClick);
+}
+
+// &відкриває модалку реєстрації
+function onSignUp() {
+  backdropSignUp.classList.toggle('is-hidden');
+  backdropSignIn.classList.toggle('is-hidden');
+
+  backdropSignUp.addEventListener('click', onBackdropClick);
+}
+
+function closeAllModalClose() {
+  backdropSignUp.classList.add('is-hidden');
+  backdropSignIn.classList.add('is-hidden');
+
+  // delete event listener on escape and backdrop
+  document.removeEventListener('keydown', onEscapeClick);
+  backdropSignIn.removeEventListener('click', onBackdropClick);
+  backdropSignUp.removeEventListener('click', onBackdropClick);
+}
+
+// if Escape push - modal close
+function onEscapeClick(evt) {
+  if (evt.key == 'Escape') {
+    closeAllModalClose();
+  }
+}
+
+// if on backdrop click - modal close
+function onBackdropClick(evt) {
+  if (evt.target == evt.currentTarget) {
+    closeAllModalClose();
+  }
+>>>>>>> Stashed changes
 }
 
 function onModalClose() {
   backdropSignIn.classList.toggle('is-hidden');
+<<<<<<< Updated upstream
 }
 function onSignUp() {
   backdropSignUp.classList.toggle('is-hidden');
   backdropSignIn.classList.toggle('is-hidden');
+=======
+>>>>>>> Stashed changes
 }
 function onSignUpClose() {
+<<<<<<< Updated upstream
   backdropSignUp.classList.toggle('is-hidden');
+=======
+  backdropSignUp.classList.add('is-hidden');
+  backdropSignIn.classList.add('is-hidden');
+>>>>>>> Stashed changes
 }
 
 function onSignInLink() {
