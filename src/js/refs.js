@@ -50,6 +50,7 @@ export const refs = {
   //test change language
   changeLanguageBtn: document.querySelector('.eng-btn'),
   modalTeamLanguage: document.querySelector('.box-team-js'),
+  changeLanguage: document.querySelector('#toggle-language'),
   // preLoader
   // header
   navLogo: document.querySelector('.navigation__logo'),
@@ -63,7 +64,13 @@ export const refs = {
   logoText: document.querySelector('.logo-name'),
   queueButton: document.querySelector('.library-button__queue'),
   watchedButton: document.querySelector('.library-button__watched'),
+  homeTextChangeLanguage: document.querySelector('.navigation__page-home'),
+  myLibraryTextChangeLanguage: document.querySelector(
+    '.navigation__page-library'
+  ),
   // search
+  searchErrorText: document.querySelector('.search-error-text-js'),
+  searchInput: document.querySelector('.search-bar__input'),
   // myLibrary
   loadWathedBtn: document.querySelector('.library-button__watched'),
   loadQueueBtn: document.querySelector('.library-button__queue'),
@@ -73,6 +80,7 @@ export const refs = {
   movieGallery: document.querySelector('.movie-gallery'),
   // footer
   goItStud: document.querySelector('.goItStud-js'),
+  footerChangeLanguage: document.querySelector('.footer-box-text-js'),
   // modalMovie
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
@@ -110,4 +118,37 @@ export const refs = {
   btnValueOut: document.querySelector('[data-btn-value-out]'),
   signInForm: document.querySelector('[data-signIn-form]'),
   signInErrorText: document.querySelector('[data-signin-errorText]'),
+
+  //login translation
+  modalLoginTitle: document.querySelector('.registration__modal-title'),
+  modalLoginInputEmail: document.querySelector('.registration__modal-input'),
+  modalLoginInputPassword: document.querySelector(
+    '.registration__modal-input + input'
+  ),
+  modalLoginBtn: document.querySelector('[data-modalbtn-tosignin]'),
+  modalLoginErrorText: document.querySelector('.registration__modal-alert'),
+  modalLoginRememberText: document.querySelector(
+    '.modal-login-checkbox-text-js'
+  ),
+  modalLoginNewMemberText: document.querySelector(
+    '.registration-text-js > p > span'
+  ),
+  modalLoginRegistrationLink: document.querySelector(
+    '.registration__modal-link'
+  ),
+  // signUp translation
+  modalSignUpTitle: document.querySelector(
+    '.registration__modal-title--signup'
+  ),
+  modalSignUpText: document.querySelector('.registration__modal-text'),
+  modalSignUpEmail: document.querySelector('.registration__modal-input.email'),
+  modalSignUpPassword: document.querySelector(
+    '.registration__modal-input.password'
+  ),
+  modalSignUpPasswordRepeat: document.querySelector(
+    '.registration__modal-input.password + input'
+  ),
+  modalSignUpOldMember: document.querySelector(
+    '.registration__modal-linkSignin > p > span'
+  ),
 };
