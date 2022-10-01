@@ -22,6 +22,8 @@ const {
   signInErrorText,
 } = refs;
 
+loginReload();
+
 // &відкриває модалку авторизації
 export function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
