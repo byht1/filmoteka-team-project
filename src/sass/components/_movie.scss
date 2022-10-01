@@ -8,21 +8,30 @@
   //   outline: 1px solid red;
   @include mobile {
     // max-width: 540px;
-    min-height: 8342px;
     margin: 0 auto;
   }
 
   @include tablet {
     // max-width: 736px;
-    min-height: 5269px;
     display: flex;
     flex-wrap: wrap;
     margin-left: -32px;
   }
 
   @include desktop {
-    min-height: 4686px;
     margin-left: -16px;
+  }
+}
+
+.movie-height {
+  min-height: 8342px;
+
+  @include tablet {
+    min-height: 5269px;
+  }
+
+  @include desktop {
+    min-height: 4686px;
   }
 }
 
