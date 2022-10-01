@@ -3,6 +3,7 @@ import { changeLanguageModalTeam } from './modalTeam';
 import { changeLanguageFooter } from './footer';
 import { changeLanguageNav } from './navigation';
 import { changeLanguageMyLibraryBtn } from './myLibraryBtn';
+import { changeLanguageSearch } from './search';
 
 refs.changeLanguage.addEventListener('input', changeLanguage);
 
@@ -20,4 +21,5 @@ function changeLanguage(evt) {
     changeLanguageModalTeam();
     changeLanguageNav();
     changeLanguageMyLibraryBtn();
+    changeLanguageSearch();
 }

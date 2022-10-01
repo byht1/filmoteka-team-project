@@ -14,6 +14,8 @@ export const refs = {
     homeTextChangeLanguage: document.querySelector('.navigation__page-home'),
     myLibraryTextChangeLanguage: document.querySelector('.navigation__page-library'),
     // search
+    searchErrorText: document.querySelector('.search-error-text-js'),
+    searchInput: document.querySelector('.search-bar__input'),
     // myLibrary
     // interface
     // genere
