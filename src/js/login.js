@@ -20,11 +20,6 @@ const {
   signInErrorText,
 } = refs;
 
-<<<<<<< Updated upstream
-function onSignInBtn() {
-  backdropSignIn.classList.toggle('is-hidden');
-  signInErrorText.classList.add('none');
-=======
 // &відкриває модалку авторизації
 export function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
@@ -66,26 +61,15 @@ function onBackdropClick(evt) {
   if (evt.target == evt.currentTarget) {
     closeAllModalClose();
   }
->>>>>>> Stashed changes
 }
 
 function onModalClose() {
   backdropSignIn.classList.toggle('is-hidden');
-<<<<<<< Updated upstream
 }
-function onSignUp() {
-  backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');
-=======
->>>>>>> Stashed changes
-}
+
 function onSignUpClose() {
-<<<<<<< Updated upstream
-  backdropSignUp.classList.toggle('is-hidden');
-=======
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
->>>>>>> Stashed changes
 }
 
 function onSignInLink() {
@@ -169,6 +153,8 @@ function onSignInModalBtn(event) {
   userInfo.password = password.value;
   signInModalRes(userInfo);
 }
+
+// async function validationRes
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
