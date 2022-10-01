@@ -12,5 +12,5 @@ import './js/modalActors';
 import './js/changeColorTheme';
 import './js/pagination/pagination';
 import './js/pagination/pagination-api';
-import './js/translation/translationModalTeam';
+import './js/translation/fnTranslation';
 import './js/myLibrary';

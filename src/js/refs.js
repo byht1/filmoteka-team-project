@@ -11,6 +11,8 @@ export const refs = {
     navPageLib: document.querySelector('.navigation__page-library'),
     header: document.querySelector('header'),
     logoText: document.querySelector('.logo-name'),
+    homeTextChangeLanguage: document.querySelector('.navigation__page-home'),
+    myLibraryTextChangeLanguage: document.querySelector('.navigation__page-library'),
     // search
     // myLibrary
     // interface
@@ -19,7 +21,7 @@ export const refs = {
     movieGallery: document.querySelector('.movie-gallery'),
     // footer
     goItStud: document.querySelector('.goItStud-js'),
-    toggleTheme: document.querySelector('#toggle-theme'),
+    footerChangeLanguage: document.querySelector('.footer-box-text-js'),
     // modalTeam
     closeModalBtn: document.querySelector('.modal-close-btn'),
     modalBackdrop: document.querySelector('.backdrop'),
@@ -45,10 +47,10 @@ export const refs = {
     inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
     formSignUp: document.querySelector('[data-signup]'),
     passwordNotMatchAlert: document.querySelector('[data-not-match]'),
-
+    //change color theme
+    toggleTheme: document.querySelector('#toggle-theme'),
     //change language
     changeLanguage: document.querySelector('#toggle-language'),
-    modalTeamLanguage: document.querySelector('.box-team-js'),
     // preLoader
     // header
     navLogo: document.querySelector('.navigation__logo'),
@@ -80,6 +82,7 @@ export const refs = {
     // modalTeam
     closeModalBtn: document.querySelector('.modal-close-btn'),
     modalBackdrop: document.querySelector('.backdrop'),
+    modalTeamLanguage: document.querySelector('.box-team-js'),
     // modalMovie
     openMovieModal: document.querySelector('[data-movie-modal-open]'),
     closeMovieModalBtn: document.querySelector('[data-movie-modal-close]'),
