@@ -1,12 +1,12 @@
 import { refs } from "../refs";
 
-const leftBtn = document.createElement('button');
-leftBtn.classList.add('pagination-item');
-leftBtn.classList.add('prev');
+const prevBtn = document.createElement('button');
+prevBtn.classList.add('pagination-item');
+prevBtn.classList.add('prev');
 
-const rightBtn = document.createElement('button');
-rightBtn.classList.add('pagination-item');
-rightBtn.classList.add('next');
+const nextBtn = document.createElement('button');
+nextBtn.classList.add('pagination-item');
+nextBtn.classList.add('next');
 
 export default class Pagination {
   constructor(root, options) {
@@ -76,8 +76,8 @@ export default class Pagination {
       }
     }
 
-    refs.paginationList.prepend(leftBtn);
-    refs.paginationList.append(rightBtn);
+    refs.paginationList.prepend(prevBtn);
+    refs.paginationList.append(nextBtn);
   }
 
   renderElement(value) {
@@ -102,7 +102,7 @@ export default class Pagination {
   }
 
   prevPage() {
-    leftBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', () => {
       if (this.current === 1) {
         return;
       }
@@ -113,7 +113,7 @@ export default class Pagination {
   }
 
   nextPage() {
-    rightBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', () => {
       if (this.current === this.options.total) {
         return;
       }
