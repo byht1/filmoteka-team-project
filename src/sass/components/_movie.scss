@@ -23,6 +23,18 @@
   }
 }
 
+.movie-height {
+  min-height: 8342px;
+
+  @include tablet {
+    min-height: 5269px;
+  }
+
+  @include desktop {
+    min-height: 4686px;
+  }
+}
+
 .movie-card {
   margin-bottom: 20px;
   @include tablet {

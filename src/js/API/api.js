@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { whatLanguage } from '../translation/whatLanguage';
 const KEY = '8478375b0b2eb45c66ac10717e1ab9a2';
 const URL = 'https://api.themoviedb.org/';
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -9,14 +10,15 @@ axios.defaults.baseURL = URL;
 // uk-UA;
 
 // Загальна інформація про фільм
-export const dataMovieList = async (page = 1, language = 'en-US') => {
+export const dataMovieList = async (page = 1) => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/trending/movie/day?api_key=${KEY}&page=${page}&language=${language}`
     );
 
     const data = await server.data;
-      
+
     return data;
   } catch (error) {
     console.error(error);
@@ -24,7 +26,8 @@ export const dataMovieList = async (page = 1, language = 'en-US') => {
 };
 
 // пошук по ключовому слову
-export const dataSearch = async (name, language = 'en-US', page = 1) => {
+export const dataSearch = async (name, page = 1) => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/search/movie?api_key=${KEY}&language=${language}&query=${name}&page=${page}&include_adult=false`
@@ -37,7 +40,8 @@ export const dataSearch = async (name, language = 'en-US', page = 1) => {
 };
 
 // список усіх жанрів
-export const dataGenre = async (language = 'en-US') => {
+export const dataGenre = async () => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/genre/movie/list?api_key=${KEY}&language=${language}`
@@ -52,7 +56,8 @@ export const dataGenre = async (language = 'en-US') => {
 };
 
 // Повна інформація про фільм
-export const dataMovie = async (id, language = 'en-US') => {
+export const dataMovie = async id => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/movie/${id}?api_key=${KEY}&language=${language}`
@@ -65,7 +70,8 @@ export const dataMovie = async (id, language = 'en-US') => {
 };
 
 // Список акторів
-export const dataAuthors = async (id, language = 'en-US') => {
+export const dataAuthors = async id => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/movie/${id}/credits?api_key=${KEY}&language=${language}`
@@ -78,7 +84,8 @@ export const dataAuthors = async (id, language = 'en-US') => {
 };
 
 // пошук фільмів по актору
-export const dataAuthorMovie = async (id, language = 'en-US') => {
+export const dataAuthorMovie = async id => {
+  const language = whatLanguage();
   try {
     const server = await axios.get(
       `3/person/${id}/movie_credits?api_key=${KEY}&language=${language}`
@@ -92,8 +99,11 @@ export const dataAuthorMovie = async (id, language = 'en-US') => {
 
 // Трейлер
 export const dataTrailer = async id => {
+  const language = whatLanguage();
   try {
-    const server = await axios.get(`3/movie/${id}/videos?api_key=${KEY}`);
+    const server = await axios.get(
+      `3/movie/${id}/videos?api_key=${KEY}/language=${language}`
+    );
     const data = await server.data;
     return data;
   } catch (error) {

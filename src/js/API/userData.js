@@ -1,3 +1,4 @@
+import { whatLanguage } from '../translation/whatLanguage';
 import { server } from './auth';
 
 // Додати нові фільми до бази данних користувача
@@ -5,8 +6,9 @@ import { server } from './auth';
 // id - фільму якого треба додати
 // library зі значенням queue або watched залежно куди труба додати
 export const add = async (id, library) => {
+  const language = whatLanguage();
   try {
-    const data = await server.post('/movie', { id, library });
+    const data = await server.post('/movie', { id, library, language });
 
     return data;
   } catch (error) {
