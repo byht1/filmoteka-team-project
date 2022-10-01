@@ -48,6 +48,11 @@ function closeAllModalClose() {
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
+
+  // delete event listener on escape and backdrop
+  document.removeEventListener('keydown', onEscapeClick);
+  backdropSignIn.removeEventListener('click', onBackdropClick);
+  backdropSignUp.removeEventListener('click', onBackdropClick);
   backdropSignUp.classList.toggle('is-hidden');
   backdropSignIn.classList.toggle('is-hidden');
 
@@ -166,7 +171,6 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
-
   if (res === 401) {
     signInErrorText.classList.remove('none');
   } else {
