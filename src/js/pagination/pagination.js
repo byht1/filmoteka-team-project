@@ -2,11 +2,11 @@ import { refs } from "../refs";
 
 const leftBtn = document.createElement('button');
 leftBtn.classList.add('pagination-item');
-leftBtn.classList.add('left');
+leftBtn.classList.add('prev');
 
 const rightBtn = document.createElement('button');
 rightBtn.classList.add('pagination-item');
-rightBtn.classList.add('right');
+rightBtn.classList.add('next');
 
 export default class Pagination {
   constructor(root, options) {
@@ -99,5 +99,23 @@ export default class Pagination {
       }
     }
     return this.items.push(this.root.appendChild(el));
+  }
+  nextPage() {
+    
+    rightBtn.addEventListener('click', () => {
+      this.current += 1;
+      // console.log('this.current <-', this.current)
+      this.options.onChange(this.current);
+      this.render();
+    })
+  }
+
+  prevPage() {
+    leftBtn.addEventListener('click', () => {
+      this.current -= 1;
+      // console.log('this.current ->', this.current)
+    this.options.onChange(this.current);
+    this.render();
+    })
   }
 }

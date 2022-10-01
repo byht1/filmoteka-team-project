@@ -18,6 +18,8 @@ export default function createPagination(data) {
     }
   );
   pagination.init();
+  pagination.nextPage();
+  pagination.prevPage();
 }
 
 async function getListPerPage(page) {

@@ -22,7 +22,7 @@
         background-color: inherit;
         // background-color: var(--footer-background-color);
         color: var(--color-title);
-        &.left {
+        &.prev {
             // margin-right: 5px;
             background-color: var(--footer-background-color);
             background-image: url(../images/pagination/arrow-left.svg);
@@ -31,7 +31,7 @@
             stroke: #ffffff;
         }
 
-        &.right {
+        &.next {
             // margin-left: 5px;
             background-color: var(--footer-background-color);
             background-image: url(../images/pagination/arrow-left.svg);
