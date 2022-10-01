@@ -1,4 +1,3 @@
-import { saveToStorage, loadFromStorage } from './storage';
 import {
   shiftActionToRemoveByWatched,
   shiftActionToAddByWatched,
@@ -8,10 +7,14 @@ import {
 import { refs } from './refs';
 import { onSignInBtn } from './login';
 
-export const SAVED_WATCHED_MOVIES = 'watched-movies';
-export const SAVED_QUEUE_MOVIE = 'movies-queue';
+import {
+  add,
+  allQueue,
+  allWatched,
+  deleteWatched,
+  deleteQueue,
+} from './API/userData';
 
-const checkValidateUser = true;
 let idOfMovie = '';
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
@@ -30,76 +33,109 @@ function onGalleryClick(e) {
   idOfMovie = parentEl.dataset.id;
   console.log(idOfMovie);
 
-  const watchedOfStorage = loadFromStorage(SAVED_WATCHED_MOVIES);
+  checkAllWatched();
 
-  watchedOfStorage && watchedOfStorage.includes(idOfMovie)
-    ? shiftActionToRemoveByWatched(refs.watchedBtn)
-    : shiftActionToAddByWatched(refs.watchedBtn);
-
-  const queueOfStorage = loadFromStorage(SAVED_QUEUE_MOVIE);
-
-  queueOfStorage && queueOfStorage.includes(idOfMovie)
-    ? shiftActionToRemoveByQueue(refs.queueBtn)
-    : shiftActionToAddByQueue(refs.queueBtn);
+  checkAllQueue();
 }
 
 function onAddWatchedBtnClick(e) {
+  const checkValidateUser = true;
   if (!checkValidateUser) {
     onSignInBtn();
     return;
   }
 
-  let arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIES);
+  checkAllWatched();
 
   if (e.target.dataset.action === 'removeById') {
-    const filteredArrayOfStorage = arrayOfStorage.filter(
-      element => element !== idOfMovie
-    );
-
-    saveToStorage(SAVED_WATCHED_MOVIES, filteredArrayOfStorage);
-
-    shiftActionToAddByWatched(e.target);
+    deleteMovieFromWatched(idOfMovie, e.target);
 
     return;
   }
 
-  if (!arrayOfStorage) {
-    arrayOfStorage = [];
-  }
-
-  arrayOfStorage.push(idOfMovie);
-  saveToStorage(SAVED_WATCHED_MOVIES, arrayOfStorage);
-
-  shiftActionToRemoveByWatched(e.target);
+  addMovieToWatched(idOfMovie, e.target);
 }
 
 function onQueueBtnClick(e) {
+  const checkValidateUser = true;
   if (!checkValidateUser) {
     onSignInBtn();
     return;
   }
 
-  let arrayOfStorage = loadFromStorage(SAVED_QUEUE_MOVIE);
+  checkAllQueue();
 
   if (e.target.dataset.action === 'removeById') {
-    const filteredArrayOfStorage = arrayOfStorage.filter(
-      element => element !== idOfMovie
-    );
-
-    saveToStorage(SAVED_QUEUE_MOVIE, filteredArrayOfStorage);
-
-    shiftActionToAddByQueue(e.target);
+    deleteMovieFromQueue(idOfMovie, e.target);
 
     return;
   }
 
-  if (!arrayOfStorage) {
-    arrayOfStorage = [];
+  addMovieToQueue(idOfMovie, e.target);
+}
+
+async function checkAllWatched() {
+  try {
+    const response = await allWatched();
+
+    if (!response) {
+      shiftActionToAddByWatched(refs.watchedBtn);
+      return;
+    }
+
+    const {
+      data: { data },
+    } = response;
+
+    const containsId = data.find(element => element.id === idOfMovie);
+
+    containsId
+      ? shiftActionToRemoveByWatched(refs.watchedBtn)
+      : shiftActionToAddByWatched(refs.watchedBtn);
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  arrayOfStorage.push(idOfMovie);
+async function checkAllQueue() {
+  try {
+    const response = await allQueue();
 
-  saveToStorage(SAVED_QUEUE_MOVIE, arrayOfStorage);
+    if (!response) {
+      shiftActionToAddByQueue(refs.queueBtn);
+      return;
+    }
 
-  shiftActionToRemoveByQueue(e.target);
+    const {
+      data: { data },
+    } = response;
+
+    const containsId = data.find(element => element.id === idOfMovie);
+
+    containsId
+      ? shiftActionToRemoveByQueue(refs.queueBtn)
+      : shiftActionToAddByQueue(refs.queueBtn);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function deleteMovieFromWatched(idOfMovie, target) {
+  await deleteWatched(idOfMovie);
+  shiftActionToAddByWatched(target);
+}
+
+async function addMovieToWatched(idOfMovie, target) {
+  await add(idOfMovie, 'watched');
+  shiftActionToRemoveByWatched(target);
+}
+
+async function deleteMovieFromQueue(idOfMovie, target) {
+  await deleteQueue(idOfMovie);
+  shiftActionToAddByQueue(target);
+}
+
+async function addMovieToQueue(idOfMovie, target) {
+  await add(idOfMovie, 'queue');
+  shiftActionToRemoveByQueue(target);
 }
