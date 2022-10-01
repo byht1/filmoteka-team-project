@@ -13,7 +13,7 @@ export const token = {
   },
 };
 
-// Регистрація
+// Реєстрація
 export const signUp = async body => {
   try {
     const response = await server.post('/signup', body);
@@ -51,7 +51,7 @@ export const logOut = async () => {
   }
 };
 
-// Перевірка. Користувач авторизований? (токен дійчний чи ні?)
+// Перевірка. Користувач авторизований? (токен дійсний чи ні?)
 export const validate = async () => {
   try {
     const response = await server.get('/validate');
