@@ -100,22 +100,26 @@ export default class Pagination {
     }
     return this.items.push(this.root.appendChild(el));
   }
-  nextPage() {
-    
-    rightBtn.addEventListener('click', () => {
-      this.current += 1;
-      // console.log('this.current <-', this.current)
-      this.options.onChange(this.current);
-      this.render();
-    })
-  }
 
   prevPage() {
     leftBtn.addEventListener('click', () => {
+      if (this.current === 1) {
+        return;
+      }
       this.current -= 1;
-      // console.log('this.current ->', this.current)
     this.options.onChange(this.current);
     this.render();
+    })
+  }
+
+  nextPage() {
+    rightBtn.addEventListener('click', () => {
+      if (this.current === this.options.total) {
+        return;
+      }
+      this.current += 1;
+      this.options.onChange(this.current);
+      this.render();
     })
   }
 }
