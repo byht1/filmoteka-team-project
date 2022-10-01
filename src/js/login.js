@@ -118,7 +118,7 @@ function handleSub(event) {
   }
 }
 
-function toggleHeaderBtnValue() {
+export function toggleHeaderBtnValue() {
   signInBtn.classList.toggle('none');
   btnValueOut.classList.toggle('none');
 }
@@ -135,8 +135,7 @@ async function getSignUpRes(userInfo) {
       'afterbegin',
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
-    await logIn(userInfo);
-    const response = await logIn(userInfo);
+    // const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }
 }
