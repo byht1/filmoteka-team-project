@@ -6,10 +6,12 @@ import {
   shiftActionToAddByQueue,
 } from './shiftActionOfBtn';
 import { refs } from './refs';
+import { onSignInBtn } from './login';
 
 export const SAVED_WATCHED_MOVIES = 'watched-movies';
 export const SAVED_QUEUE_MOVIE = 'movies-queue';
 
+const checkValidateUser = true;
 let idOfMovie = '';
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
@@ -17,13 +19,13 @@ refs.watchedBtn.addEventListener('click', onAddWatchedBtnClick);
 refs.queueBtn.addEventListener('click', onQueueBtnClick);
 
 function onGalleryClick(e) {
-  const swatchEl = e.target;
+  const targetEl = e.target;
 
-  if (!swatchEl.classList.contains('movie-img')) {
+  if (!targetEl.classList.contains('movie-img')) {
     return;
   }
 
-  const parentEl = swatchEl.closest('.movie-card');
+  const parentEl = targetEl.closest('.movie-card');
 
   idOfMovie = parentEl.dataset.id;
   console.log(idOfMovie);
@@ -42,6 +44,11 @@ function onGalleryClick(e) {
 }
 
 function onAddWatchedBtnClick(e) {
+  if (!checkValidateUser) {
+    onSignInBtn();
+    return;
+  }
+
   let arrayOfStorage = loadFromStorage(SAVED_WATCHED_MOVIES);
 
   if (e.target.dataset.action === 'removeById') {
@@ -67,6 +74,11 @@ function onAddWatchedBtnClick(e) {
 }
 
 function onQueueBtnClick(e) {
+  if (!checkValidateUser) {
+    onSignInBtn();
+    return;
+  }
+
   let arrayOfStorage = loadFromStorage(SAVED_QUEUE_MOVIE);
 
   if (e.target.dataset.action === 'removeById') {
