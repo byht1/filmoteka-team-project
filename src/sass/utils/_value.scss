@@ -33,7 +33,7 @@ html {
 }
 
 [data-mode='dark'] {
-    --accent: #fff008;
+    --accent: #089cff;
 
     // Header
     --header-color-text: #c4c4c4;
@@ -58,40 +58,6 @@ html {
     --text-color-button: #ffffff;
     --text-revers-color-button: #000000;
     --backdrop-color: rgba(143, 143, 143, 0.4);
-
-    //   Modal registration
-    --registration-modal-input-color: #3f3f3f;
-    --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
-    --registration-modal-title-color: #c5c5c5;
-    --registration-modal-hover-color: #fff008;
-}
-
-[data-mode='grey'] {
-    --accent: #089cff;
-
-    // Header
-    --header-color-text: #c4c4c4;
-    --header-border-button-color: #002b47;
-    --error: #ff001b;
-
-    //   main
-    --background-color: #242424;
-    --color-title: #ffffff;
-
-    //   footer
-    --footer-background-color: #050505;
-    --footer-text: #d6d6d6;
-
-    //   Modal
-    --modal-background-color: #292929;
-    --modal-text-color: #d3d3d3;
-    --modal-white-text-color: #272727;
-    --params-name: #474747;
-    --button-bg-color: #000000;
-    --border-button-color: #ffffff;
-    --text-color-button: #ffffff;
-    --text-revers-color-button: #000000;
-    --backdrop-color: rgba(138, 138, 138, 0.4);
 
     //   Modal registration
     --registration-modal-input-color: #3f3f3f;
