@@ -15,10 +15,34 @@ function changeLanguage(evt) {
 
     if (evt.target.checked) {
         refs.html.setAttribute('lang', 'uk');
+        localStorage.setItem('lang', 'uk');
     } else {
         refs.html.setAttribute('lang', 'en');
+        localStorage.setItem('lang', 'en');
     }
 
+    callTranslationFunctions();
+}
+
+// localStorage.removeItem('lang');
+// console.log(localStorage.getItem('data-mode'));
+
+function chechedLocalStorageLanguage() {
+    if (localStorage.getItem('lang') == null) {
+        console.log('local storege is empty');
+        return;
+    } else {
+        let lang = localStorage.getItem('lang');
+
+        refs.html.setAttribute('lang', `${lang}`);
+    }
+
+    callTranslationFunctions();
+}
+
+chechedLocalStorageLanguage();
+
+function callTranslationFunctions() {
     changeLanguageFooter();
     changeLanguageModalTeam();
     changeLanguageNav();
@@ -27,5 +51,3 @@ function changeLanguage(evt) {
     changeLanguageLogin();
     changeLanguageGenre();
 }
-
-console.log('hello world', refs.footerByChangeLanguage.textContent);
