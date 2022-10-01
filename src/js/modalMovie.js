@@ -14,7 +14,7 @@ async function renderMovieModal(id) {
   const movieModalMarkup = ({
     id,
     title,
-    backdrop_path,
+    poster_path,
     vote_average,
     vote_count,
     popularity,
@@ -72,7 +72,10 @@ async function renderMovieModal(id) {
         </div> `;
   };
 
-  refs.movieModalContainer.insertAdjacentHTML('afterbegin', movieModalMarkup);
+  refs.movieModalContainer.insertAdjacentHTML(
+    'afterbegin',
+    movieModalMarkup(movieData)
+  );
 }
 
 function openMovieModal(event) {
