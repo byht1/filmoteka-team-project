@@ -1,17 +1,15 @@
 import { refs } from '../refs';
 
-const footerUk =
-    '&copy; 2022 | Усі права захищено | Розроблено з<svg class="footer-pic" width="14" height="12"><use href="/symbol-defs.a8b2e413.svg#icon-favorite"></use></svg>командою&#xa0;';
+const footerUk = '2022 | Усі права захищені | Розроблено з';
 
-const footerEng =
-    '&copy; 2022 | All Rights Reserved | Developed with<svg class="footer-pic" width="14" height="12"><use href="/symbol-defs.a8b2e413.svg#icon-favorite"></use></svg>by&#xa0;';
+const footerEng = '2022 | All Rights Reserved | Developed with';
 
 export function changeLanguageFooter() {
-    refs.footerChangeLanguage.innerHTML = '';
-
     if (refs.html.getAttribute('lang') == 'uk') {
-        refs.footerChangeLanguage.insertAdjacentHTML('afterbegin', footerUk);
+        refs.footerTextChangeLanguage.textContent = footerUk;
+        refs.footerByChangeLanguage.textContent = 'командою';
     } else {
-        refs.footerChangeLanguage.insertAdjacentHTML('afterbegin', footerEng);
+        refs.footerTextChangeLanguage.textContent = footerEng;
+        refs.footerByChangeLanguage.textContent = 'by';
     }
 }

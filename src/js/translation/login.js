@@ -4,12 +4,6 @@ const logInTextUk = 'Увійти';
 const logInTextEng = 'Sign In';
 
 export function changeLanguageLogin() {
-    // refs.modalLoginTitle.innerHTML = '';
-
-    // refs.modalLoginBtn.innerHTML = '';
-    // refs.modalLoginErrorText.innerHTML = '';
-    // refs.modalLoginRememberText.innerHTML = '';
-
     if (refs.html.getAttribute('lang') == 'uk') {
         refs.signInBtn.textContent = logInTextUk;
         refs.modalLoginTitle.textContent = logInTextUk;
@@ -22,7 +16,7 @@ export function changeLanguageLogin() {
 
         refs.modalLoginRememberText.textContent = "Запам'ятати мене";
 
-        refs.modalLoginRegistrationLink.textContent = 'Приєднатися зараз';
+        refs.signUpLink.textContent = 'Приєднатись';
 
         refs.modalLoginNewMemberText.textContent = 'Новенький на Filmoteka?';
         // -------singup
@@ -39,7 +33,7 @@ export function changeLanguageLogin() {
         refs.toSignUpBtn.textContent = 'Приєднатись';
 
         refs.modalSignUpOldMember.textContent = 'Вже є акаунт?';
-        refs.signInLink.textContent = 'Приєднатися зараз';
+        refs.signInLink.textContent = 'Увійти';
     } else {
         refs.signInBtn.textContent = logInTextEng;
         refs.modalLoginTitle.textContent = logInTextEng;
@@ -52,7 +46,7 @@ export function changeLanguageLogin() {
 
         refs.modalLoginRememberText.textContent = 'Remember me';
 
-        refs.modalLoginRegistrationLink.textContent = 'Sign up now';
+        refs.signUpLink.textContent = 'Sign up now';
 
         refs.modalLoginNewMemberText.textContent = 'New to Filmoteka?';
 
