@@ -55,15 +55,15 @@ export default class Pagination {
     
     // Check if it should have ellipsis and define sllipsis position
     const hasEllipsisLeft = start > 1;
-    const hasEllipsisRright = end < this.options.total;
+    const hasEllipsisRight = end < this.options.total;
     if (hasEllipsisLeft) ellipsisPos.push(isCollapsed ? start : start + 1);
-    if (hasEllipsisRright) ellipsisPos.push(isCollapsed ? end : end - 1);
+    if (hasEllipsisRight) ellipsisPos.push(isCollapsed ? end : end - 1);
     
     
 
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
-      showLast = !isCollapsed && i == end && hasEllipsisRright;
+      showLast = !isCollapsed && i == end && hasEllipsisRight;
       
       if (showFirst) {
         this.renderElement(1);
@@ -82,7 +82,7 @@ export default class Pagination {
 
   renderElement(value) {
     const isPage = typeof value === 'number';
-    const el = document.createElement(isPage ? 'button' : 'div');
+    const el = document.createElement(isPage ? 'button' : 'span');
     el.classList.add('pagination-item');             
     el.textContent = value;
     
