@@ -9,7 +9,6 @@ export default function createPagination(data) {
     document.querySelector('[data-pagination]'),
     {
       curr: 1,
-      //   slots: 11,
       slots: 9,
       total: totalPages,
       onChange: page => {
@@ -18,10 +17,11 @@ export default function createPagination(data) {
     }
   );
   pagination.init();
+  pagination.prevPage();
+  pagination.nextPage();
 }
 
 async function getListPerPage(page) {
-  // console.log("Yeah, its works, we on:", page);
   clearFilmsContainer();
   const data = await dataMovieList(page);
   renderFilmGallery(data);
