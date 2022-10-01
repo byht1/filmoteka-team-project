@@ -5,6 +5,7 @@ import { changeLanguageNav } from './navigation';
 import { changeLanguageMyLibraryBtn } from './myLibraryBtn';
 import { changeLanguageSearch } from './search';
 import { changeLanguageLogin } from './login';
+import { changeLanguageGenre } from './genre';
 
 refs.changeLanguage.addEventListener('input', changeLanguage);
 
@@ -24,6 +25,7 @@ function changeLanguage(evt) {
     changeLanguageMyLibraryBtn();
     changeLanguageSearch();
     changeLanguageLogin();
+    changeLanguageGenre();
 }
 
 console.log('hello world', refs.footerByChangeLanguage.textContent);

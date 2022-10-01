@@ -5,8 +5,6 @@ const footerUk = '2022 | Усі права захищені | Розроблен
 const footerEng = '2022 | All Rights Reserved | Developed with';
 
 export function changeLanguageFooter() {
-    // refs.footerChangeLanguage.innerHTML = '';
-
     if (refs.html.getAttribute('lang') == 'uk') {
         refs.footerTextChangeLanguage.textContent = footerUk;
         refs.footerByChangeLanguage.textContent = 'командою';

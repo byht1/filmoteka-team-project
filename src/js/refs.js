@@ -19,6 +19,7 @@ export const refs = {
     // myLibrary
     // interface
     // genere
+    genreText: document.querySelector('.genres-text-js'),
     // movie
     movieGallery: document.querySelector('.movie-gallery'),
     // footer
