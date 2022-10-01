@@ -49,6 +49,22 @@ export const refs = {
     inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
     formSignUp: document.querySelector('[data-signup]'),
     passwordNotMatchAlert: document.querySelector('[data-not-match]'),
+    //login translation
+    modalLoginTitle: document.querySelector('.registration__modal-title'),
+    modalLoginInputEmail: document.querySelector('.registration__modal-input'),
+    modalLoginInputPassword: document.querySelector('.registration__modal-input + input'),
+    modalLoginBtn: document.querySelector('[data-modalbtn-tosignin]'),
+    modalLoginErrorText: document.querySelector('.registration__modal-alert'),
+    modalLoginRememberText: document.querySelector('.modal-login-checkbox-text-js'),
+    modalLoginNewMemberText: document.querySelector('.registration-text-js > p > span'),
+    modalLoginRegistrationLink: document.querySelector('.registration__modal-link'),
+    // signUp translation
+    modalSignUpTitle: document.querySelector('.registration__modal-title--signup'),
+    modalSignUpText: document.querySelector('.registration__modal-text'),
+    modalSignUpEmail: document.querySelector('.registration__modal-input.email'),
+    modalSignUpPassword: document.querySelector('.registration__modal-input.password'),
+    modalSignUpPasswordRepeat: document.querySelector('.registration__modal-input.password + input'),
+    modalSignUpOldMember: document.querySelector('.registration__modal-linkSignin > p > span'),
     //change color theme
     toggleTheme: document.querySelector('#toggle-theme'),
     //change language

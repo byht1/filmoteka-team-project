@@ -4,6 +4,7 @@ import { changeLanguageFooter } from './footer';
 import { changeLanguageNav } from './navigation';
 import { changeLanguageMyLibraryBtn } from './myLibraryBtn';
 import { changeLanguageSearch } from './search';
+import { changeLanguageLogin } from './login';
 
 refs.changeLanguage.addEventListener('input', changeLanguage);
 
@@ -22,4 +23,8 @@ function changeLanguage(evt) {
     changeLanguageNav();
     changeLanguageMyLibraryBtn();
     changeLanguageSearch();
+    changeLanguageLogin();
 }
+
+// console.log('hello world');
+console.log('test', refs.modalSignUpTitle.textContent);
