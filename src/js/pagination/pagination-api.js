@@ -13,6 +13,12 @@ export default function createPagination(data) {
       total: totalPages,
       onChange: page => {
         getListPerPage(page);
+        refs.movieGallery.classList.add('movie-height');
+
+        setTimeout(() => {
+          refs.movieGallery.classList.remove('movie-height');
+        }, 1000);
+        window.scrollTo(0, 0);
       },
     }
   );

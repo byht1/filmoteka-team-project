@@ -17,6 +17,7 @@ export const refs = {
   // genere
   // movie
   movieGallery: document.querySelector('.movie-gallery'),
+  paginationList: document.querySelector('[data-pagination]'),
   // footer
   goItStud: document.querySelector('.goItStud-js'),
   toggleTheme: document.querySelector('#toggle-theme'),
