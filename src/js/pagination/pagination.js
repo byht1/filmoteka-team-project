@@ -107,8 +107,8 @@ export default class Pagination {
         return;
       }
       this.current -= 1;
-    this.options.onChange(this.current);
-    this.render();
+      this.options.onChange(this.current);
+      this.render();
     })
   }
 
