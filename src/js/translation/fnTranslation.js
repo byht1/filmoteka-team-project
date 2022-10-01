@@ -10,9 +10,8 @@ import { changeLanguageGenre } from './genre';
 refs.changeLanguage.addEventListener('input', changeLanguage);
 
 function changeLanguage(evt) {
-    // true - ukr
-    // fasle - eng
-
+  // true - ukr
+  // fasle - eng
     if (evt.target.checked) {
         refs.html.setAttribute('lang', 'uk');
         localStorage.setItem('lang', 'uk');

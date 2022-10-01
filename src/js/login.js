@@ -136,7 +136,6 @@ async function getSignUpRes(userInfo) {
       'afterbegin',
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
-    await logIn(userInfo);
     const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }

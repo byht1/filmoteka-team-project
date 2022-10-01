@@ -18,8 +18,10 @@ export const add = async (id, library) => {
 
 // Отримати всі фільми користувача із Queue
 export const allQueue = async () => {
+  const language = whatLanguage() === 'en-US' ? 'en' : 'uk';
+
   try {
-    const data = await server.get('/movie/queue');
+    const data = await server.get(`/movie/queue/${language}`);
 
     return data;
   } catch (error) {
@@ -29,8 +31,9 @@ export const allQueue = async () => {
 
 // Отримати всі фільми користувача із Watched
 export const allWatched = async () => {
+  const language = whatLanguage() === 'en-US' ? 'en' : 'uk';
   try {
-    const data = await server.get('/movie/watched');
+    const data = await server.get(`/movie/watched/${language}`);
 
     return data;
   } catch (error) {
@@ -61,3 +64,5 @@ export const deleteWatched = async id => {
     console.error(error);
   }
 };
+
+allQueue();

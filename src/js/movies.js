@@ -45,10 +45,5 @@ export async function renderFilmGallery(movies) {
     })
     .join('');
 
-  refs.movieGallery.classList.add('movie-height');
-
   refs.movieGallery.insertAdjacentHTML('afterbegin', markup);
-
-  window.scrollTo(0, 0);
-  refs.movieGallery.classList.remove('movie-height');
 }

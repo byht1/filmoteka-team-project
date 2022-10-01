@@ -9,19 +9,25 @@ export default function createPagination(data) {
     document.querySelector('[data-pagination]'),
     {
       curr: 1,
-      //   slots: 11,
       slots: 9,
       total: totalPages,
       onChange: page => {
         getListPerPage(page);
+        refs.movieGallery.classList.add('movie-height');
+
+        setTimeout(() => {
+          refs.movieGallery.classList.remove('movie-height');
+        }, 1000);
+        window.scrollTo(0, 0);
       },
     }
   );
   pagination.init();
+  pagination.prevPage();
+  pagination.nextPage();
 }
 
 async function getListPerPage(page) {
-  // console.log("Yeah, its works, we on:", page);
   clearFilmsContainer();
   const data = await dataMovieList(page);
   renderFilmGallery(data);
