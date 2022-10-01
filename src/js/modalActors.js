@@ -34,8 +34,14 @@ async function renderActorsModal(id) {
   refs.actorsModalContainer.insertAdjacentHTML('afterbegin', actorsModalMarkup);
 }
 
+function actorsModalMarkup() {
+  refs.actorsModalContainer.innerHTML = '';
+}
+
 function openActorsModal(event) {
   event.preventDefault;
+
+  actorsModalMarkup();
 
   const isBtnElement = event.target;
 

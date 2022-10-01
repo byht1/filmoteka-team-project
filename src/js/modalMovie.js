@@ -78,8 +78,14 @@ async function renderMovieModal(id) {
   );
 }
 
+function clearMovieModalMarkup() {
+  refs.movieModalContainer.innerHTML = '';
+}
+
 function openMovieModal(event) {
   event.preventDefault;
+
+  clearMovieModalMarkup();
 
   const isImageElement = event.target;
 
