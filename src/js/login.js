@@ -72,12 +72,12 @@ function onModalClose() {
   backdropSignIn.classList.toggle('is-hidden');
 }
 
-function onSignUpClose() {
+function onSignUpClose(evt) {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
-  if (evt.target == evt.currentTarget) {
-    closeAllModalClose();
-  }
+  //   if (evt.target == evt.currentTarget) {
+  //     closeAllModalClose();
+  //   }
 }
 
 function onSignInLink() {
