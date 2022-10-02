@@ -21,11 +21,6 @@ export default class Pagination {
   init() {
     this.root.classList.add('pagination-list');
     this.render();
-
-    if (this.items.length === 0) {
-      return;
-    } 
-    this.addArrowPageNavigation();
   }
   
   destroy() {
@@ -73,6 +68,11 @@ export default class Pagination {
         this.renderElement(i);
       }
     }
+    
+    if (this.items.length === 0 || this.items.length === 1) {
+      return;
+    } 
+    this.addArrowPageNavigation();
   }
 
   addArrowPageNavigation() {

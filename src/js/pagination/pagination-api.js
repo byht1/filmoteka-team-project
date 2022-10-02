@@ -26,7 +26,6 @@ export default function createPagination(data) {
     }
   );
   pagination.init();
-  console.log("typeof", typeof refs.paginationList)
   pagination.prevPage();
   pagination.nextPage();
 }
