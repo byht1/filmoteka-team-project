@@ -13,7 +13,7 @@ const {
   signUpCloseBtn,
   signInLink,
   formSignUp,
-  passwordNotMatchAlert,
+  passwordNotMatchAlert,ueIn,
   toSignUpBtn,
   accountCreatedText,
   btnValueIn,
@@ -22,6 +22,12 @@ const {
   signInForm,
   signInErrorText,
 } = refs;
+
+let TOKEN = 'token';
+
+export default TOKEN;
+
+loginReload();
 
 // &відкриває модалку авторизації
 export function onSignInBtn() {
@@ -49,14 +55,8 @@ function closeAllModalClose() {
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
-
-  // delete event listener on escape and backdrop
-  document.removeEventListener('keydown', onEscapeClick);
-  backdropSignIn.removeEventListener('click', onBackdropClick);
-  backdropSignUp.removeEventListener('click', onBackdropClick);
   backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');
-
+  backdropSignIn.classList.toggle('is-hidden');n
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
@@ -78,12 +78,12 @@ function onModalClose() {
   backdropSignIn.classList.toggle('is-hidden');
 }
 
-function onSignUpClose() {
+function onSignUpClose(evt) {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
-  if (evt.target == evt.currentTarget) {
-    closeAllModalClose();
-  }
+  //   if (evt.target == evt.currentTarget) {
+  //     closeAllModalClose();
+  //   }
 }
 
 function onSignInLink() {
@@ -120,13 +120,14 @@ function handleSub(event) {
   }
 }
 
-function toggleHeaderBtnValue() {
+export function toggleHeaderBtnValue() {
   signInBtn.classList.toggle('none');
   btnValueOut.classList.toggle('none');
 }
 
 async function getSignUpRes(userInfo) {
   const res = await signUp(userInfo);
+  console.log(res);
   if (res === 409) {
     accountCreatedText.classList.toggle('none');
   } else {
@@ -137,7 +138,8 @@ async function getSignUpRes(userInfo) {
       'afterbegin',
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
-    const response = await logIn(userInfo);
+
+    // const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }
 }
@@ -150,6 +152,7 @@ async function logoutRes() {
   toggleHeaderBtnValue();
   btnLoginWrap.firstChild.remove();
   await logOut();
+  localStorage.removeItem(TOKEN);
   localStorage.removeItem('token');
 }
 //-----------------------------SignIn
@@ -182,6 +185,7 @@ async function signInModalRes(userData) {
       'afterbegin',
       `<p data-hello>Hello, ${userData.email}</p>`
     );
-    localStorage.setItem('token', res.token);
+    localStorage.setItem(TOKEN, res.token);
+    console.log(localStorage.getItem(TOKEN));
   }
 }

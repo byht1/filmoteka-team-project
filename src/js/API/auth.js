@@ -57,6 +57,6 @@ export const validate = async () => {
     const response = await server.get('/user/validate');
     return response;
   } catch (error) {
-    return error.response.status;
+    return error.response;
   }
 };
