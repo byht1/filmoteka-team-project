@@ -9,6 +9,8 @@ export function loginReload() {
   const tokenLokal = localStorage.getItem('token');
   if (tokenLokal === null) {
     return;
+  } else {
+    toggleHeaderBtnValue();
   }
   token.set(tokenLokal);
   console.log(tokenLokal);
@@ -23,7 +25,6 @@ async function getValidateRes() {
     console.log('Не авторизован');
     localStorage.removeItem(TOKEN);
   } else {
-    toggleHeaderBtnValue();
     localStorage.setItem(TOKEN, res.data.token);
     btnLoginWrap.insertAdjacentHTML(
       'afterbegin',

@@ -21,10 +21,12 @@ const {
   signInForm,
   signInErrorText,
 } = refs;
-loginReload();
+
 let TOKEN = 'token';
 
 export default TOKEN;
+
+loginReload();
 
 // &відкриває модалку авторизації
 export function onSignInBtn() {
