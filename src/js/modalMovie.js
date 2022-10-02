@@ -1,4 +1,5 @@
-import { IMG_URL, dataMovie } from './API/api';
+import { IMG_URL, dataMovie, dataTrailer, dataAuthorMovie } from './API/api';
+import { renderActorsModal, clearActorsModalMarkup } from './modalActors';
 import { refs } from './refs';
 
 refs.openMovieModal.addEventListener('click', openMovieModal);
@@ -6,10 +7,20 @@ refs.closeMovieModalBtn.addEventListener('click', closeMovieModal);
 
 let movieId = '';
 
+async function renderTrailerMovie(id) {
+  const trailerData = await dataTrailer(id);
+
+  console.log(trailerData);
+}
+
+async function fetchMovieListByActor(id) {
+  const actorMovie = await dataAuthorMovie(id);
+
+  console.log(actorMovie);
+}
+
 async function renderMovieModal(id) {
   const movieData = await dataMovie(id);
-
-  console.log(movieData);
 
   const movieModalMarkup = ({
     id,
@@ -30,18 +41,14 @@ async function renderMovieModal(id) {
             alt="${title}"
           />
           <div class="wrapper__overlay">
-            <button type="button" class="wrapper__btn youtube-btn">
-              <svg class="youtube-btn__icon" width="92" height="64">
-                <use href="./images/symbol-defs.svg#icon-youtube"></use>
-              </svg>
-            </button>
+            <img class="wrapper__btn" src="../images/modal-overlay/youtube.png" alt="youtube icon"/>
           </div>
         </div>
       </a>
       <div class="movie-modal__wrapper">
         <div class="data">
           <h2 class="data__title">${title}</h2>
-          <ul class="data__list list" data-id-${id}>
+          <ul class="data__list list">
             <li class="list__item">
               <p class="data__item">Vote / Votes</p>
               <p class="data__info">
@@ -60,7 +67,9 @@ async function renderMovieModal(id) {
             </li>
             <li class="list__item">
               <p class="data__item">Genre</p>
-              <p class="data__info">${genres.join(', ')}</p>
+              <p class="data__info">${genres
+                .map(genre => genre.name)
+                .join(', ')}</p>
             </li>
             <li class="list__item">
               <p class="data__item">Actors</p>
@@ -72,20 +81,21 @@ async function renderMovieModal(id) {
         </div> `;
   };
 
-  refs.movieModalContainer.insertAdjacentHTML(
+  refs.movieDataContainer.insertAdjacentHTML(
     'afterbegin',
     movieModalMarkup(movieData)
   );
 }
 
 function clearMovieModalMarkup() {
-  refs.movieModalContainer.innerHTML = '';
+  refs.movieDataContainer.innerHTML = '';
 }
 
 function openMovieModal(event) {
   event.preventDefault;
 
   clearMovieModalMarkup();
+  clearActorsModalMarkup();
 
   const isImageElement = event.target;
 
@@ -100,6 +110,9 @@ function openMovieModal(event) {
   refs.movieModal.classList.add('is-open');
 
   renderMovieModal(movieId);
+  renderActorsModal(movieId);
+  renderTrailerMovie(301502);
+  fetchMovieListByActor(301502);
 
   addEventListenerOnMovieModal();
 }

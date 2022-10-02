@@ -104,35 +104,34 @@
 }
 
 .actors__title {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.15;
-  text-align: center;
-  text-transform: uppercase;
   margin-top: 10px;
 
+  @include font(500, 15px, 1.13);
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--modal-text-color);
+
   @include tablet {
-    line-height: 1.33;
+    @include font(500, 12px, 1.15);
     margin-top: 10px;
   }
 
   @include desktop {
     margin-top: 12px;
-    font-size: 12px;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 }
 
 .actors__label {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.15;
+  @include font(500, 15px, 1.33);
+
   text-align: center;
+
   color: var(--accent);
 
-  @include desktop {
-    font-size: 10px;
-    line-height: 1.15;
+  @include tablet {
+    @include font(500, 12px, 1.15);
   }
 }
 
@@ -141,18 +140,14 @@
   top: 8px;
   right: 8px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   padding: 0;
   margin: 0;
 
   border: none;
   border-radius: 50%;
+
   background-color: transparent;
   color: var(--text-color-button);
-
   outline: none;
 
   transform: rotate(0deg);

@@ -4,14 +4,10 @@ import { refs } from './refs';
 refs.openActorsModalBtn.addEventListener('click', openActorsModal);
 refs.closeActorsModalBtn.addEventListener('click', closeActorsModal);
 
-let movieId = '';
-
-async function renderActorsModal(id) {
+export async function renderActorsModal(id) {
   const actorsData = await dataAuthors(id);
 
   const actorsList = actorsData.cast;
-
-  console.log(actorsList);
 
   const actorsModalMarkup = actorsList
     .map(({ character, name, profile_path }) => {
@@ -34,14 +30,12 @@ async function renderActorsModal(id) {
   refs.actorsModalContainer.insertAdjacentHTML('afterbegin', actorsModalMarkup);
 }
 
-function actorsModalMarkup() {
+export function clearActorsModalMarkup() {
   refs.actorsModalContainer.innerHTML = '';
 }
 
 function openActorsModal(event) {
   event.preventDefault;
-
-  actorsModalMarkup();
 
   const isBtnElement = event.target;
 
@@ -49,15 +43,7 @@ function openActorsModal(event) {
     return;
   }
 
-  const parentOfBtnElement = isBtnElement.closest('.data__list');
-
-  movieId = parentOfBtnElement.dataset.id;
-
-  console.log(movieId);
-
   refs.actorsModal.classList.add('is-open');
-
-  renderActorsModal(718930);
 
   addEventListenerOnActorsModal();
 }

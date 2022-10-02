@@ -16,3 +16,4 @@ import './js/pagination/pagination';
 import './js/pagination/pagination-api';
 import './js/translation/fnTranslation';
 import './js/myLibrary';
+import './js/modalTrailer';
