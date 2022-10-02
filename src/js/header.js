@@ -3,6 +3,7 @@ import { IMG_URL, dataMovieList, dataSearch, dataGenre } from './API/api';
 import { refs } from './refs';
 import { renderMovies } from './movies';
 import { onSignInBtn } from './login';
+import { allQueue } from './API/userData';
 
 window.addEventListener('resize', function () {
   if (window.innerWidth < 767) {
@@ -24,6 +25,7 @@ function homeBtnClick(e) {
   refs.navPageLib.classList.remove('current');
   refs.searchWrap.classList.remove('visually-hidden');
   refs.libWrap.classList.add('visually-hidden');
+  renderMovies(dataMovieList());
 }
 
 function libBtnClick(e) {
@@ -37,9 +39,17 @@ function libBtnClick(e) {
   refs.navPageHome.classList.remove('current');
   refs.searchWrap.classList.add('visually-hidden');
   refs.libWrap.classList.remove('visually-hidden');
-  renderMovies(dataSearch('titanic'));
+  getAllQueue();
   refs.queueButton.classList.add('library-button__active');
   refs.watchedButton.classList.remove('library-button__active');
+}
+
+async function getAllQueue() {
+  const {
+    data: { data: results },
+  } = await allQueue();
+  const movie = { results };
+  await renderMovies(movie);
 }
 
 function onWatchedClick() {
