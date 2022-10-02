@@ -4,9 +4,19 @@ import createPagination from './pagination/pagination-api';
 
 renderMovies(dataMovieList());
 
-export async function renderMovies(films) {
+export async function renderMovies(films, fn, value) {
   const movies = await films;
   renderFilmGallery(movies);
+  if (typeof value === 'number') {
+    createPagination(movies, fn, value);
+    return;
+  }
+
+  if (value) {
+    createPagination(movies, fn, value);
+    return;
+  }
+
   createPagination(movies);
 }
 

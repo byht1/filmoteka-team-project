@@ -1,6 +1,7 @@
 import { dataGenre, dataSearchGenre } from './API/api';
 import { logOut } from './API/auth';
-import { renderFilmGallery } from './movies';
+import { renderFilmGallery, renderMovies } from './movies';
+import { show } from './shearch';
 
 const findDiv = document.querySelector('.genre-box-button');
 const showGenreButton = document.querySelector('.show-burron-general');
@@ -34,9 +35,11 @@ async function genreSearch(e) {
   if (!target.classList.contains('genre__button')) {
     return;
   }
-  const id = target.dataset.genre;
+  show();
+  const id = Number(target.dataset.genre);
+  console.log('🚀 ~ id', id);
 
   const data = await dataSearchGenre(id);
-  renderFilmGallery(data);
+  renderMovies(data, dataSearchGenre, id);
   genreBox.classList.toggle('general-show');
 }
