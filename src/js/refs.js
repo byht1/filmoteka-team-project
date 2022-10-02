@@ -129,6 +129,7 @@ export const refs = {
   openActorsModalBtn: document.querySelector('[data-actors-modal-open]'),
   closeActorsModalBtn: document.querySelector('[data-actors-modal-close]'),
   actorsModalBackdrop: document.querySelector('[data-actors-modal-backdrop]'),
+
   actorsModalContainer: document.querySelector('.actors'),
   actorsModal: document.querySelector('[data-actors-modal]'),
   //login
