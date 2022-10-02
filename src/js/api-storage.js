@@ -6,7 +6,7 @@ import {
 } from './shiftActionOfBtn';
 import { refs } from './refs';
 import { onSignInBtn } from './login';
-import { loadFromStorage } from './storage';
+
 import {
   add,
   allQueue,
@@ -17,6 +17,8 @@ import {
 
 const STORAGE_KEY = 'token';
 let idOfMovie = '';
+let allWatchedArray = [];
+let allQueueArray = [];
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
 refs.watchedBtn.addEventListener('click', onAddWatchedBtnClick);
@@ -40,11 +42,13 @@ function onGalleryClick(e) {
 }
 
 function onAddWatchedBtnClick(e) {
-  const valueFromStorage = loadFromStorage(STORAGE_KEY);
+  const valueFromStorage = localStorage.getItem(STORAGE_KEY);
   if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
   }
+
+  checkAllQueue();
 
   checkAllWatched();
 
@@ -55,14 +59,17 @@ function onAddWatchedBtnClick(e) {
   }
 
   addMovieToWatched(idOfMovie, e.target);
+  isIdInQueue(idOfMovie);
 }
 
 function onQueueBtnClick(e) {
-  const valueFromStorage = loadFromStorage(STORAGE_KEY);
+  const valueFromStorage = localStorage.getItem(STORAGE_KEY);
   if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
   }
+
+  checkAllWatched();
 
   checkAllQueue();
 
@@ -73,6 +80,7 @@ function onQueueBtnClick(e) {
   }
 
   addMovieToQueue(idOfMovie, e.target);
+  isIdInWached(idOfMovie);
 }
 
 async function checkAllWatched() {
@@ -93,6 +101,9 @@ async function checkAllWatched() {
     containsId
       ? shiftActionToRemoveByWatched(refs.watchedBtn)
       : shiftActionToAddByWatched(refs.watchedBtn);
+
+    allWatchedArray = [];
+    allWatchedArray = data.map(element => element.id);
   } catch (error) {
     console.error(error);
   }
@@ -116,6 +127,9 @@ async function checkAllQueue() {
     containsId
       ? shiftActionToRemoveByQueue(refs.queueBtn)
       : shiftActionToAddByQueue(refs.queueBtn);
+
+    allQueueArray = [];
+    allQueueArray = data.map(element => element.id);
   } catch (error) {
     console.error(error);
   }
@@ -139,4 +153,20 @@ async function deleteMovieFromQueue(idOfMovie, target) {
 async function addMovieToQueue(idOfMovie, target) {
   await add(idOfMovie, 'queue');
   shiftActionToRemoveByQueue(target);
+}
+
+function isIdInQueue(idOfMovie) {
+  const isIdInQueue = allQueueArray.find(element => element.id === idOfMovie);
+  if (isIdInQueue) {
+    deleteMovieFromQueue(idOfMovie, refs.queueBtn);
+  }
+}
+
+function isIdInWached(idOfMovie) {
+  const isIdInWached = allWatchedArray.find(
+    element => element.id === idOfMovie
+  );
+  if (isIdInWached) {
+    deleteMovieFromWatched(idOfMovie, refs.watchedBtn);
+  }
 }
