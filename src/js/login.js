@@ -13,9 +13,9 @@ const {
   signInLink,
   formSignUp,
   passwordNotMatchAlert,
-  toSignUpBtn,
+  // toSignUpBtn,
   accountCreatedText,
-  btnValueIn,
+  // btnValueIn,
   btnValueOut,
   btnLoginWrap,
   signInForm,
@@ -127,6 +127,7 @@ export function toggleHeaderBtnValue() {
 
 async function getSignUpRes(userInfo) {
   const res = await signUp(userInfo);
+  console.log(res);
   if (res === 409) {
     accountCreatedText.classList.toggle('none');
   } else {
@@ -137,7 +138,9 @@ async function getSignUpRes(userInfo) {
       'afterbegin',
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
+
     // const response = await logIn(userInfo);
+    console.log(res);
     localStorage.setItem('token', response.token);
   }
 }
