@@ -29,7 +29,7 @@ export async function renderFilmGallery(movies) {
       return `<li class="movie-card" data-id="${movie.id}">
       <div class="img-wrap">
       <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
-        movie.original_title
+        movie.title
       }" loading="lazy"/>
       </div>
         <p class="movie-name">${
@@ -45,5 +45,5 @@ export async function renderFilmGallery(movies) {
     })
     .join('');
 
-  refs.movieGallery.insertAdjacentHTML('afterbegin', markup);
+  refs.movieGallery.innerHTML = markup;
 }

@@ -5,21 +5,23 @@
 }
 
 .movie-gallery {
-  //   outline: 1px solid red;
+  // outline: 1px solid red;
+
   @include mobile {
     // max-width: 540px;
-    margin: 0 auto;
   }
 
   @include tablet {
     // max-width: 736px;
+
     display: flex;
     flex-wrap: wrap;
-    margin-left: -32px;
+
+    gap: 32px;
   }
 
   @include desktop {
-    margin-left: -16px;
+    gap: 32px 16px;
   }
 }
 
@@ -36,16 +38,20 @@
 }
 
 .movie-card {
-  margin-bottom: 20px;
   @include tablet {
-    flex-basis: calc(100% / 2 - 32px);
-    margin-left: 32px;
-    margin-bottom: 32px;
+    margin-bottom: 0;
+    flex-basis: calc(100% / 2 - 16px);
   }
 
   @include desktop {
-    flex-basis: calc(100% / 3 - 16px);
-    margin-left: 16px;
+    flex-basis: calc(100% / 3 - 11px);
+  }
+}
+
+.movie-card:not(:last-child) {
+  margin-bottom: 20px;
+  @include tablet {
+    margin-bottom: 0;
   }
 }
 
