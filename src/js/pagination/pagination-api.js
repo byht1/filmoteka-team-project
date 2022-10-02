@@ -9,9 +9,9 @@ export default function createPagination(data) {
   }
   const totalPages = data.total_pages;
   const pagination = new Pagination(
-    document.querySelector('[data-pagination]'),
+    refs.paginationList,
     {
-      curr: 1,
+      firstCurrentPage: 1,
       slots: 9,
       total: totalPages,
       onChange: page => {
