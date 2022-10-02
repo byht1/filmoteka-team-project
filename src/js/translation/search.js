@@ -1,6 +1,7 @@
 import { refs } from '../refs';
 
-const searchTextErrorUk = 'Невдалий результат пошуку. Введіть правильну назву фільму.';
+// const searchTextErrorUk = 'Невдалий результат пошуку. Введіть правильну назву фільму.';
+const searchTextErrorUk = 'Нічого не знайдено. Введіть правильну назву фільму.';
 const searchTextErrorEng = 'Search result not successful. Enter the correct movie name.';
 
 export function changeLanguageSearch() {

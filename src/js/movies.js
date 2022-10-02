@@ -28,27 +28,17 @@ export async function renderFilmGallery(movies) {
 
       return `<li class="movie-card" data-id="${movie.id}">
       <div class="img-wrap">
-      <img class = "movie-img" src="${IMG_URL}${movie.poster_path}" alt="${
-        movie.original_title
-      }" loading="lazy"/>
+      <img class = "movie-img" src="${IMG_URL + movie.poster_path} 
+      " alt="${movie.original_title}" loading="lazy"/>
       </div>
-        <p class="movie-name">${
-          movie.original_title
-        }</p><div class="movie-info">
-        <p class="movie-genre">${genresList} | ${movie.release_date.slice(
-        0,
-        4
-      )}</p><span class="movie-raiting">${movie.vote_average.toFixed(
+        <p class="movie-name">${movie.title}</p><div class="movie-info">
+        <p class="movie-genre">${genresList} | ${
+        movie.release_date ? movie.release_date.slice(0, 4) : 'none'
+      }</p><span class="movie-raiting">${movie.vote_average.toFixed(
         1
       )}</span></div>
       </li>`;
     })
     .join('');
-
-  refs.movieGallery.classList.add('movie-height');
-
-  refs.movieGallery.insertAdjacentHTML('afterbegin', markup);
-
-  window.scrollTo(0, 0);
-  refs.movieGallery.classList.remove('movie-height');
+  refs.movieGallery.innerHTML = markup;
 }
