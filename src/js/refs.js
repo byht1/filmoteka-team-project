@@ -150,8 +150,6 @@ export const refs = {
   //pagination
   paginationList: document.querySelector('[data-pagination]'),
   accountCreatedText: document.querySelector('[data-acc-already-created]'),
-  toSignUpBtn: document.querySelector('[data-toSignUp-btn]'),
-  btnValueIn: document.querySelector('[data-btn-value-in]'),
   btnValueOut: document.querySelector('[data-btn-value-out]'),
   signInForm: document.querySelector('[data-signIn-form]'),
   signInErrorText: document.querySelector('[data-signin-errorText]'),

@@ -15,10 +15,7 @@ const {
   signInLink,
   formSignUp,
   passwordNotMatchAlert,
-  ueIn,
-  toSignUpBtn,
   accountCreatedText,
-  btnValueIn,
   btnValueOut,
   btnLoginWrap,
   signInForm,
@@ -179,8 +176,10 @@ async function signInModalRes(userData) {
   console.log(res);
   if (res === 401) {
     signInErrorText.classList.remove('none');
+    noEmailText.classList.add('none');
   } else if (!res.isActivate) {
     noEmailText.classList.remove('none');
+    signInErrorText.classList.add('none');
     // backdropSignIn.classList.toggle('is-hidden');
   } else {
     backdropSignIn.classList.toggle('is-hidden');
