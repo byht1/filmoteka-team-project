@@ -1,10 +1,5 @@
-
 header {
-    padding: 44px 0 62px;
     padding: 20px 0 20px;
-    @include tablet {
-        padding: 20px 0 20px;
-    }
 
     min-width: 320px;
     width: 100%;
@@ -90,6 +85,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 
 .navigation__menu {
