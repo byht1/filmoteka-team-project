@@ -1,8 +1,6 @@
 header{
-    height: 230px;
     min-width: 320px;
     width: 100%;
-    padding-top: 20px;
     background-color: var(--background-color);
         background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@1x.jpg);
         background-position: center;
@@ -50,10 +48,10 @@ header{
 
 .header--library {
 
-    height: 230px;
+
         min-width: 320px;
         width: 100%;
-        padding-top: 20px;
+
     background-color: var(--background-color);
         background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
         background-position: center;
@@ -107,6 +105,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 20px;
 }
 
 
