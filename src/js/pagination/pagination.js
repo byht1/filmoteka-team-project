@@ -1,12 +1,12 @@
 import { refs } from "../refs";
 
-const leftBtn = document.createElement('button');
-leftBtn.classList.add('pagination-item');
-leftBtn.classList.add('left');
+const prevBtn = document.createElement('button');
+prevBtn.classList.add('pagination-item');
+prevBtn.classList.add('prev');
 
-const rightBtn = document.createElement('button');
-rightBtn.classList.add('pagination-item');
-rightBtn.classList.add('right');
+const nextBtn = document.createElement('button');
+nextBtn.classList.add('pagination-item');
+nextBtn.classList.add('next');
 
 export default class Pagination {
   constructor(root, options) {
@@ -55,15 +55,15 @@ export default class Pagination {
     
     // Check if it should have ellipsis and define sllipsis position
     const hasEllipsisLeft = start > 1;
-    const hasEllipsisRright = end < this.options.total;
+    const hasEllipsisRight = end < this.options.total;
     if (hasEllipsisLeft) ellipsisPos.push(isCollapsed ? start : start + 1);
-    if (hasEllipsisRright) ellipsisPos.push(isCollapsed ? end : end - 1);
+    if (hasEllipsisRight) ellipsisPos.push(isCollapsed ? end : end - 1);
     
     
 
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
-      showLast = !isCollapsed && i == end && hasEllipsisRright;
+      showLast = !isCollapsed && i == end && hasEllipsisRight;
       
       if (showFirst) {
         this.renderElement(1);
@@ -76,13 +76,13 @@ export default class Pagination {
       }
     }
 
-    refs.paginationList.prepend(leftBtn);
-    refs.paginationList.append(rightBtn);
+    refs.paginationList.prepend(prevBtn);
+    refs.paginationList.append(nextBtn);
   }
 
   renderElement(value) {
     const isPage = typeof value === 'number';
-    const el = document.createElement(isPage ? 'button' : 'div');
+    const el = document.createElement(isPage ? 'button' : 'span');
     el.classList.add('pagination-item');             
     el.textContent = value;
     
@@ -99,5 +99,27 @@ export default class Pagination {
       }
     }
     return this.items.push(this.root.appendChild(el));
+  }
+
+  prevPage() {
+    prevBtn.addEventListener('click', () => {
+      if (this.current === 1) {
+        return;
+      }
+      this.current -= 1;
+      this.options.onChange(this.current);
+      this.render();
+    })
+  }
+
+  nextPage() {
+    nextBtn.addEventListener('click', () => {
+      if (this.current === this.options.total) {
+        return;
+      }
+      this.current += 1;
+      this.options.onChange(this.current);
+      this.render();
+    })
   }
 }

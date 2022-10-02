@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { signUp, logIn, logOut } from './API/auth';
 import { loginReload } from './loginReload';
 import { token, validate } from './API/auth';
+import { homeBtnClick } from './header';
 
 const {
   signInBtn,
@@ -12,10 +13,10 @@ const {
   signUpCloseBtn,
   signInLink,
   formSignUp,
-  passwordNotMatchAlert,
-  // toSignUpBtn,
+  passwordNotMatchAlert,ueIn,
+  toSignUpBtn,
   accountCreatedText,
-  // btnValueIn,
+  btnValueIn,
   btnValueOut,
   btnLoginWrap,
   signInForm,
@@ -55,8 +56,7 @@ function closeAllModalClose() {
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
   backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');
-
+  backdropSignIn.classList.toggle('is-hidden');n
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
@@ -140,19 +140,20 @@ async function getSignUpRes(userInfo) {
     );
 
     // const response = await logIn(userInfo);
-    console.log(res);
     localStorage.setItem('token', response.token);
   }
 }
 // ----------------------------- LogOut
 
 btnValueOut.addEventListener('click', logoutRes);
+btnValueOut.addEventListener('click', homeBtnClick);
 
 async function logoutRes() {
   toggleHeaderBtnValue();
   btnLoginWrap.firstChild.remove();
   await logOut();
   localStorage.removeItem(TOKEN);
+  localStorage.removeItem('token');
 }
 //-----------------------------SignIn
 
@@ -175,7 +176,6 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
-
   if (res === 401) {
     signInErrorText.classList.remove('none');
   } else {

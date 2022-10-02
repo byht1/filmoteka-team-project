@@ -14,5 +14,6 @@ import './js/API/auth';
 import './js/loginReload';
 import './js/pagination/pagination';
 import './js/pagination/pagination-api';
-import './js/translation/translationModalTeam';
+import './js/translation/fnTranslation';
 import './js/myLibrary';
+import './js/modalTrailer';
