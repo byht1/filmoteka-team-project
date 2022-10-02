@@ -18,7 +18,7 @@ refs.navPageLib.addEventListener('click', libBtnClick);
 refs.watchedButton.addEventListener('click', onWatchedClick);
 refs.queueButton.addEventListener('click', onQueueClick);
 
-function homeBtnClick(e) {
+export function homeBtnClick(e) {
   e.preventDefault();
   refs.header.classList.remove('header--library');
   refs.navPageHome.classList.add('current');
@@ -30,8 +30,7 @@ function homeBtnClick(e) {
 
 function libBtnClick(e) {
   e.preventDefault();
-  const loginvalue = Math.random();
-  if (loginvalue > 0.7) {
+  if (localStorage.getItem('token') === null) {
     return onSignInBtn();
   }
   refs.header.classList.add('header--library');

@@ -111,6 +111,7 @@ export const refs = {
   // footer
   goItStud: document.querySelector('.goItStud-js'),
   // modalMovie
+  movieModalContainer: document.querySelector('.movie-modal__container'),
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
   watchedBtn: document.querySelector('.button-watched'),
@@ -128,6 +129,8 @@ export const refs = {
   openActorsModalBtn: document.querySelector('[data-actors-modal-open]'),
   closeActorsModalBtn: document.querySelector('[data-actors-modal-close]'),
   actorsModalBackdrop: document.querySelector('[data-actors-modal-backdrop]'),
+
+  actorsModalContainer: document.querySelector('.actors'),
   actorsModal: document.querySelector('[data-actors-modal]'),
   //login
   signInBtn: document.querySelector('[data-signin-open]'),
