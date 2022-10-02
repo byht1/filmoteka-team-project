@@ -44,6 +44,5 @@ export async function renderFilmGallery(movies) {
       </li>`;
     })
     .join('');
-
-  refs.movieGallery.insertAdjacentHTML('afterbegin', markup);
+  refs.movieGallery.innerHTML = markup;
 }
