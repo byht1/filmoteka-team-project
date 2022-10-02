@@ -1,103 +1,67 @@
 html {
-  --accent: #ff6b08;
+    --accent: #ff6b08;
 
-  // Header
-  --header-color-text: #ffffff;
-  --header-border-button-color: #ffffff;
-  --error: #ff001b;
+    // Header
+    --header-color-text: #ffffff;
+    --header-border-button-color: #ffffff;
+    --error: #ff001b;
 
-  //   main
-  --background-color: #ffffff;
-  --color-title: #000000;
+    //   main
+    --background-color: #ffffff;
+    --color-title: #000000;
 
-  //   footer
-  --footer-background-color: #f7f7f7;
-  --footer-text: #545454;
+    //   footer
+    --footer-background-color: #f7f7f7;
+    --footer-text: #545454;
 
-  //   Modal
-  --modal-background-color: #ffffff;
-  --modal-text-color: #000000;
-  --modal-white-text-color: #ffffff;
-  --params-name: #8c8c8c;
-  --button-bg-color: #ffffff;
-  --span-color: #f7f7f7;
-  --border-button-color: #000000;
-  --text-color-button: #000000;
-  --text-revers-color-button: #ffffff;
-  --backdrop-color: rgba(0, 0, 0, 0.4);
-  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    //   Modal
+    --modal-background-color: #ffffff;
+    --modal-text-color: #000000;
+    --modal-white-text-color: #ffffff;
+    --params-name: #8c8c8c;
+    --button-bg-color: #ffffff;
+    --border-button-color: #000000;
+    --text-color-button: #000000;
+    --text-revers-color-button: #ffffff;
+    --backdrop-color: rgba(0, 0, 0, 0.4);
 
-  //   Modal registration
-  --registration-modal-input-color: #eee;
-  --registartion-btn-border-color: rgba(0, 0, 0, 0.1);
-  --registration-modal-title-color: #212121;
-  --registration-modal-hover-color: #ff5800;
+    //   Modal registration
+    --registration-modal-input-color: #eee;
+    --registartion-btn-border-color: rgba(0, 0, 0, 0.1);
+    --registration-modal-title-color: #212121;
+    --registration-modal-hover-color: #ff5800;
 }
 
 [data-mode='dark'] {
-  --accent: #fff008;
+    --accent: #089cff;
 
-  // Header
-  --header-color-text: #c4c4c4;
-  --header-border-button-color: #292b2c;
-  --error: #ff001b;
+    // Header
+    --header-color-text: #c4c4c4;
+    --header-border-button-color: #292b2c;
+    --error: #ff001b;
 
-  //   main
-  --background-color: #000000;
-  --color-title: #cfcfcf;
+    //   main
+    --background-color: #000000;
+    --color-title: #cfcfcf;
 
-  //   footer
-  --footer-background-color: #272e34;
-  --footer-text: #d6d6d6;
+    //   footer
+    --footer-background-color: #272e34;
+    --footer-text: #d6d6d6;
 
-  //   Modal
-  --modal-background-color: #292929;
-  --modal-text-color: #b8b8b8;
-  --modal-white-text-color: #535353;
-  --params-name: #5c5c5c;
-  --button-bg-color: #000000;
-  --border-button-color: #ffffff;
-  --text-color-button: #ffffff;
-  --text-revers-color-button: #000000;
-  --backdrop-color: rgba(143, 143, 143, 0.4);
+    //   Modal
+    --modal-background-color: #292929;
+    --modal-text-color: #b8b8b8;
+    --modal-white-text-color: #535353;
+    --params-name: #5c5c5c;
+    --button-bg-color: #000000;
+    --border-button-color: #ffffff;
+    --text-color-button: #ffffff;
+    --text-revers-color-button: #000000;
+    --backdrop-color: rgba(143, 143, 143, 0.4);
 
-  //   Modal registration
-  --registration-modal-input-color: #3f3f3f;
-  --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
-  --registration-modal-title-color: #c5c5c5;
-  --registration-modal-hover-color: #fff008;
-}
-
-[data-mode='grey'] {
-  --accent: #089cff;
-
-  // Header
-  --header-color-text: #c4c4c4;
-  --header-border-button-color: #002b47;
-  --error: #ff001b;
-
-  //   main
-  --background-color: #242424;
-  --color-title: #ffffff;
-
-  //   footer
-  --footer-background-color: #050505;
-  --footer-text: #d6d6d6;
-
-  //   Modal
-  --modal-background-color: #292929;
-  --modal-text-color: #d3d3d3;
-  --modal-white-text-color: #272727;
-  --params-name: #474747;
-  --button-bg-color: #000000;
-  --border-button-color: #ffffff;
-  --text-color-button: #ffffff;
-  --text-revers-color-button: #000000;
-  --backdrop-color: rgba(138, 138, 138, 0.4);
-
-  //   Modal registration
-  --registration-modal-input-color: #3f3f3f;
-  --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
-  --registration-modal-title-color: #c5c5c5;
-  --registration-modal-hover-color: #089cff;
+    //   Modal registration
+    --registration-modal-input-color: #3f3f3f;
+    --registartion-btn-border-color: rgba(202, 202, 202, 0.1);
+    --registration-modal-title-color: #c5c5c5;
+    --registration-modal-hover-color: #089cff;
 }
