@@ -4,6 +4,7 @@ import { refs } from './refs';
 import { renderMovies } from './movies';
 import { onSignInBtn } from './login';
 import { allQueue } from './API/userData';
+import { show } from './shearch';
 
 window.addEventListener('resize', function () {
   if (window.innerWidth < 767) {
@@ -21,6 +22,7 @@ refs.queueButton.addEventListener('click', onQueueClick);
 export function homeBtnClick(e) {
   e.preventDefault();
   renderMovies(dataMovieList());
+  show();
   if (refs.navPageHome.classList.contains('current')) {
     return;
   }
