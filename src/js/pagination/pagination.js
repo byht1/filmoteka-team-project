@@ -21,6 +21,11 @@ export default class Pagination {
   init() {
     this.root.classList.add('pagination-list');
     this.render();
+
+    if (this.items.length === 0) {
+      return;
+    } 
+    this.addArrowPageNavigation();
   }
   
   destroy() {
@@ -41,25 +46,18 @@ export default class Pagination {
     const ellipsisPos = [];
     let i, showFirst, showLast;
     
-    // Center active page in middle of pagination
     let start = this.current - Math.round(this.options.slots / 2) + 1;
     
-    // If pagination values exceed the expected range,
-    // Fix the range on start or end
     const overflow = (start + slots - 1) - this.options.total;
     if (overflow > 0) start -= overflow; 
     if (start <= 0) start -= start - 1;
       
-    // Set end slot
     const end = start + slots - 1;
     
-    // Check if it should have ellipsis and define sllipsis position
     const hasEllipsisLeft = start > 1;
     const hasEllipsisRight = end < this.options.total;
     if (hasEllipsisLeft) ellipsisPos.push(isCollapsed ? start : start + 1);
     if (hasEllipsisRight) ellipsisPos.push(isCollapsed ? end : end - 1);
-    
-    
 
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
@@ -75,7 +73,9 @@ export default class Pagination {
         this.renderElement(i);
       }
     }
+  }
 
+  addArrowPageNavigation() {
     refs.paginationList.prepend(prevBtn);
     refs.paginationList.append(nextBtn);
   }
