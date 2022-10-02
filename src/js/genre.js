@@ -1,6 +1,8 @@
-import { dataGenre } from './API/api';
+import { dataGenre, dataSearchGenre } from './API/api';
+import { logOut } from './API/auth';
+import { renderFilmGallery } from './movies';
 
-const findDiv = document.querySelector('.genere-box');
+const findDiv = document.querySelector('.genre-box-button');
 
 outputGenre();
 
@@ -9,8 +11,8 @@ async function outputGenre() {
   // console.log(allGenres);
   const markup = allGenres.genres
     .map(genre => {
-      return ` <div class="genere-list" >
-    <button class="click" data-genreId="${genre.id}">${genre.name}</button>
+      return ` <div class="genre__elements-box" >
+    <button class="genre__button" data-genre="${genre.id}">${genre.name}</button>
     </div>
     `;
     })
@@ -22,9 +24,12 @@ findDiv.addEventListener('click', genreSearch);
 
 async function genreSearch(e) {
   const target = e.target;
-  if (target.nodeName !== 'BUTTON') {
+
+  if (!target.classList.contains('click')) {
     return;
   }
+  const id = target.dataset.genre;
 
-  console.log(target.dataset.genreId);
+  const data = await dataSearchGenre(id);
+  renderFilmGallery(data);
 }

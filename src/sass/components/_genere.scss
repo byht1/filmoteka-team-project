@@ -1,56 +1,28 @@
-.genere-section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: rgba(229, 226, 226, 0.814);
-    border-bottom: 1mm ridge rgba(85, 85, 82, 0.6)
-}
-
-.box {
-    display: flex;
-   
+.genre-box {
+  display: flex;
+  align-items: center;
 }
 
 .text {
-    font-weight: bold;
-    color: rgb(55, 49, 49);
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-}
-.genere-box {
-    margin: 0 auto;
-    // display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-@media screen and (max-width: 767px) {
-columns: 3;
-}
-@media screen and (min-width: 768px) {
-columns: 4;
-}
-@media screen and (min-width: 1280px) {
-columns: 6;
-}
-// display: flex;
-// flex-wrap: wrap;
-// justify-content: center;
-// gap: 15px;
+  font-weight: bold;
+  color: rgb(55, 49, 49);
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 }
 
-.click {
-    background-color: white;
-border: 1mm outset rgba(124, 124, 121, 0.529);
-    // border-radius: 3px solis grey;
-    // margin-left: 10px;
-    margin-bottom: 5px;
-   white-space: nowrap;
-
-   @media screen and (max-width: 767px) {
-    font-size: 90%;
-        line-height: 1.14;
-    white-space: normal;
-   }
+.genre-box-button {
+  padding: 16px 0 16px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto, minmax(290px, 1fr));
+  gap: 5px;
+  justify-items: center;
+  align-items: center;
 }
 
-.click:hover {
-    background-color: rgba(223, 6, 6, 0.888);
+.genre__button {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: red;
+  min-width: 150px;
 }

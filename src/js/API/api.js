@@ -7,13 +7,17 @@ export const IMG_URL_ORIGINAL = 'https://image.tmdb.org/t/p/original/';
 
 axios.defaults.baseURL = URL;
 
+export const serverMovie = axios.create({
+  baseURL: URL,
+});
+
 // uk-UA;
 
 // Загальна інформація про фільм
 export const dataMovieList = async (page = 1) => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/trending/movie/day?api_key=${KEY}&page=${page}&language=${language}`
     );
 
@@ -29,7 +33,7 @@ export const dataMovieList = async (page = 1) => {
 export const dataSearch = async (name, page = 1) => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/search/movie?api_key=${KEY}&language=${language}&query=${name}&page=${page}&include_adult=false`
     );
     const data = await server.data;
@@ -43,7 +47,7 @@ export const dataSearch = async (name, page = 1) => {
 export const dataGenre = async () => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/genre/movie/list?api_key=${KEY}&language=${language}`
     );
 
@@ -59,7 +63,7 @@ export const dataGenre = async () => {
 export const dataMovie = async id => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/movie/${id}?api_key=${KEY}&language=${language}`
     );
     const data = await server.data;
@@ -73,7 +77,7 @@ export const dataMovie = async id => {
 export const dataAuthors = async id => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/movie/${id}/credits?api_key=${KEY}&language=${language}`
     );
     const data = await server.data;
@@ -87,7 +91,7 @@ export const dataAuthors = async id => {
 export const dataAuthorMovie = async id => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/person/${id}/movie_credits?api_key=${KEY}&language=${language}`
     );
     const data = await server.data;
@@ -101,9 +105,24 @@ export const dataAuthorMovie = async id => {
 export const dataTrailer = async id => {
   const language = whatLanguage();
   try {
-    const server = await axios.get(
+    const server = await serverMovie.get(
       `3/movie/${id}/videos?api_key=${KEY}&language=${language}`
     );
+    const data = await server.data;
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Пошук по жанрам
+export const dataSearchGenre = async (id, page = 1) => {
+  const language = whatLanguage();
+  try {
+    const server = await serverMovie.get(
+      `3/discover/movie?api_key=${KEY}&with_genres=${id}&page=${page}&sort_by=popularity.desc&include_adult=false&include_video=false&language=${language}`
+    );
+    console.log('🚀 ~ server', server);
     const data = await server.data;
     return data;
   } catch (error) {
