@@ -1,3 +1,195 @@
+// import { refs } from './refs';
+// import { signUp, logIn, logOut } from './API/auth';
+// import { loginReload } from './loginReload';
+// import { token, validate } from './API/auth';
+// import { homeBtnClick } from './header';
+
+// const {
+//   signInBtn,
+//   signInCloseBtn,
+//   backdropSignIn,
+//   signUpLink,
+//   backdropSignUp,
+//   signUpCloseBtn,
+//   signInLink,
+//   formSignUp,
+//   passwordNotMatchAlert,ueIn,
+//   toSignUpBtn,
+//   accountCreatedText,
+//   btnValueIn,
+//   btnValueOut,
+//   btnLoginWrap,
+//   signInForm,
+//   signInErrorText,
+// } = refs;
+
+// let TOKEN = 'token';
+
+// export default TOKEN;
+
+// loginReload();
+
+// // &відкриває модалку авторизації
+// export function onSignInBtn() {
+//   backdropSignIn.classList.toggle('is-hidden');
+//   signInErrorText.classList.add('none');
+
+//   // add event listner on document/escape
+//   document.addEventListener('keydown', onEscapeClick);
+//   // add event listner on backdrop/click
+//   backdropSignIn.addEventListener('click', onBackdropClick);
+// }
+
+// // &відкриває модалку реєстрації
+// function onSignUp() {
+//   backdropSignUp.classList.toggle('is-hidden');
+//   backdropSignIn.classList.toggle('is-hidden');
+
+//   backdropSignUp.addEventListener('click', onBackdropClick);
+// }
+// function closeAllModalClose() {
+//   backdropSignUp.classList.add('is-hidden');
+//   backdropSignIn.classList.add('is-hidden');
+
+//   // delete event listener on escape and backdrop
+//   document.removeEventListener('keydown', onEscapeClick);
+//   backdropSignIn.removeEventListener('click', onBackdropClick);
+//   backdropSignUp.removeEventListener('click', onBackdropClick);
+//   backdropSignUp.classList.toggle('is-hidden');
+//   backdropSignIn.classList.toggle('is-hidden');n
+//   backdropSignUp.addEventListener('click', onBackdropClick);
+// }
+
+// // if Escape push - modal close
+// function onEscapeClick(evt) {
+//   if (evt.key == 'Escape') {
+//     closeAllModalClose();
+//   }
+// }
+
+// // if on backdrop click - modal close
+// function onBackdropClick(evt) {
+//   if (evt.target == evt.currentTarget) {
+//     closeAllModalClose();
+//   }
+// }
+
+// function onModalClose() {
+//   backdropSignIn.classList.toggle('is-hidden');
+// }
+
+// function onSignUpClose(evt) {
+//   backdropSignUp.classList.add('is-hidden');
+//   backdropSignIn.classList.add('is-hidden');
+//   //   if (evt.target == evt.currentTarget) {
+//   //     closeAllModalClose();
+//   //   }
+// }
+
+// function onSignInLink() {
+//   backdropSignUp.classList.toggle('is-hidden');
+//   backdropSignIn.classList.toggle('is-hidden');
+//   signInForm.reset();
+//   signInErrorText.classList.remove('none');
+// }
+
+// signInBtn.addEventListener('click', onSignInBtn);
+// signInCloseBtn.addEventListener('click', onModalClose);
+// signUpLink.addEventListener('click', onSignUp);
+// signUpCloseBtn.addEventListener('click', onSignUpClose);
+// signInLink.addEventListener('click', onSignInLink);
+// formSignUp.addEventListener('submit', handleSub);
+
+// signInErrorText.classList.add('none');
+
+// function handleSub(event) {
+//   event.preventDefault();
+//   const userInfo = { password: null, email: null };
+//   const {
+//     elements: { password, passwordRepeat, email },
+//   } = event.currentTarget;
+
+//   userInfo.email = email.value;
+//   userInfo.password = password.value;
+
+//   if (password.value !== passwordRepeat.value) {
+//     passwordNotMatchAlert.classList.toggle('none');
+//   } else {
+//     passwordNotMatchAlert.classList.add('none');
+//     getSignUpRes(userInfo);
+//   }
+// }
+
+// export function toggleHeaderBtnValue() {
+//   signInBtn.classList.toggle('none');
+//   btnValueOut.classList.toggle('none');
+// }
+
+// async function getSignUpRes(userInfo) {
+//   const res = await signUp(userInfo);
+//   console.log(res);
+//   if (res === 409) {
+//     accountCreatedText.classList.toggle('none');
+//   } else {
+//     accountCreatedText.classList.add('none');
+//     onSignUpClose();
+//     toggleHeaderBtnValue();
+//     btnLoginWrap.insertAdjacentHTML(
+//       'afterbegin',
+//       `<p data-hello>Hello, ${userInfo.email}</p>`
+//     );
+
+//     // const response = await logIn(userInfo);
+//     localStorage.setItem('token', response.token);
+//   }
+// }
+// // ----------------------------- LogOut
+
+// btnValueOut.addEventListener('click', logoutRes);
+// btnValueOut.addEventListener('click', homeBtnClick);
+
+// async function logoutRes() {
+//   toggleHeaderBtnValue();
+//   btnLoginWrap.firstChild.remove();
+//   await logOut();
+//   localStorage.removeItem(TOKEN);
+//   localStorage.removeItem('token');
+// }
+// //-----------------------------SignIn
+
+// signInForm.addEventListener('submit', onSignInModalBtn);
+
+// function onSignInModalBtn(event) {
+//   event.preventDefault();
+
+//   const userInfo = { password: null, email: null };
+//   const {
+//     elements: { password, email },
+//   } = event.currentTarget;
+
+//   userInfo.email = email.value;
+//   userInfo.password = password.value;
+//   signInModalRes(userInfo);
+// }
+
+// // async function validationRes
+
+// async function signInModalRes(userData) {
+//   const res = await logIn(userData);
+//   if (res === 401) {
+//     signInErrorText.classList.remove('none');
+//   } else {
+//     backdropSignIn.classList.toggle('is-hidden');
+//     toggleHeaderBtnValue();
+//     btnLoginWrap.insertAdjacentHTML(
+//       'afterbegin',
+//       `<p data-hello>Hello, ${userData.email}</p>`
+//     );
+//     localStorage.setItem(TOKEN, res.token);
+//     console.log(localStorage.getItem(TOKEN));
+//   }
+// }
+import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { signUp, logIn, logOut } from './API/auth';
 import { loginReload } from './loginReload';
@@ -13,7 +205,8 @@ const {
   signUpCloseBtn,
   signInLink,
   formSignUp,
-  passwordNotMatchAlert,ueIn,
+  passwordNotMatchAlert,
+  ueIn,
   toSignUpBtn,
   accountCreatedText,
   btnValueIn,
@@ -24,7 +217,6 @@ const {
 } = refs;
 
 let TOKEN = 'token';
-
 export default TOKEN;
 
 loginReload();
@@ -56,7 +248,7 @@ function closeAllModalClose() {
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
   backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');n
+  backdropSignIn.classList.toggle('is-hidden');
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
@@ -116,7 +308,24 @@ function handleSub(event) {
     passwordNotMatchAlert.classList.toggle('none');
   } else {
     passwordNotMatchAlert.classList.add('none');
-    getSignUpRes(userInfo);
+    Notiflix.Notify.success(
+      'To continue registration,please, confirm your email'
+    );
+    backdropSignUp.classList.toggle('is-hidden');
+
+    saveTokenReg(userInfo);
+  }
+}
+
+async function saveTokenReg(userInfo) {
+  const res = await signUp(userInfo);
+  console.log(res);
+  if (res === 409) {
+    accountCreatedText.classList.toggle('none');
+  } else {
+    accountCreatedText.classList.add('none');
+    onSignUpClose();
+    localStorage.setItem('token', response.token);
   }
 }
 
@@ -138,8 +347,6 @@ async function getSignUpRes(userInfo) {
       'afterbegin',
       `<p data-hello>Hello, ${userInfo.email}</p>`
     );
-
-    // const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }
 }
@@ -169,15 +376,35 @@ function onSignInModalBtn(event) {
 
   userInfo.email = email.value;
   userInfo.password = password.value;
-  signInModalRes(userInfo);
+  signInModalResIsActivate(userInfo);
 }
 
 // async function validationRes
 
-async function signInModalRes(userData) {
+// async function signInModalRes(userData) {
+//   const res = await logIn(userData);
+//   if (res === 401) {
+//     signInErrorText.classList.remove('none');
+//   } else {
+//     backdropSignIn.classList.toggle('is-hidden');
+//     toggleHeaderBtnValue();
+//     btnLoginWrap.insertAdjacentHTML(
+//       'afterbegin',
+//       `<p data-hello>Hello, ${userData.email}</p>`
+//     );
+//     localStorage.setItem(TOKEN, res.token);
+//     console.log(localStorage.getItem(TOKEN));
+//   }
+// }
+
+async function signInModalResIsActivate(userData) {
   const res = await logIn(userData);
+  console.log(res);
   if (res === 401) {
     signInErrorText.classList.remove('none');
+  } else if (!res === 401 && res.isActivate === false) {
+    // token.unset();
+    Notiflix.Notify.failure('You have not verified your email');
   } else {
     backdropSignIn.classList.toggle('is-hidden');
     toggleHeaderBtnValue();
