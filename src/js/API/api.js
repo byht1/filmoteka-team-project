@@ -122,7 +122,6 @@ export const dataSearchGenre = async (id, page = 1) => {
     const server = await serverMovie.get(
       `3/discover/movie?api_key=${KEY}&with_genres=${id}&page=${page}&sort_by=popularity.desc&include_adult=false&include_video=false&language=${language}`
     );
-    console.log('🚀 ~ server', server);
     const data = await server.data;
     return data;
   } catch (error) {

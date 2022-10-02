@@ -1,15 +1,22 @@
-<div class="search-wrap">
-    <div class="searchbar-container">
-        <form class="search-bar">
-            <input class="search-bar__input" type="text" name="searchQuery" placeholder="Movie search" />
-        </form>
+<div class="search-wrap container">
+  <div class="searchbar-container">
+    <form class="search-bar">
+      <div class="search-bar-box">
+        <input
+          class="search-bar__input"
+          type="text"
+          name="searchQuery"
+          placeholder="Movie search"
+        />
         <button class="search-form__button" type="submit">
-            <svg class="search-icon-svg" width="12" height="12">
-                <use href="./images/symbol-defs.svg#icon-lens"></use>
-            </svg>
+          <svg class="search-icon-svg" width="12" height="12">
+            <use href="./images/symbol-defs.svg#icon-lens"></use>
+          </svg>
         </button>
-    </div>
-    <p class="search-bar__wrong-querry search-error-text-js">
-        Search result not successful. Enter the correct movie name.
-    </p>
+      </div>
+    </form>
+  </div>
+  <p class="search-bar__wrong-querry search-error-text-js is-open">
+    Search result not successful. Enter the correct movie name.
+  </p>
 </div>
