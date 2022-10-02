@@ -12,7 +12,7 @@ export default class Pagination {
   constructor(root, options) {
     this.root = root;
     this.options = options;
-    this.current = this.options.curr;
+    this.current = this.options.firstCurrentPage;
     this.items = [];
     
     this.init();

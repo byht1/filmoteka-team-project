@@ -11,7 +11,7 @@ export default function createPagination(data) {
   const pagination = new Pagination(
     refs.paginationList,
     {
-      curr: 1,
+      firstCurrentPage: 1,
       slots: 9,
       total: totalPages,
       onChange: page => {

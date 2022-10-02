@@ -11,16 +11,11 @@
     justify-content: center;
 
     .pagination-item {
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-
         width: 40px;
         height: 40px;
 
         border-radius: 5px;
         background-color: inherit;
-        // background-color: var(--footer-background-color);
         color: var(--color-title);
         
         &.prev {
@@ -29,7 +24,6 @@
             background-image: url(../images/pagination/arrow-left.svg);
             background-repeat: no-repeat;
             background-position: center;
-            stroke: #ffffff;
         }
 
         &.next {
@@ -57,11 +51,11 @@
         color: var(--background-color);
         background-color: var(--accent);
     }
-    
-    span {
-        padding-bottom: 10px;
-        cursor: pointer;
-        // width:
+
+    span.pagination-item {
+        width: 11px;
+        padding-bottom: 12px;
+        pointer-events: none;
         display: flex;
         justify-content: center;
         align-items: center;
