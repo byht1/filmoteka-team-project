@@ -4,6 +4,9 @@ import { renderFilmGallery } from '../movies';
 import { dataMovieList } from '../API/api';
 
 export default function createPagination(data) {
+  if (refs.paginationList.classList.contains('pagination-list')) {
+    refs.paginationList.innerHTML = '';
+  }
   const totalPages = data.total_pages;
   const pagination = new Pagination(
     document.querySelector('[data-pagination]'),

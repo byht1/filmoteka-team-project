@@ -20,6 +20,11 @@ refs.queueButton.addEventListener('click', onQueueClick);
 
 export function homeBtnClick(e) {
   e.preventDefault();
+
+  if (refs.navPageHome.classList.contains('current')) {
+    return;
+  }
+  
   refs.header.classList.remove('header--library');
   refs.navPageHome.classList.add('current');
   refs.navPageLib.classList.remove('current');
@@ -30,9 +35,14 @@ export function homeBtnClick(e) {
 
 function libBtnClick(e) {
   e.preventDefault();
+
+  if (refs.navPageLib.classList.contains('current')) {
+    return;
+  }
   if (localStorage.getItem('token') === null) {
     return onSignInBtn();
   }
+  
   refs.header.classList.add('header--library');
   refs.navPageLib.classList.add('current');
   refs.navPageHome.classList.remove('current');
