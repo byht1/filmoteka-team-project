@@ -1,11 +1,5 @@
 
 header {
-    padding: 44px 0 62px;
-    padding: 44px 0 20px;
-    @include tablet {
-        padding: 40px 0 60px;
-    }
-
     min-width: 320px;
     width: 100%;
     background-color: var(--background-color);
@@ -47,7 +41,6 @@ header {
 .header--library {
     min-width: 320px;
     width: 100%;
-    padding-top: 20px;
     background-color: var(--background-color);
     background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
     background-position: center;
@@ -90,6 +83,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 20px;
 }
 
 .navigation__menu {

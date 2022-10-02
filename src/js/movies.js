@@ -42,3 +42,22 @@ export async function renderFilmGallery(movies) {
     .join('');
   refs.movieGallery.innerHTML = markup;
 }
+
+const showOnPx = 100;
+
+const scrollContainer = () => {
+  return document.documentElement || document.body;
+};
+
+document.addEventListener('scroll', () => {
+  if (scrollContainer().scrollTop > showOnPx) {
+    refs.scrolltopBtn.classList.remove('visually-hidden');
+  } else {
+    refs.scrolltopBtn.classList.add('visually-hidden');
+  }
+});
+
+const goToTop = () => {
+  document.body.scrollIntoView();
+};
+refs.scrolltopBtn.addEventListener('click', goToTop);
