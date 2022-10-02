@@ -1,105 +1,85 @@
+
 header{
     min-width: 320px;
     width: 100%;
     background-color: var(--background-color);
-        background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@1x.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow-x: hidden;
-    
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: (192dpi)),
-        (min-resolution: (2dppx)) {
-            background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@2x.jpg);
-            ;
-        }
-        @include tablet {
+    background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@1x.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+        background-image: url(../images/header-home/abstract-background-with-red-lines-mobile@2x.jpg);
+    }
+    @include tablet {
         background-color: var(--background-color);
-            background-image: url('../images/header-home/abstract-background-with-red-lines-table@1s.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            overflow-x: hidden;
-        
-            @media (min-device-pixel-ratio: 2),
-            (min-resolution: (192dpi)),
-            (min-resolution: (2dppx)) {
-                background-image: url('../images/header-home/abstract-background-with-red-lines-table@2x.jpg');
-                ;
-            }
-        }
-        @include desktop {
-            background-color: var(--background-color);
-                background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@1x.jpg');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                overflow-x: hidden;
-            
-                @media (min-device-pixel-ratio: 2),
-                (min-resolution: (192dpi)),
-                (min-resolution: (2dppx)) {
-                    background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@2x.jpg');
-                    ;
-                }
-            }
-        }
-
-.header--library {
-
-
-        min-width: 320px;
-        width: 100%;
-
-    background-color: var(--background-color);
-        background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
+        background-image: url('../images/header-home/abstract-background-with-red-lines-table@1s.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         overflow-x: hidden;
-    
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: (192dpi)),
-        (min-resolution: (2dppx)) {
-            background-image: url('../images/header-library/Rectangle-mobail@2x.jpg');
-            ;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+            background-image: url('../images/header-home/abstract-background-with-red-lines-table@2x.jpg');
         }
-    
-        @include tablet {
-            background-color: var(--background-color);
-            background-image: url('../images/header-library/Rectangle-tablet@1x.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            overflow-x: hidden;
-    
-            @media (min-device-pixel-ratio: 2),
-            (min-resolution: (192dpi)),
-            (min-resolution: (2dppx)) {
-                background-image: url('../images/header-library/Rectangle-tablet@2x.jpg');
-                ;
-            }
+    }
+    @include desktop {
+        background-color: var(--background-color);
+        background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@1x.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+            background-image: url('../images/header-home/abstract-background-with-red-lines-desktop@2x.jpg');
         }
-    
-        @include desktop {
-            background-color: var(--background-color);
-            background-image: url('../images/header-library/Rectangle-desktop@1x.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            overflow-x: hidden;
-    
-            @media (min-device-pixel-ratio: 2),
-            (min-resolution: (192dpi)),
-            (min-resolution: (2dppx)) {
-                background-image: url('../images/header-library/Rectangle-desktop@2x.jpg');
-                ;
-            }
-        }
+    }
 }
 
+.header--library {
+    height: 230px;
+    min-width: 320px;
+    width: 100%;
+    padding-top: 20px;
+    background-color: var(--background-color);
+    background-image: url('../images/header-library/Rectangle-mobail@1x.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
 
+    @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+        background-image: url('../images/header-library/Rectangle-mobail@2x.jpg');
+    }
+
+    @include tablet {
+        background-color: var(--background-color);
+        background-image: url('../images/header-library/Rectangle-tablet@1x.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+            background-image: url('../images/header-library/Rectangle-tablet@2x.jpg');
+        }
+    }
+
+    @include desktop {
+        background-color: var(--background-color);
+        background-image: url('../images/header-library/Rectangle-desktop@1x.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: (192dpi)), (min-resolution: (2dppx)) {
+            background-image: url('../images/header-library/Rectangle-desktop@2x.jpg');
+        }
+    }
+}
 
 .navigation {
     display: flex;
@@ -107,8 +87,6 @@ header{
     justify-content: space-between;
     padding-top: 20px;
 }
-
-
 
 .navigation__menu {
     margin-left: auto;
@@ -128,37 +106,36 @@ header{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     &:last-child {
-            margin-left: 40px;}
-    &:active{
+        margin-left: 40px;
+    }
+    &:active {
         font-size: 12px;
-            line-height: 14px;
-            font-weight: 500;
-            color: var(--header-color-text);
-            text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        line-height: 14px;
+        font-weight: 500;
+        color: var(--header-color-text);
+        text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     }
     &:focus {
         font-size: 12px;
-            line-height: 14px;
-            font-weight: 500;
-            color: var(--header-color-text);
-            text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        line-height: 14px;
+        font-weight: 500;
+        color: var(--header-color-text);
+        text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     }
 }
 
-
-.current::after{
-        content: "";
-            border: 1px solid var(--error);
-            position: absolute;
-            width: 100%;
-            bottom: 30%;
-            left: 0;
-    }
-
+.current::after {
+    content: '';
+    border: 1px solid var(--error);
+    position: absolute;
+    width: 100%;
+    bottom: 30%;
+    left: 0;
+}
 
 .current:active {
     &::after {
-        content: "";
+        content: '';
 
         border: 2px solid var(--error);
         position: absolute;
@@ -169,7 +146,7 @@ header{
 }
 .current:hover {
     &::after {
-        content: "";
+        content: '';
 
         border: 2px solid var(--error);
         position: absolute;
@@ -189,16 +166,16 @@ header{
     display: flex;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
-    &:focus{
+    &:focus {
         transform: scale(1.1);
     }
 }
-.logo-name{
+.logo-name {
     color: var(--header-color-text);
     font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 35px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
     display: none;
     @include tablet {
         display: flex;
