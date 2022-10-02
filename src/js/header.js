@@ -20,17 +20,16 @@ refs.queueButton.addEventListener('click', onQueueClick);
 
 export function homeBtnClick(e) {
   e.preventDefault();
-
+  renderMovies(dataMovieList());
   if (refs.navPageHome.classList.contains('current')) {
     return;
   }
-  
+
   refs.header.classList.remove('header--library');
   refs.navPageHome.classList.add('current');
   refs.navPageLib.classList.remove('current');
   refs.searchWrap.classList.remove('visually-hidden');
   refs.libWrap.classList.add('visually-hidden');
-  renderMovies(dataMovieList());
 }
 
 function libBtnClick(e) {
@@ -42,7 +41,7 @@ function libBtnClick(e) {
   if (localStorage.getItem('token') === null) {
     return onSignInBtn();
   }
-  
+
   refs.header.classList.add('header--library');
   refs.navPageLib.classList.add('current');
   refs.navPageHome.classList.remove('current');
