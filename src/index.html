@@ -8,11 +8,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./sass/index.scss" />
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png" />
+        <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
         <script type="module" src="./index.js"></script>
     </head>
     <body>
         <include src="./partials/preLoader.html"></include>
-
         <header>
             <!-- Header -->
             <include src="./partials/nav.html"></include>
@@ -24,14 +31,14 @@
             <include src="./partials/interface.html"></include>
         </header>
 
-    <main>
-      <!-- Фільтрація по жанрам -->
-      <include src="./partials/genere.html"></include>
-      <!-- Картки фільмів -->
-      <include src="./partials/movie.html"></include>
-      <!-- Пагінація -->
-      <include src="./partials/pagination.html"></include>
-    </main>
+        <main>
+            <!-- Фільтрація по жанрам -->
+            <include src="./partials/genere.html"></include>
+            <!-- Картки фільмів -->
+            <include src="./partials/movie.html"></include>
+            <!-- Пагінація -->
+            <include src="./partials/pagination.html"></include>
+        </main>
 
         <!-- Footer -->
         <include src="./partials/footer.html"></include>
@@ -44,5 +51,7 @@
         <include src="./partials/modalTeam.html"></include>
         <!-- Авторизація -->
         <include src="./partials/login.html"></include>
+
+        <script type="module" src="./index.js"></script>
     </body>
 </html>

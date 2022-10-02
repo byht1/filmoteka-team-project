@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { signUp, logIn, logOut } from './API/auth';
 import { loginReload } from './loginReload';
 import { token, validate } from './API/auth';
+import { homeBtnClick } from './header';
 
 const {
   signInBtn,
@@ -143,11 +144,13 @@ async function getSignUpRes(userInfo) {
 // ----------------------------- LogOut
 
 btnValueOut.addEventListener('click', logoutRes);
+btnValueOut.addEventListener('click', homeBtnClick);
 
 async function logoutRes() {
   toggleHeaderBtnValue();
   btnLoginWrap.firstChild.remove();
   await logOut();
+  localStorage.removeItem('token');
 }
 //-----------------------------SignIn
 
