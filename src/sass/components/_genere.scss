@@ -1,8 +1,13 @@
 .genere-section {
+  display: none;
   position: relative;
   background-color: var(--footer-background-color);
 
   transition: background-color 250ms linear;
+
+  @include tablet {
+    display: block;
+  }
 
   .container {
     position: relative;
@@ -13,7 +18,6 @@
 .genere-section.general-show {
 }
 .genre-box {
-  width: 1216px;
   position: absolute;
   top: 0;
 
@@ -24,6 +28,15 @@
   margin: 0 auto;
 
   transition: transform 250ms linear, opacity 250ms linear;
+
+  @include tablet {
+    display: block;
+    width: 704px;
+  }
+
+  @include desktop {
+    width: 1216px;
+  }
 }
 
 .genre-box.general-show {
