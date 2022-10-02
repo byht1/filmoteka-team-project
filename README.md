@@ -13,6 +13,10 @@
 1. `Каскадер / Розробник` Yanik Rikhter
 1. `Лінійний продюсер / Розробник` Люда
 
+### [Репизоторій живого backend](https://github.com/byht1/filmoteka-server);
+
+### [Живого backend](https://filmoteka-server.herokuapp.com);
+
 ## ABOUT
 
 Колись зорі склались так, що ці люди зібрались разом, щоб створити щось
