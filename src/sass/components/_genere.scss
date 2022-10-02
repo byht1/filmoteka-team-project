@@ -1,6 +1,35 @@
+.genere-section {
+  position: relative;
+  background-color: var(--footer-background-color);
+
+  transition: background-color 250ms linear;
+
+  .container {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.genere-section.general-show {
+}
 .genre-box {
-  display: flex;
-  align-items: center;
+  width: 1216px;
+  position: absolute;
+  top: 0;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  margin: 0 auto;
+
+  transition: transform 250ms linear, opacity 250ms linear;
+}
+
+.genre-box.general-show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .text {
@@ -11,18 +40,34 @@
 }
 
 .genre-box-button {
-  padding: 16px 0 16px 0;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto, minmax(290px, 1fr));
-  gap: 5px;
-  justify-items: center;
-  align-items: center;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
 .genre__button {
   padding: 10px;
   border-radius: 4px;
-  background-color: red;
-  min-width: 150px;
+  background-color: var(--accent);
+  min-width: 100px;
+  color: var(--color-title);
+}
+
+.show-burron-general {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+
+  background-color: transparent;
+
+  color: var(--header-color-text);
 }
