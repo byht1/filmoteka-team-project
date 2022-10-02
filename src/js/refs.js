@@ -1,6 +1,8 @@
 export const refs = {
   // preLoader
-  preLoader: document.getElementById('page-preloader'),
+  preLoader: document.querySelector('.loader'),
+	backdrop: document.querySelector('.backdrop__loader'),
+
   // header
   navLogo: document.querySelector('.navigation__logo'),
   navPage: document.querySelector('.navigation__page'),
