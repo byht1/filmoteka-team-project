@@ -102,7 +102,7 @@ export const dataTrailer = async id => {
   const language = whatLanguage();
   try {
     const server = await axios.get(
-      `3/movie/${id}/videos?api_key=${KEY}/language=${language}`
+      `3/movie/${id}/videos?api_key=${KEY}&language=${language}`
     );
     const data = await server.data;
     return data;

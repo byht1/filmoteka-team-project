@@ -32,6 +32,7 @@ export const refs = {
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
   // modalMovie
+  movieDataContainer: document.querySelector('.movie-data'),
   openMovieModal: document.querySelector('[data-movie-modal-open]'),
   closeMovieModalBtn: document.querySelector('[data-movie-modal-close]'),
   movieModalBackdrop: document.querySelector('[data-movie-modal-backdrop]'),
