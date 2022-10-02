@@ -41,7 +41,6 @@ function onGalleryClick(e) {
 
 function onAddWatchedBtnClick(e) {
   const valueFromStorage = loadFromStorage(STORAGE_KEY);
-  console.log(valueFromStorage);
   if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
@@ -60,7 +59,6 @@ function onAddWatchedBtnClick(e) {
 
 function onQueueBtnClick(e) {
   const valueFromStorage = loadFromStorage(STORAGE_KEY);
-  console.log(valueFromStorage);
   if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
