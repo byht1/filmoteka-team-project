@@ -10,8 +10,8 @@ import { changeLanguageGenre } from './genre';
 refs.changeLanguage.addEventListener('input', changeLanguage);
 
 function changeLanguage(evt) {
-  // true - ukr
-  // fasle - eng
+    // true - ukr
+    // fasle - eng
     if (evt.target.checked) {
         refs.html.setAttribute('lang', 'uk');
         localStorage.setItem('lang', 'uk');
@@ -27,7 +27,6 @@ function changeLanguage(evt) {
 
 function chechedLocalStorageLanguage() {
     if (localStorage.getItem('lang') == null) {
-        console.log('local storege is empty');
         return;
     } else {
         let lang = localStorage.getItem('lang');
