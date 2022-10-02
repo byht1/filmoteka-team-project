@@ -32,7 +32,7 @@
     0px 1px 1px rgba(245, 87, 87, 0.14), 0px 2px 1px rgba(255, 32, 32, 0.2);
   border-radius: 10px;
   width: 93.7vw;
-  height: 76.5vh;
+  height: 86.5vh;
   overflow-y: auto;
   max-width: 450px;
   max-height: 470px;
@@ -187,8 +187,11 @@
 }
 
 .registration__modal-new {
-  margin-top: 60px;
+  margin-top: 40px;
   color: var(--params-name);
+  @include tablet {
+    margin-top: 60px;
+  }
 }
 
 .registration__modal-link {
