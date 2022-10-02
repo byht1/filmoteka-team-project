@@ -58,8 +58,9 @@ function onAddWatchedBtnClick(e) {
     return;
   }
 
-  addMovieToWatched(idOfMovie, e.target);
   isIdInQueue(idOfMovie);
+
+  addMovieToWatched(idOfMovie, e.target);
 }
 
 function onQueueBtnClick(e) {
@@ -78,9 +79,9 @@ function onQueueBtnClick(e) {
 
     return;
   }
+  isIdInWached(idOfMovie);
 
   addMovieToQueue(idOfMovie, e.target);
-  isIdInWached(idOfMovie);
 }
 
 async function checkAllWatched() {
@@ -104,6 +105,8 @@ async function checkAllWatched() {
 
     allWatchedArray = [];
     allWatchedArray = data.map(element => element.id);
+
+    console.log('allWatchedArray', allWatchedArray);
   } catch (error) {
     console.error(error);
   }
@@ -130,6 +133,8 @@ async function checkAllQueue() {
 
     allQueueArray = [];
     allQueueArray = data.map(element => element.id);
+
+    console.log('allQueueArray', allQueueArray);
   } catch (error) {
     console.error(error);
   }
@@ -156,16 +161,16 @@ async function addMovieToQueue(idOfMovie, target) {
 }
 
 function isIdInQueue(idOfMovie) {
-  const isIdInQueue = allQueueArray.find(element => element.id === idOfMovie);
+  const isIdInQueue = allQueueArray.includes(idOfMovie);
+  console.log('in watched', isIdInQueue);
   if (isIdInQueue) {
     deleteMovieFromQueue(idOfMovie, refs.queueBtn);
   }
 }
 
 function isIdInWached(idOfMovie) {
-  const isIdInWached = allWatchedArray.find(
-    element => element.id === idOfMovie
-  );
+  const isIdInWached = allWatchedArray.includes(idOfMovie);
+  console.log('in queue', isIdInWached);
   if (isIdInWached) {
     deleteMovieFromWatched(idOfMovie, refs.watchedBtn);
   }
