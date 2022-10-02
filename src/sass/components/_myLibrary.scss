@@ -1,7 +1,13 @@
 .library-button__container{
     padding-top: 40px;
     padding-bottom: 15px;
-    @include flexCenter()
+    display: flex;
+    justify-content: flex-end;
+
+    @include desktop {
+        @include flexCenter()
+    }
+
 }
 
 .library-button__watched {
