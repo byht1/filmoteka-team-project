@@ -155,4 +155,5 @@ export const refs = {
   btnValueOut: document.querySelector('[data-btn-value-out]'),
   signInForm: document.querySelector('[data-signIn-form]'),
   signInErrorText: document.querySelector('[data-signin-errorText]'),
+  noEmailText: document.querySelector('[data-signin-noEmailText]'),
 };
