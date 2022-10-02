@@ -3,15 +3,15 @@ export const saveToStorage = (key, value) => {
     const serializedState = JSON.stringify(value);
     localStorage.setItem(key, serializedState);
   } catch (error) {
-    console.error('Set state error: ', error.message);
+    // console.error('Set state error: ', error.message);
   }
 };
 
 export const loadFromStorage = key => {
   try {
     const serializedState = localStorage.getItem(key);
-    return serializedState === null ? undefined : JSON.parse(serializedState);
+    return serializedState === null ? undefined : serializedState;
   } catch (error) {
-    console.error('Get state error: ', error.message);
+    // console.error('Get state error: ', error.message);
   }
 };

@@ -6,7 +6,7 @@ import {
 } from './shiftActionOfBtn';
 import { refs } from './refs';
 import { onSignInBtn } from './login';
-
+import { loadFromStorage } from './storage';
 import {
   add,
   allQueue,
@@ -15,6 +15,7 @@ import {
   deleteQueue,
 } from './API/userData';
 
+const STORAGE_KEY = 'token';
 let idOfMovie = '';
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
@@ -39,8 +40,8 @@ function onGalleryClick(e) {
 }
 
 function onAddWatchedBtnClick(e) {
-  const checkValidateUser = true;
-  if (!checkValidateUser) {
+  const valueFromStorage = loadFromStorage(STORAGE_KEY);
+  if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
   }
@@ -57,8 +58,8 @@ function onAddWatchedBtnClick(e) {
 }
 
 function onQueueBtnClick(e) {
-  const checkValidateUser = true;
-  if (!checkValidateUser) {
+  const valueFromStorage = loadFromStorage(STORAGE_KEY);
+  if (!valueFromStorage || valueFromStorage === '') {
     onSignInBtn();
     return;
   }
