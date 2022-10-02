@@ -3,6 +3,7 @@ import { signUp, logIn, logOut } from './API/auth';
 import { loginReload } from './loginReload';
 import { token, validate } from './API/auth';
 import { homeBtnClick } from './header';
+import Notiflix from 'notiflix';
 
 const {
   signInBtn,
@@ -13,14 +14,13 @@ const {
   signUpCloseBtn,
   signInLink,
   formSignUp,
-  passwordNotMatchAlert,ueIn,
-  toSignUpBtn,
+  passwordNotMatchAlert,
   accountCreatedText,
-  btnValueIn,
   btnValueOut,
   btnLoginWrap,
   signInForm,
   signInErrorText,
+  noEmailText,
 } = refs;
 
 let TOKEN = 'token';
@@ -56,7 +56,7 @@ function closeAllModalClose() {
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
   backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');n
+  backdropSignIn.classList.toggle('is-hidden');
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
@@ -81,9 +81,9 @@ function onModalClose() {
 function onSignUpClose(evt) {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
-  //   if (evt.target == evt.currentTarget) {
-  //     closeAllModalClose();
-  //   }
+  // if (evt.target == evt.currentTarget) {
+  //   closeAllModalClose();
+  // }
 }
 
 function onSignInLink() {
@@ -131,18 +131,15 @@ async function getSignUpRes(userInfo) {
   if (res === 409) {
     accountCreatedText.classList.toggle('none');
   } else {
-    accountCreatedText.classList.add('none');
     onSignUpClose();
-    toggleHeaderBtnValue();
-    btnLoginWrap.insertAdjacentHTML(
-      'afterbegin',
-      `<p data-hello>Hello, ${userInfo.email}</p>`
+    Notiflix.Notify.success(
+      'To continue registration,please, confirm your email'
     );
-
     // const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }
 }
+
 // ----------------------------- LogOut
 
 btnValueOut.addEventListener('click', logoutRes);
@@ -176,8 +173,14 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
+  console.log(res);
   if (res === 401) {
     signInErrorText.classList.remove('none');
+    noEmailText.classList.add('none');
+  } else if (!res.isActivate) {
+    noEmailText.classList.remove('none');
+    signInErrorText.classList.add('none');
+    // backdropSignIn.classList.toggle('is-hidden');
   } else {
     backdropSignIn.classList.toggle('is-hidden');
     toggleHeaderBtnValue();
