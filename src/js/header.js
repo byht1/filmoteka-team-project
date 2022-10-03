@@ -23,10 +23,12 @@ export function homeBtnClick(e) {
   e.preventDefault();
   renderMovies(dataMovieList());
   show();
+  if (refs.paginationSection.classList.contains('is-hidden')) {
+    refs.paginationSection.classList.remove('is-hidden');
+  }
   if (refs.navPageHome.classList.contains('current')) {
     return;
   }
-
   refs.header.classList.remove('header--library');
   refs.navPageHome.classList.add('current');
   refs.navPageLib.classList.remove('current');

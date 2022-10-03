@@ -1,35 +1,34 @@
 import { dataAuthorMovie } from './API/api';
 import { closeMovieModal } from './modalMovie';
 import { closeActorsModal } from './modalActors';
-import { renderMovies } from './movies';
+import { renderFilmGallery } from './movies';
 import { refs } from './refs';
+import { clearFilmsContainer } from './pagination/pagination-api';
 
-refs.actorsContainer.addEventListener('click', searchMoviesByActor);
+const { paginationSection } = refs;
+
+const actorBox = document.querySelector('.js-actor-list');
+
+actorBox.addEventListener('click', searchMoviesByActor);
 
 async function movieListByActorMarkup(id) {
-  const actorMovies = await dataAuthorMovie(id);
+  if (!id) {
+    return;
+  }
+  const { cast: results } = await dataAuthorMovie(id);
 
-  const movies = actorMovies.cast;
-
-  renderMoviesByActor(movies);
-}
-
-function clearMovieGallery() {
-  refs.movieGallery.innerHTML = '';
-}
-
-function renderMoviesByActor(movieList) {
-  return movieList.map(movie => {
-    renderMovies(movie);
-  });
+  const data = {
+    results: results.filter((x, i) => i < 20),
+  };
+  clearFilmsContainer();
+  renderFilmGallery(data);
+  paginationSection.classList.add('is-hidden');
 }
 
 function searchMoviesByActor(event) {
-  event.preventDefault;
-
+  console.log(1);
   closeActorsModal();
   closeMovieModal();
-  clearMovieGallery();
 
   const isImageElement = event.target;
 
@@ -39,7 +38,7 @@ function searchMoviesByActor(event) {
 
   const parentOfImageElement = isImageElement.closest('.actors__item');
 
-  actorId = parentOfImageElement.dataset.id;
+  const actorId = parentOfImageElement.dataset.actor;
 
   movieListByActorMarkup(actorId);
 }

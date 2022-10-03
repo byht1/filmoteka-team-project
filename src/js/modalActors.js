@@ -15,7 +15,7 @@ export async function renderActorsModal(id) {
 
   const actorsModalMarkup = actorsList
     .map(({ id, character, name, profile_path }) => {
-      return `<li class="actors__item" data-actor-${id}>
+      return `<li class="actors__item" data-actor="${id}">
           <div class="actors__link">
             <div class="actors__wrap wrap">
               <img

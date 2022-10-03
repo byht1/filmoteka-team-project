@@ -158,4 +158,5 @@ export const refs = {
   signInForm: document.querySelector('[data-signIn-form]'),
   signInErrorText: document.querySelector('[data-signin-errorText]'),
   noEmailText: document.querySelector('[data-signin-noEmailText]'),
+  paginationSection: document.querySelector('.pagination'),
 };
