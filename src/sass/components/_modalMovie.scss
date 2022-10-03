@@ -46,7 +46,7 @@
     @include tablet {
         top: 10%;
         min-width: 704px;
-        height: 562px;
+        // height: 562px;
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-gap: 68px;
@@ -57,7 +57,7 @@
 
     @include desktop {
         min-width: 806px;
-        height: 568px;
+        // height: 568px;
         padding: 40px 12px 40px 12px;
         grid-gap: 16px;
     }
