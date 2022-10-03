@@ -8,7 +8,7 @@ export function preLoaderHide() {
     setTimeout(() => {
         preLoader.classList.add('is-hidden');
         backdrop.classList.add('is-hidden');
-    }, 1000);
+    }, 250);
 }
 
 export function preLoaderShow() {
