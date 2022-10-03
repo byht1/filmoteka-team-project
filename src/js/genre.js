@@ -13,7 +13,7 @@ showGenreButton.addEventListener('click', function (e) {
 
 outputGenre();
 
-async function outputGenre() {
+export async function outputGenre() {
   const allGenres = await dataGenre();
   const markup = allGenres.genres
     .map(genre => {
