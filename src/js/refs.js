@@ -32,12 +32,15 @@ export const refs = {
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
   // modalMovie
+  moviePosterContainer: document.querySelector('.movie-poster'),
   movieDataContainer: document.querySelector('.movie-data'),
   openMovieModal: document.querySelector('[data-movie-modal-open]'),
   closeMovieModalBtn: document.querySelector('[data-movie-modal-close]'),
   movieModalBackdrop: document.querySelector('[data-movie-modal-backdrop]'),
   movieModal: document.querySelector('[data-movie-modal]'),
   // modalActors
+  actorsContainer: document.querySelector('.actors-modal__container'),
+  actorsModalContainer: document.querySelector('.actors'),
   openActorsModalBtn: document.querySelector('[data-actors-modal-open]'),
   closeActorsModalBtn: document.querySelector('[data-actors-modal-close]'),
   actorsModalBackdrop: document.querySelector('[data-actors-modal-backdrop]'),

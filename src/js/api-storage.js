@@ -17,8 +17,6 @@ import {
 
 const STORAGE_KEY = 'token';
 let idOfMovie = '';
-let allWatchedArray = [];
-let allQueueArray = [];
 
 refs.movieGallery.addEventListener('click', onGalleryClick);
 refs.watchedBtn.addEventListener('click', onAddWatchedBtnClick);
@@ -48,9 +46,9 @@ function onAddWatchedBtnClick(e) {
     return;
   }
 
-  checkAllQueue();
-
   checkAllWatched();
+
+  checkAllQueue();
 
   if (e.target.dataset.action === 'removeById') {
     deleteMovieFromWatched(idOfMovie, e.target);
@@ -59,7 +57,10 @@ function onAddWatchedBtnClick(e) {
   }
 
   addMovieToWatched(idOfMovie, e.target);
-  isIdInQueue(idOfMovie);
+
+  if (refs.queueBtn.dataset.action === 'removeById') {
+    deleteMovieFromQueue(idOfMovie, refs.queueBtn);
+  }
 }
 
 function onQueueBtnClick(e) {
@@ -80,7 +81,10 @@ function onQueueBtnClick(e) {
   }
 
   addMovieToQueue(idOfMovie, e.target);
-  isIdInWached(idOfMovie);
+
+  if (refs.watchedBtn.dataset.action === 'removeById') {
+    deleteMovieFromWatched(idOfMovie, refs.watchedBtn);
+  }
 }
 
 async function checkAllWatched() {
@@ -96,14 +100,13 @@ async function checkAllWatched() {
       data: { data },
     } = response;
 
+    console.log('watched', data);
+
     const containsId = data.find(element => element.id === idOfMovie);
 
     containsId
       ? shiftActionToRemoveByWatched(refs.watchedBtn)
       : shiftActionToAddByWatched(refs.watchedBtn);
-
-    allWatchedArray = [];
-    allWatchedArray = data.map(element => element.id);
   } catch (error) {
     console.error(error);
   }
@@ -122,14 +125,13 @@ async function checkAllQueue() {
       data: { data },
     } = response;
 
+    console.log('queue', data);
+
     const containsId = data.find(element => element.id === idOfMovie);
 
     containsId
       ? shiftActionToRemoveByQueue(refs.queueBtn)
       : shiftActionToAddByQueue(refs.queueBtn);
-
-    allQueueArray = [];
-    allQueueArray = data.map(element => element.id);
   } catch (error) {
     console.error(error);
   }
@@ -153,20 +155,4 @@ async function deleteMovieFromQueue(idOfMovie, target) {
 async function addMovieToQueue(idOfMovie, target) {
   await add(idOfMovie, 'queue');
   shiftActionToRemoveByQueue(target);
-}
-
-function isIdInQueue(idOfMovie) {
-  const isIdInQueue = allQueueArray.find(element => element.id === idOfMovie);
-  if (isIdInQueue) {
-    deleteMovieFromQueue(idOfMovie, refs.queueBtn);
-  }
-}
-
-function isIdInWached(idOfMovie) {
-  const isIdInWached = allWatchedArray.find(
-    element => element.id === idOfMovie
-  );
-  if (isIdInWached) {
-    deleteMovieFromWatched(idOfMovie, refs.watchedBtn);
-  }
 }

@@ -1,4 +1,4 @@
-import { IMG_URL, dataMovie, dataTrailer, dataAuthorMovie } from './API/api';
+import { IMG_URL, dataMovie } from './API/api';
 import { renderActorsModal, clearActorsModalMarkup } from './modalActors';
 import { refs } from './refs';
 
@@ -7,25 +7,19 @@ refs.closeMovieModalBtn.addEventListener('click', closeMovieModal);
 
 let movieId = '';
 
-async function renderTrailerMovie(id) {
-  const trailerData = await dataTrailer(id);
-
-  console.log(trailerData);
-}
-
-async function fetchMovieListByActor(id) {
-  const actorMovie = await dataAuthorMovie(id);
-
-  console.log(actorMovie);
-}
-
 async function renderMovieModal(id) {
   const movieData = await dataMovie(id);
 
-  const movieModalMarkup = ({
-    id,
+  const moviePosterMarkup = ({ poster_path }) => {
+    return `<img
+            class="movie-image"
+            src="${IMG_URL}${poster_path}"
+            alt=""
+          />`;
+  };
+
+  const movieDataMarkup = ({
     title,
-    poster_path,
     vote_average,
     vote_count,
     popularity,
@@ -33,20 +27,7 @@ async function renderMovieModal(id) {
     genres,
     overview,
   }) => {
-    return `<a href="" class="movie-modal__link">
-        <div class="movie-modal__image wrapper">
-          <img
-            class="movie-image"
-            src="${IMG_URL}${poster_path}"
-            alt="${title}"
-          />
-          <div class="wrapper__overlay">
-            <img class="wrapper__btn" src="../images/modal-overlay/youtube.png" alt="youtube icon"/>
-          </div>
-        </div>
-      </a>
-      <div class="movie-modal__wrapper">
-        <div class="data">
+    return `
           <h2 class="data__title">${title}</h2>
           <ul class="data__list list">
             <li class="list__item">
@@ -77,17 +58,22 @@ async function renderMovieModal(id) {
             </li>
           </ul>
           <p class="data__about">About</p>
-          <p class="data__about-text">${overview}</p>
-        </div> `;
+          <p class="data__about-text">${overview}</p> `;
   };
 
+  refs.moviePosterContainer.insertAdjacentHTML(
+    'beforeend',
+    moviePosterMarkup(movieData)
+  );
+
   refs.movieDataContainer.insertAdjacentHTML(
-    'afterbegin',
-    movieModalMarkup(movieData)
+    'beforeend',
+    movieDataMarkup(movieData)
   );
 }
 
 function clearMovieModalMarkup() {
+  refs.moviePosterContainer.innerHTML = '';
   refs.movieDataContainer.innerHTML = '';
 }
 
@@ -111,13 +97,11 @@ function openMovieModal(event) {
 
   renderMovieModal(movieId);
   renderActorsModal(movieId);
-  renderTrailerMovie(301502);
-  fetchMovieListByActor(301502);
 
   addEventListenerOnMovieModal();
 }
 
-function addEventListenerOnMovieModal() {
+export function addEventListenerOnMovieModal() {
   document.addEventListener('keydown', onEscapeClick);
   refs.movieModalBackdrop.addEventListener(
     'click',
@@ -137,13 +121,13 @@ function onBackdropOfMovieModalClick(event) {
   }
 }
 
-function closeMovieModal() {
+export function closeMovieModal() {
   refs.movieModal.classList.remove('is-open');
 
   removeEventListenerFromMovieModal();
 }
 
-function removeEventListenerFromMovieModal() {
+export function removeEventListenerFromMovieModal() {
   document.removeEventListener('keydown', onEscapeClick);
   refs.movieModalBackdrop.removeEventListener(
     'click',

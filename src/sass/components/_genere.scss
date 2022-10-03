@@ -1,56 +1,86 @@
 .genere-section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: rgba(229, 226, 226, 0.814);
-    border-bottom: 1mm ridge rgba(85, 85, 82, 0.6)
+  display: none;
+  position: relative;
+  background-color: var(--footer-background-color);
+
+  transition: background-color 250ms linear;
+
+  @include tablet {
+    display: block;
+  }
+
+  .container {
+    position: relative;
+    z-index: 3;
+  }
 }
 
-.box {
-    display: flex;
-   
+.genere-section.general-show {
+}
+.genre-box {
+  position: absolute;
+  top: 0;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  margin: 0 auto;
+
+  transition: transform 250ms linear, opacity 250ms linear;
+
+  @include tablet {
+    display: block;
+    width: 704px;
+  }
+
+  @include desktop {
+    width: 1216px;
+  }
+}
+
+.genre-box.general-show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .text {
-    font-weight: bold;
-    color: rgb(55, 49, 49);
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-}
-.genere-box {
-    margin: 0 auto;
-    // display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-@media screen and (max-width: 767px) {
-columns: 3;
-}
-@media screen and (min-width: 768px) {
-columns: 4;
-}
-@media screen and (min-width: 1280px) {
-columns: 6;
-}
-// display: flex;
-// flex-wrap: wrap;
-// justify-content: center;
-// gap: 15px;
+  font-weight: bold;
+  color: rgb(55, 49, 49);
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 }
 
-.click {
-    background-color: white;
-border: 1mm outset rgba(124, 124, 121, 0.529);
-    // border-radius: 3px solis grey;
-    // margin-left: 10px;
-    margin-bottom: 5px;
-   white-space: nowrap;
-
-   @media screen and (max-width: 767px) {
-    font-size: 90%;
-        line-height: 1.14;
-    white-space: normal;
-   }
+.genre-box-button {
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
-.click:hover {
-    background-color: rgba(223, 6, 6, 0.888);
+.genre__button {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: var(--accent);
+  min-width: 100px;
+  color: var(--color-title);
+}
+
+.show-burron-general {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+
+  background-color: transparent;
+
+  color: var(--header-color-text);
 }

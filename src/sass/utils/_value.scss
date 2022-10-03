@@ -19,11 +19,13 @@ html {
   --modal-text-color: #000000;
   --modal-white-text-color: #ffffff;
   --params-name: #8c8c8c;
+  --span-divider-color: #f7f7f7;
   --button-bg-color: #ffffff;
   --border-button-color: #000000;
   --text-color-button: #000000;
   --text-revers-color-button: #ffffff;
   --backdrop-color: rgba(0, 0, 0, 0.4);
+  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 
   //   Modal registration
   --registration-modal-input-color: #eee;

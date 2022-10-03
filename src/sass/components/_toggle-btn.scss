@@ -1,17 +1,8 @@
-.toggle-btn-box {
-    position: absolute;
-    top: -318%;
-    right: 20px;
+.header-bonus-func {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    @include tablet {
-        top: -216%;
-        right: 32px;
-    }
-
-    @include desktop {
-        top: -216%;
-        right: 32px;
-    }
 }
 
 // ------------------------------ї
