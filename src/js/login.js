@@ -82,6 +82,7 @@ function onModalClose() {
 function onSignUpClose(evt) {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
+  body.classList.remove('hidden');
   // if (evt.target == evt.currentTarget) {
   //   closeAllModalClose();
   // }
