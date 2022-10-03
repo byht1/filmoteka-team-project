@@ -15,7 +15,7 @@ async function renderMovieModal(id) {
 
   const moviePosterMarkup = ({ poster_path }) => {
     return `<img
-            class="movie-image"
+            class="movie-image" data-movie="${id}"
             src="${
               poster_path
                 ? `${IMG_URL}${poster_path}`
@@ -104,7 +104,7 @@ function openMovieModal(event) {
 
   renderMovieModal(movieId);
   renderActorsModal(movieId);
-  renderVideo(movieId);
+  // renderVideo(movieId);
 
   addEventListenerOnMovieModal();
 }
@@ -150,6 +150,9 @@ const box = document.querySelector('.image__wrapper');
 
 box.addEventListener('click', function (e) {
   e.preventDefault();
+
+  const id = document.querySelector('.movie-image').dataset.movie;
+  renderVideo(id);
   playBox.classList.remove('is-hidden3');
   document.removeEventListener('keydown', onEscapeClick);
 });
