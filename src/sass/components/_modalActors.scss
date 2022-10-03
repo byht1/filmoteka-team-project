@@ -11,7 +11,7 @@
   transform: scale(2);
   transition: opacity var(--transition-cubic) 250ms;
   transition: transform var(--transition-cubic) 400ms;
-  z-index: 2;
+  z-index: 5;
 }
 
 .actors-modal.is-open {
