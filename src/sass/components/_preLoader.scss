@@ -1,0 +1,31 @@
+.backdrop__loader {
+    background: #45011a;
+    opacity: 1;
+
+transition: opacity 250ms linear;
+}
+
+.backdrop__loader.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.loader {
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+
+    transition: opacity 250ms linear;
+}
+
+.loader.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+
+
