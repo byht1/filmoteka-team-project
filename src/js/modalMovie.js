@@ -13,7 +13,11 @@ async function renderMovieModal(id) {
   const moviePosterMarkup = ({ poster_path }) => {
     return `<img
             class="movie-image"
-            src="${IMG_URL}${poster_path}"
+            src="${
+              poster_path
+                ? `${IMG_URL}${poster_path}`
+                : 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
+            }"
             alt=""
           />`;
   };

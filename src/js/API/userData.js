@@ -64,5 +64,3 @@ export const deleteWatched = async id => {
     console.error(error);
   }
 };
-
-allQueue();

@@ -26,7 +26,6 @@ async function movieListByActorMarkup(id) {
 }
 
 function searchMoviesByActor(event) {
-  console.log(1);
   closeActorsModal();
   closeMovieModal();
 

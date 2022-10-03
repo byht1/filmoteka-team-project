@@ -8,7 +8,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-cubic) 400ms;
-  z-index: 2;
+  z-index: 5;
 }
 
 .movie-modal.is-open {
@@ -26,6 +26,7 @@
 }
 
 .movie-modal__container {
+  z-index: 5;
   display: block;
   position: relative;
   overflow-x: auto;
