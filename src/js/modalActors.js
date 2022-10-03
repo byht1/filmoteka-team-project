@@ -16,7 +16,7 @@ export async function renderActorsModal(id) {
   const actorsModalMarkup = actorsList
     .map(({ id, character, name, profile_path }) => {
       return `<li class="actors__item" data-actor-${id}>
-          <a href="" class="actors__link">
+          <div class="actors__link">
             <div class="actors__wrap wrap">
               <img
                 class="actors-image"
@@ -30,7 +30,7 @@ export async function renderActorsModal(id) {
             </div>
             <p class="actors__title">${name}</p>
             <p class="actors__label">${character}</p>
-          </a>
+          </div>
         </li>`;
     })
     .join('');
