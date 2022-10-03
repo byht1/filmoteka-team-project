@@ -291,16 +291,17 @@
   @include font(500, 12px, 1.33);
 
   border-radius: 5px;
-  background-color: var(--button-bg-color);
+  background-color: var(--modal-background-color);
   cursor: pointer;
   border: 1px solid var(--border-button-color);
+  color: var(--text-color-button);
 
   transition: all var(--transition-cubic) 250ms;
 
   &:hover,
   &:focus {
     background-color: var(--accent);
-    color: var(--modal-white-text-color);
+    color: var(--text-revers-color-button);
     border: 1px solid var(--accent);
   }
 
