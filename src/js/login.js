@@ -187,6 +187,7 @@ async function signInModalRes(userData) {
     toggleHeaderBtnValue();
     addHelloText(userData);
     localStorage.setItem(TOKEN, res.token);
+    body.classList.remove('hidden');
   }
 }
 
