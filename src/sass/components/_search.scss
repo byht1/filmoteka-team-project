@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // margin-bottom: 9px;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
+  @include tablet {
+    margin-bottom: 12px;
+  }
 }
 
 .searchbar-container {
@@ -58,9 +60,6 @@
 }
 
 .search-bar__wrong-querry {
-  // @media screen and (max-width: 767.98px) {
-  //   position: absolute;
-  // }
   display: block;
   width: 280px;
   margin: 0 auto;
