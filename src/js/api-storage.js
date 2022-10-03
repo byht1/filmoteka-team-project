@@ -102,6 +102,10 @@ function onQueueBtnClick(e) {
 }
 
 async function checkAllWatched() {
+  const valueFromStorage = localStorage.getItem(STORAGE_KEY);
+  if (!valueFromStorage || valueFromStorage === '') {
+    return;
+  }
   try {
     const response = await allWatched();
 
@@ -125,6 +129,10 @@ async function checkAllWatched() {
 }
 
 async function checkAllQueue() {
+  const valueFromStorage = localStorage.getItem(STORAGE_KEY);
+  if (!valueFromStorage || valueFromStorage === '') {
+    return;
+  }
   try {
     const response = await allQueue();
 
