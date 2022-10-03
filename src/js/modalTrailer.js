@@ -1,8 +1,10 @@
-// import { IMG_URL, dataAuthors } from './API/api';
-// import { refs } from './refs';
+import { dataTrailer } from './API/api';
 
-// async function renderTrailerMovie(id) {
-//   const trailerData = await dataTrailer(id);
+export async function renderVideo(id) {
+  const { results } = await dataTrailer(id);
+  console.log('🚀 ~ results', results);
 
-//   console.log(trailerData);
-// }
+  const render = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${results[0].key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  const playBox = document.querySelector('#player');
+  playBox.innerHTML = render;
+}

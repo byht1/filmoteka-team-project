@@ -5,7 +5,13 @@ import { refs } from './refs';
 
 const { searchErrorText } = refs;
 
+const form = document.querySelector('.search-bar');
+
 const input = document.querySelector('.search-bar__input');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+});
 
 input.addEventListener(
   'input',
