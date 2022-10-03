@@ -44,9 +44,9 @@ export function onSignInBtn() {
 function onSignUp() {
   backdropSignUp.classList.toggle('is-hidden');
   backdropSignIn.classList.toggle('is-hidden');
-
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
+
 function closeAllModalClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
@@ -79,7 +79,7 @@ function onModalClose() {
   body.classList.remove('hidden');
 }
 
-function onSignUpClose(evt) {
+function onSignUpClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
   body.classList.remove('hidden');
@@ -151,7 +151,7 @@ async function logoutRes() {
   btnLoginWrap.firstChild.remove();
   await logOut();
   localStorage.removeItem(TOKEN);
-  localStorage.removeItem('token');
+  // localStorage.removeItem('token');
 }
 //-----------------------------SignIn
 
