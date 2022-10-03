@@ -55,8 +55,8 @@ function closeAllModalClose() {
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
   backdropSignUp.removeEventListener('click', onBackdropClick);
-  backdropSignUp.classList.toggle('is-hidden');
-  backdropSignIn.classList.toggle('is-hidden');
+  // backdropSignUp.classList.toggle('is-hidden');
+  // backdropSignIn.classList.toggle('is-hidden');
   backdropSignUp.addEventListener('click', onBackdropClick);
 }
 
