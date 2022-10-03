@@ -1,4 +1,4 @@
-import { token, validate, logIn } from './API/auth';
+import { token, validate } from './API/auth';
 import TOKEN from './login';
 import { refs } from './refs';
 import { toggleHeaderBtnValue } from './login';

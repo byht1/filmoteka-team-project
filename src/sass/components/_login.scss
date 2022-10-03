@@ -151,7 +151,7 @@
   font-size: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   @include desktop {
     font-size: 14px;
@@ -181,10 +181,6 @@
   &:focus {
     background-color: var(--accent);
   }
-}
-
-.checkbox-wrap {
-  @include flexCenter;
 }
 
 .registration__modal-new {

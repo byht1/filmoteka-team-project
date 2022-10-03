@@ -1,9 +1,8 @@
+import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { signUp, logIn, logOut } from './API/auth';
 import { loginReload } from './loginReload';
-import { token, validate } from './API/auth';
 import { homeBtnClick } from './header';
-import Notiflix from 'notiflix';
 
 const {
   signInBtn,
