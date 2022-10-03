@@ -271,6 +271,7 @@
 
 .movie-modal__buttons-wrapper {
   display: flex;
+  justify-content: center;
 
   @media screen and (min-width: 480px) {
     justify-content: center;
