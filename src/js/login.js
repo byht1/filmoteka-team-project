@@ -21,11 +21,21 @@ const {
   signInErrorText,
   noEmailText,
   body,
+  modalLoginBtn,
 } = refs;
 
 let TOKEN = 'token';
-
 export default TOKEN;
+
+signInBtn.addEventListener('click', onSignInBtn);
+signInCloseBtn.addEventListener('click', onModalClose);
+signUpLink.addEventListener('click', onSignUp);
+signUpCloseBtn.addEventListener('click', onSignUpClose);
+signInLink.addEventListener('click', onSignInLink);
+formSignUp.addEventListener('submit', handleSub);
+signInForm.addEventListener('submit', onSignInModalBtn);
+
+signInErrorText.classList.add('none');
 
 loginReload();
 
@@ -34,6 +44,7 @@ export function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
   signInErrorText.classList.add('none');
   body.classList.add('hidden');
+  // modalLoginBtn.disabled = false;
   // add event listner on document/escape
   document.addEventListener('keydown', onEscapeClick);
   // add event listner on backdrop/click
@@ -75,7 +86,7 @@ function onBackdropClick(evt) {
 }
 
 function onModalClose() {
-  backdropSignIn.classList.toggle('is-hidden');
+  backdropSignIn.classList.add('is-hidden');
   body.classList.remove('hidden');
 }
 
@@ -94,15 +105,6 @@ function onSignInLink() {
   signInForm.reset();
   signInErrorText.classList.remove('none');
 }
-
-signInBtn.addEventListener('click', onSignInBtn);
-signInCloseBtn.addEventListener('click', onModalClose);
-signUpLink.addEventListener('click', onSignUp);
-signUpCloseBtn.addEventListener('click', onSignUpClose);
-signInLink.addEventListener('click', onSignInLink);
-formSignUp.addEventListener('submit', handleSub);
-
-signInErrorText.classList.add('none');
 
 function handleSub(event) {
   event.preventDefault();
@@ -136,7 +138,6 @@ async function getSignUpRes(userInfo) {
     Notiflix.Notify.success(
       'To continue registration,please, confirm your email'
     );
-    // const response = await logIn(userInfo);
     localStorage.setItem('token', response.token);
   }
 }
@@ -155,8 +156,6 @@ async function logoutRes() {
 }
 //-----------------------------SignIn
 
-signInForm.addEventListener('submit', onSignInModalBtn);
-
 function onSignInModalBtn(event) {
   event.preventDefault();
 
@@ -167,6 +166,7 @@ function onSignInModalBtn(event) {
 
   userInfo.email = email.value;
   userInfo.password = password.value;
+  // modalLoginBtn.disabled = true;
   signInModalRes(userInfo);
 }
 
@@ -174,6 +174,7 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
+
   if (res === 401) {
     signInErrorText.classList.remove('none');
     noEmailText.classList.add('none');
@@ -184,10 +185,14 @@ async function signInModalRes(userData) {
   } else {
     backdropSignIn.classList.toggle('is-hidden');
     toggleHeaderBtnValue();
-    btnLoginWrap.insertAdjacentHTML(
-      'afterbegin',
-      `<p data-hello>Hello, ${userData.email}</p>`
-    );
+    addHelloText(userData);
     localStorage.setItem(TOKEN, res.token);
   }
+}
+
+function addHelloText(userData) {
+  btnLoginWrap.insertAdjacentHTML(
+    'afterbegin',
+    `<p data-hello>Hello, ${userData.email}</p>`
+  );
 }
