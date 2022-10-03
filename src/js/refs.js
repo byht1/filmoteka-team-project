@@ -112,6 +112,7 @@ export const refs = {
   // genere
   // movie
   movieGallery: document.querySelector('.movie-gallery'),
+  scrolltopBtn: document.querySelector('.scrolltop'),
   // footer
   goItStud: document.querySelector('.goItStud-js'),
   // modalMovie
