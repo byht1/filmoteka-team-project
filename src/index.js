@@ -1,5 +1,6 @@
 // import './js/API/api';
-import './js/preLoader'
+import './js/filmByActor';
+import './js/preLoader';
 import './js/shearch';
 import './js/header';
 import './js/movies';
@@ -19,4 +20,3 @@ import './js/pagination/pagination-api';
 import './js/translation/fnTranslation';
 import './js/myLibrary';
 import './js/modalTrailer';
-import './js/filmByActor';
