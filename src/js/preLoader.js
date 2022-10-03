@@ -1,17 +1,9 @@
-import { refs } from "./refs";
 
-const { preLoader, backdrop} = refs;
-
-window.addEventListener('load', preLoaderHide);
-
-export function preLoaderHide() {
-    setTimeout(() => {
-        preLoader.classList.add('is-hidden');
-        backdrop.classList.add('is-hidden');
-    }, 250);
-}
-
-export function preLoaderShow() {
-    preLoader.classList.remove('is-hidden');
-    backdrop.classList.remove('is-hidden');
+document.body.onload = function () {
+    setTimeout(function () {
+        const preloader = document.getElementById('preloader');
+        if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+        }
+    }, 1000);
 }
