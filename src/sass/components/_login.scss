@@ -147,6 +147,10 @@
   fill: var(--modal-background-color);
 }
 
+.modal-login-checkbox-text-js {
+  color: var(--params-name);
+}
+
 .checkbox-label {
   font-size: 12px;
   display: flex;
@@ -198,6 +202,7 @@
 
 .registration__modal-text {
   margin-bottom: 20px;
+  color: var(--registration-modal-title-color);
 }
 
 .header__registration-btn {
