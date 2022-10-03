@@ -17,6 +17,7 @@ import {
 
 import { getAllWatched, getAllQueue } from './myLibrary';
 
+const markupSpinner = `<span class="loader"></span>`;
 const STORAGE_KEY = 'token';
 let idOfMovie = '';
 
@@ -103,6 +104,7 @@ function onQueueBtnClick(e) {
 
 async function checkAllWatched() {
   try {
+    refs.watchedBtn.innerHTML = markupSpinner;
     const response = await allWatched();
 
     if (!response) {
@@ -126,6 +128,7 @@ async function checkAllWatched() {
 
 async function checkAllQueue() {
   try {
+    refs.queueBtn.innerHTML = markupSpinner;
     const response = await allQueue();
 
     if (!response) {
@@ -148,21 +151,25 @@ async function checkAllQueue() {
 }
 
 async function deleteMovieFromWatched(idOfMovie, target) {
+  refs.watchedBtn.innerHTML = markupSpinner;
   await deleteWatched(idOfMovie);
   shiftActionToAddByWatched(target);
 }
 
 async function addMovieToWatched(idOfMovie, target) {
+  refs.watchedBtn.innerHTML = markupSpinner;
   await add(idOfMovie, 'watched');
   shiftActionToRemoveByWatched(target);
 }
 
 async function deleteMovieFromQueue(idOfMovie, target) {
+  refs.queueBtn.innerHTML = markupSpinner;
   await deleteQueue(idOfMovie);
   shiftActionToAddByQueue(target);
 }
 
 async function addMovieToQueue(idOfMovie, target) {
+  refs.queueBtn.innerHTML = markupSpinner;
   await add(idOfMovie, 'queue');
   shiftActionToRemoveByQueue(target);
 }
