@@ -32,7 +32,6 @@ function onGalleryClick(e) {
   const parentEl = targetEl.closest('.movie-card');
 
   idOfMovie = parentEl.dataset.id;
-  console.log(idOfMovie);
 
   checkAllWatched();
 
@@ -100,7 +99,6 @@ async function checkAllWatched() {
       data: { data },
     } = response;
 
-    console.log('watched', data);
 
     const containsId = data.find(element => element.id === idOfMovie);
 
@@ -124,8 +122,6 @@ async function checkAllQueue() {
     const {
       data: { data },
     } = response;
-
-    console.log('queue', data);
 
     const containsId = data.find(element => element.id === idOfMovie);
 

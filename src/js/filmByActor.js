@@ -41,7 +41,5 @@ function searchMoviesByActor(event) {
 
   actorId = parentOfImageElement.dataset.id;
 
-  console.log(actorId);
-
   movieListByActorMarkup(actorId);
 }
