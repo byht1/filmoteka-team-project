@@ -1,348 +1,350 @@
 .movie-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-cubic) 400ms;
-  z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-cubic) 400ms;
+    z-index: 5;
 }
 
 .movie-modal.is-open {
-  opacity: 1;
-  pointer-events: initial;
+    opacity: 1;
+    pointer-events: initial;
 }
 
 .movie-modal__backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .movie-modal__container {
-  z-index: 5;
-  display: block;
-  position: relative;
-  overflow-x: auto;
-  top: 2%;
+    z-index: 5;
+    display: block;
+    position: relative;
+    overflow-x: auto;
+    top: 2%;
 
-  margin: auto;
-  background-color: var(--modal-background-color);
-  color: var(--modal-text-color);
-  max-height: 100vh;
-  width: 280px;
-  padding: 48px 20px 41px 20px;
+    margin: auto;
+    background-color: var(--modal-background-color);
+    color: var(--modal-text-color);
+    max-height: 100vh;
+    width: 280px;
+    padding: 48px 20px 41px 20px;
 
-  @media screen and (min-width: 480px) {
-    width: 400px;
-  }
+    @media screen and (min-width: 480px) {
+        width: 400px;
+    }
 
-  @include tablet {
-    top: 10%;
-    min-width: 704px;
-    height: 562px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 68px;
-    grid-auto-rows: minmax(10px, auto);
-    overflow: hidden;
-    padding: 40px 72px 40px 36px;
-  }
+    @include tablet {
+        top: 10%;
+        min-width: 704px;
+        height: 562px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 68px;
+        grid-auto-rows: minmax(10px, auto);
+        overflow: hidden;
+        padding: 40px 72px 40px 36px;
+    }
 
-  @include desktop {
-    min-width: 806px;
-    height: 568px;
-    padding: 40px 12px 40px 12px;
-    grid-gap: 16px;
-  }
+    @include desktop {
+        min-width: 806px;
+        height: 568px;
+        padding: 40px 12px 40px 12px;
+        grid-gap: 16px;
+    }
 }
 
 .movie-modal__wrapper {
-  display: grid;
-  grid-template-columns: 2fr;
-  grid-auto-rows: minmax(50px, auto);
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-auto-rows: minmax(50px, auto);
 }
 
 .movie-data {
-  @include tablet {
-    margin-bottom: 20px;
-  }
+    @include tablet {
+        margin-bottom: 20px;
+    }
 }
 
 .movie-image {
-  display: block;
+    display: block;
 
-  max-width: 240px;
-  height: 356px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+    max-width: 240px;
+    height: 356px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 
-  @media screen and (min-width: 480px) {
-    margin-right: auto;
-    margin-left: auto;
-  }
+    @media screen and (min-width: 480px) {
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-  @include tablet {
-    min-width: 264px;
-    height: 374px;
-    margin-bottom: 0;
-  }
+    @include tablet {
+        min-width: 264px;
+        height: 374px;
+        margin-bottom: 0;
+    }
 
-  @include desktop {
-    min-width: 350px;
-    height: 478px;
-    margin-bottom: 0;
-  }
+    @include desktop {
+        min-width: 350px;
+        height: 478px;
+        margin-bottom: 0;
+    }
 }
 
 .overlay-activator {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .image__wrapper {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .wrapper__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  display: block;
-  text-align: center;
-  padding-top: 170px;
+    display: block;
+    text-align: center;
+    padding-top: 170px;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 
-  transform: translateY(-101%);
-  transition: transform 500ms var(--transition-cubic);
+    transform: translateY(-101%);
+    transition: transform 500ms var(--transition-cubic);
 
-  .overlay-activator:hover & {
-    transform: translateY(0);
-  }
+    .overlay-activator:hover & {
+        transform: translateY(0);
+    }
 
-  .overlay-activator:focus & {
-    transform: translateY(0);
-  }
+    .overlay-activator:focus & {
+        transform: translateY(0);
+    }
 }
 
 .wrapper__btn {
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
 
-  width: 200px;
-  height: 150px;
+    width: 200px;
+    height: 150px;
 
-  background-color: transparent;
+    background-color: transparent;
 
-  transform: scale(0.8);
-  transition: transform var(--transition-cubic) 300ms;
+    transform: scale(0.8);
+    transition: transform var(--transition-cubic) 300ms;
 
-  &:hover,
-  &:focus {
-    transform: scale(1);
-  }
+    &:hover,
+    &:focus {
+        transform: scale(1);
+    }
 }
 
 .movie-modal__wrapper {
-  @include tablet {
-    display: flex;
-    flex-direction: column;
-  }
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
 
-  @include desktop {
-    align-items: start;
-  }
+    @include desktop {
+        align-items: start;
+    }
 }
 
 .data__title {
-  margin-bottom: 20px;
-  @include font(500, 20px, 1.15);
-  text-transform: uppercase;
+    margin-bottom: 20px;
+    @include font(500, 20px, 1.15);
+    text-transform: uppercase;
 
-  @include desktop {
-    @include font(500, 30px, 1.17);
-  }
+    @include desktop {
+        @include font(500, 30px, 1.17);
+    }
 }
 
 .data__list {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .list__item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .list__item:nth-child(5) {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .data__item {
-  min-width: 100px;
-  @include mobile {
-    min-width: 108px;
-  }
+    min-width: 100px;
+    @include mobile {
+        min-width: 108px;
+    }
 
-  @include font(500, 12px, 1.33);
-  color: var(--params-name);
+    @include font(500, 12px, 1.33);
+    color: var(--params-name);
 }
 
 .data__info {
-  @include font(500, 12px, 1.33);
-  color: var(--modal-text-color);
+    @include font(500, 12px, 1.33);
+    color: var(--modal-text-color);
 }
 
 .data__button {
-  width: 55px;
-  height: 25px;
+    width: 55px;
+    height: 25px;
 
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
 
-  @include font(500, 10px, 1.33);
+    @include font(500, 10px, 1.33);
 
-  border-radius: 3px;
-  background-color: var(--button-bg-color);
-  cursor: pointer;
-  border: 1px solid var(--border-button-color);
+    border-radius: 3px;
+    background-color: var(--modal-background-color);
+    color: var(--modal-text-color);
+    cursor: pointer;
+    border: 1px solid var(--border-button-color);
 
-  transition: all var(--transition-cubic) 250ms;
+    transition: all var(--transition-cubic) 250ms;
 
-  &:hover,
-  &:focus {
-    background-color: var(--accent);
-    color: var(--modal-white-text-color);
-    border: 1px solid var(--accent);
-  }
+    &:hover,
+    &:focus {
+        background-color: var(--accent);
+        color: var(--modal-white-text-color);
+        border: 1px solid var(--accent);
+    }
 }
 
 .data__info--upper {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .data__span--orange {
-  @include font(500, null, null);
-  padding-left: 10px;
-  padding-right: 10px;
-  color: var(--modal-white-text-color);
-  background-color: var(--accent);
+    @include font(500, null, null);
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--modal-white-text-color);
+    background-color: var(--accent);
 
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .data__span--divider {
-  margin-left: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: var(--span-divider-color);
-  border-radius: 5px;
+    margin-left: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--span-divider-color);
+    border-radius: 5px;
+    color: #000000;
 }
 
 .data__about {
-  @include font(500, 12px, 1.33);
-  text-transform: uppercase;
-  margin-bottom: 10px;
+    @include font(500, 12px, 1.33);
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .data__about-text {
-  @include font(500, 12px, 1.67);
-  margin-bottom: 20px;
+    @include font(500, 12px, 1.67);
+    margin-bottom: 20px;
 
-  @include tablet {
-    margin-bottom: 0;
-  }
+    @include tablet {
+        margin-bottom: 0;
+    }
 }
 
 .movie-modal__buttons-wrapper {
-  display: flex;
+    display: flex;
 
-  @media screen and (min-width: 480px) {
-    justify-content: center;
-  }
+    @media screen and (min-width: 480px) {
+        justify-content: center;
+    }
 
-  @include tablet {
-    justify-content: none;
-  }
+    @include tablet {
+        justify-content: none;
+    }
 }
 
 .movie-modal__button {
-  width: 110px;
-  height: 44px;
+    width: 110px;
+    height: 44px;
 
-  text-align: center;
-  text-transform: uppercase;
+    text-align: center;
+    text-transform: uppercase;
 
-  @include font(500, 12px, 1.33);
+    @include font(500, 12px, 1.33);
 
-  border-radius: 5px;
-  background-color: var(--modal-background-color);
-  cursor: pointer;
-  border: 1px solid var(--border-button-color);
-  color: var(--text-color-button);
+    border-radius: 5px;
+    background-color: var(--modal-background-color);
+    cursor: pointer;
+    border: 1px solid var(--border-button-color);
+    color: var(--text-color-button);
 
-  transition: all var(--transition-cubic) 250ms;
+    transition: all var(--transition-cubic) 250ms;
 
-  &:hover,
-  &:focus {
-    background-color: var(--accent);
-    color: var(--text-revers-color-button);
-    border: 1px solid var(--accent);
-  }
+    &:hover,
+    &:focus {
+        background-color: var(--accent);
+        color: var(--text-revers-color-button);
+        border: 1px solid var(--accent);
+    }
 
-  @include tablet {
-    width: 125px;
-  }
+    @include tablet {
+        width: 125px;
+    }
 
-  @include desktop {
-    width: 136px;
-  }
+    @include desktop {
+        width: 136px;
+    }
 }
 
 .movie-modal__button:first-child {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 .movie-modal__close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
 
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  color: var(--text-color-button);
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-color-button);
 
-  outline: none;
+    outline: none;
 
-  transform: rotate(0deg);
-  transition: all var(--transition-cubic) 500ms;
+    transform: rotate(0deg);
+    transition: all var(--transition-cubic) 500ms;
 
-  &:hover,
-  &:focus {
-    transform: rotate(180deg);
-    color: var(--accent);
-  }
+    &:hover,
+    &:focus {
+        transform: rotate(180deg);
+        color: var(--accent);
+    }
 }
 
 .close-btn__icon {
-  fill: currentColor;
+    fill: currentColor;
 }

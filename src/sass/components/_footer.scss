@@ -12,12 +12,7 @@
     line-height: 1.36;
     color: var(--footer-text);
     margin: 0 auto;
-    width: 280px;
     text-align: center;
-
-    @include tablet {
-        width: 490px;
-    }
 }
 
 .footer-pic {

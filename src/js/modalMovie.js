@@ -8,30 +8,22 @@ refs.closeMovieModalBtn.addEventListener('click', closeMovieModal);
 let movieId = '';
 
 async function renderMovieModal(id) {
-  const movieData = await dataMovie(id);
+    const movieData = await dataMovie(id);
 
-  const moviePosterMarkup = ({ poster_path }) => {
-    return `<img
+    const moviePosterMarkup = ({ poster_path }) => {
+        return `<img
             class="movie-image"
             src="${
-              poster_path
-                ? `${IMG_URL}${poster_path}`
-                : 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
+                poster_path
+                    ? `${IMG_URL}${poster_path}`
+                    : 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
             }"
             alt=""
           />`;
-  };
+    };
 
-  const movieDataMarkup = ({
-    title,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    genres,
-    overview,
-  }) => {
-    return `
+    const movieDataMarkup = ({ title, vote_average, vote_count, popularity, original_title, genres, overview }) => {
+        return `
           <h2 class="data__title">${title}</h2>
           <ul class="data__list list">
             <li class="list__item">
@@ -52,9 +44,7 @@ async function renderMovieModal(id) {
             </li>
             <li class="list__item">
               <p class="data__item">Genre</p>
-              <p class="data__info">${genres
-                .map(genre => genre.name)
-                .join(', ')}</p>
+              <p class="data__info">${genres.map(genre => genre.name).join(', ')}</p>
             </li>
             <li class="list__item">
               <p class="data__item">Actors</p>
@@ -63,78 +53,66 @@ async function renderMovieModal(id) {
           </ul>
           <p class="data__about">About</p>
           <p class="data__about-text">${overview}</p> `;
-  };
+    };
 
-  refs.moviePosterContainer.insertAdjacentHTML(
-    'beforeend',
-    moviePosterMarkup(movieData)
-  );
+    refs.moviePosterContainer.insertAdjacentHTML('beforeend', moviePosterMarkup(movieData));
 
-  refs.movieDataContainer.insertAdjacentHTML(
-    'beforeend',
-    movieDataMarkup(movieData)
-  );
+    refs.movieDataContainer.insertAdjacentHTML('beforeend', movieDataMarkup(movieData));
 }
 
 function clearMovieModalMarkup() {
-  refs.moviePosterContainer.innerHTML = '';
-  refs.movieDataContainer.innerHTML = '';
+    refs.moviePosterContainer.innerHTML = '';
+    refs.movieDataContainer.innerHTML = '';
 }
 
 function openMovieModal(event) {
-  event.preventDefault;
+    event.preventDefault;
 
-  clearMovieModalMarkup();
-  clearActorsModalMarkup();
+    clearMovieModalMarkup();
+    clearActorsModalMarkup();
 
-  const isImageElement = event.target;
+    const isImageElement = event.target;
 
-  if (!isImageElement.classList.contains('movie-img')) {
-    return;
-  }
+    if (!isImageElement.classList.contains('movie-img')) {
+        return;
+    }
 
-  const parentOfImageElement = isImageElement.closest('.movie-card');
+    const parentOfImageElement = isImageElement.closest('.movie-card');
 
-  movieId = parentOfImageElement.dataset.id;
+    movieId = parentOfImageElement.dataset.id;
 
-  refs.movieModal.classList.add('is-open');
+    refs.movieModal.classList.add('is-open');
 
-  renderMovieModal(movieId);
-  renderActorsModal(movieId);
+    renderMovieModal(movieId);
+    renderActorsModal(movieId);
 
-  addEventListenerOnMovieModal();
+    addEventListenerOnMovieModal();
 }
 
 export function addEventListenerOnMovieModal() {
-  document.addEventListener('keydown', onEscapeClick);
-  refs.movieModalBackdrop.addEventListener(
-    'click',
-    onBackdropOfMovieModalClick
-  );
+    document.addEventListener('keydown', onEscapeClick);
+    refs.movieModalBackdrop.addEventListener('click', onBackdropOfMovieModalClick);
 }
 
 function onEscapeClick(event) {
-  if (event.key == 'Escape') {
-    closeMovieModal();
-  }
+    if (event.key == 'Escape') {
+        closeMovieModal();
+    }
 }
 
 function onBackdropOfMovieModalClick(event) {
-  if (event.target == event.currentTarget) {
-    closeMovieModal();
-  }
+    if (event.target == event.currentTarget) {
+        closeMovieModal();
+    }
 }
 
 export function closeMovieModal() {
-  refs.movieModal.classList.remove('is-open');
+    refs.movieModal.classList.remove('is-open');
 
-  removeEventListenerFromMovieModal();
+    removeEventListenerFromMovieModal();
 }
 
 export function removeEventListenerFromMovieModal() {
-  document.removeEventListener('keydown', onEscapeClick);
-  refs.movieModalBackdrop.removeEventListener(
-    'click',
-    onBackdropOfMovieModalClick
-  );
+    document.removeEventListener('keydown', onEscapeClick);
+    refs.movieModalBackdrop.removeEventListener('click', onBackdropOfMovieModalClick);
 }

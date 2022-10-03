@@ -14,6 +14,3 @@ export function changeLanguageFooter() {
         refs.footerByChangeLanguage.textContent = 'by';
     }
 }
-
-console.log('~ refs.footerByChangeLanguage', refs.footerByChangeLanguage);
-console.log('~ refs.footerTextChangeLanguage', refs.footerTextChangeLanguage);
