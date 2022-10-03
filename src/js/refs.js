@@ -150,7 +150,7 @@ export const refs = {
   inputPasswordRepeat: document.querySelector('[data-password-repeat]'),
   formSignUp: document.querySelector('[data-signup]'),
   passwordNotMatchAlert: document.querySelector('[data-not-match]'),
-  modalBtnTosignIn: document.queryCommandValue('[data-modalbtn-tosignin]'),
+  body: document.querySelector('body'),
   //pagination
   paginationList: document.querySelector('[data-pagination]'),
   accountCreatedText: document.querySelector('[data-acc-already-created]'),
