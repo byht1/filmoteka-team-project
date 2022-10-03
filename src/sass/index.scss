@@ -7,6 +7,7 @@
 @import './utils/global';
 
 // components
+@import './components/preLoader';
 @import './components/header';
 @import './components/search';
 @import './components/myLibrary';
@@ -17,7 +18,7 @@
 @import './components/modalMovie';
 @import './components/modalActors';
 @import './components/modalTeam';
-@import './components/preLoader';
 @import './components/login';
 @import './components/pagination';
 @import './components/toggle-btn';
+
