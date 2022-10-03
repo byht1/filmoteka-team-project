@@ -15,6 +15,8 @@ import {
   deleteQueue,
 } from './API/userData';
 
+import { getAllWatched, getAllQueue } from './myLibrary';
+
 const STORAGE_KEY = 'token';
 let idOfMovie = '';
 
@@ -51,6 +53,9 @@ function onAddWatchedBtnClick(e) {
 
   if (e.target.dataset.action === 'removeById') {
     deleteMovieFromWatched(idOfMovie, e.target);
+    if (refs.watchedButton.classList.contains('library-button__active')) {
+      getAllWatched();
+    }
 
     return;
   }
@@ -59,6 +64,10 @@ function onAddWatchedBtnClick(e) {
 
   if (refs.queueBtn.dataset.action === 'removeById') {
     deleteMovieFromQueue(idOfMovie, refs.queueBtn);
+  }
+
+  if (refs.queueButton.classList.contains('library-button__active')) {
+    getAllQueue();
   }
 }
 
@@ -75,7 +84,9 @@ function onQueueBtnClick(e) {
 
   if (e.target.dataset.action === 'removeById') {
     deleteMovieFromQueue(idOfMovie, e.target);
-
+    if (refs.queueButton.classList.contains('library-button__active')) {
+      getAllQueue();
+    }
     return;
   }
 
@@ -83,6 +94,10 @@ function onQueueBtnClick(e) {
 
   if (refs.watchedBtn.dataset.action === 'removeById') {
     deleteMovieFromWatched(idOfMovie, refs.watchedBtn);
+  }
+
+  if (refs.watchedButton.classList.contains('library-button__active')) {
+    getAllWatched();
   }
 }
 
@@ -98,7 +113,6 @@ async function checkAllWatched() {
     const {
       data: { data },
     } = response;
-
 
     const containsId = data.find(element => element.id === idOfMovie);
 
