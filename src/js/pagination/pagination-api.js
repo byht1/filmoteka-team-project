@@ -38,6 +38,6 @@ async function getListPerPage(page, fn = dataMovieList, name) {
   renderFilmGallery(data);
 }
 
-function clearFilmsContainer() {
+export function clearFilmsContainer() {
   refs.movieGallery.innerHTML = '';
 }

@@ -1,26 +1,41 @@
 <div class="movie-modal" data-movie-modal>
   <div class="movie-modal__backdrop" data-movie-modal-backdrop>
-    <div class="movie-modal__container">
-      <div class="movie-data" data-actors-modal-open>
-      <!-- Movie modal markup -->
+    <div class="movie-modal__container" data-actors-modal-open>
+      <div class="movie-modal__image image">
+        <a href="" class="overlay-activator">
+          <div class="image__wrapper wrapper">
+            <div class="movie-poster">
+              <!-- Markup of movie poster -->
+            </div>
+            <div class="wrapper__overlay">
+              <img class="wrapper__btn" src="./images/modal-overlay/youtube.png" alt="youtube icon"/>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <div class="movie-modal__buttons-wrapper">
-        <button
-          type="button"
-          class="movie-modal__button button-watched"
-          data-click="addToWached"
-          data-action="addById"
-          class="movie-modal__button button-watched"
-          Add to watched
-        </button>
-        <button
-          type="button"
-          data-action="addById"
-          class="movie-modal__button button-queue"
-        >
-          Add to queue
-        </button>
+      <div class="movie-modal__wrapper">
+        <div class="movie-data">
+          <!-- Markup of movie data  -->
+        </div> 
+
+        <div class="movie-modal__buttons-wrapper">
+          <button
+            type="button"
+            class="movie-modal__button button-watched"
+            data-click="addToWached"
+            data-action="addById"
+            class="movie-modal__button button-watched"
+            Add to watched
+          </button>
+          <button
+            type="button"
+            data-action="addById"
+            class="movie-modal__button button-queue"
+          >
+            Add to queue
+          </button>
+        </div>
       </div>
 
       <button

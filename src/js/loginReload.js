@@ -12,16 +12,13 @@ export function loginReload() {
   }
   signInBtn.classList.add('none');
   token.set(tokenLokal);
-  console.log(tokenLokal);
   getValidateRes();
 }
 
 async function getValidateRes() {
   const res = await validate();
 
-  console.log(res.data);
   if (res.data.message === 'Not authorized') {
-    console.log('Не авторизован');
     localStorage.removeItem(TOKEN);
   } else {
     localStorage.setItem(TOKEN, res.data.token);

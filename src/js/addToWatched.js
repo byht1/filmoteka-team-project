@@ -1,8 +1,8 @@
-import { saveToStorage, loadFromStorage } from './storage';
-import { refs } from './refs';
+// import { saveToStorage, loadFromStorage } from './storage';
+// import { refs } from './refs';
 
-refs.addToWachedBtn.addEventListener('click', onAddToWachedBtnClick);
+// refs.addToWachedBtn.addEventListener('click', onAddToWachedBtnClick);
 
-function onAddToWachedBtnClick(e) {
-  console.log('click button');
-}
+// function onAddToWachedBtnClick(e) {
+//   console.log('click button');
+// }

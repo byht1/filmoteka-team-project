@@ -15,7 +15,6 @@ outputGenre();
 
 async function outputGenre() {
   const allGenres = await dataGenre();
-  // console.log(allGenres);
   const markup = allGenres.genres
     .map(genre => {
       return ` <div class="genre__elements-box" >
@@ -37,7 +36,6 @@ async function genreSearch(e) {
   }
   show();
   const id = Number(target.dataset.genre);
-  console.log('🚀 ~ id', id);
 
   const data = await dataSearchGenre(id);
   renderMovies(data, dataSearchGenre, id);

@@ -32,12 +32,15 @@ export const refs = {
   closeModalBtn: document.querySelector('.modal-close-btn'),
   modalBackdrop: document.querySelector('.backdrop'),
   // modalMovie
+  moviePosterContainer: document.querySelector('.movie-poster'),
   movieDataContainer: document.querySelector('.movie-data'),
   openMovieModal: document.querySelector('[data-movie-modal-open]'),
   closeMovieModalBtn: document.querySelector('[data-movie-modal-close]'),
   movieModalBackdrop: document.querySelector('[data-movie-modal-backdrop]'),
   movieModal: document.querySelector('[data-movie-modal]'),
   // modalActors
+  actorsContainer: document.querySelector('.actors-modal__container'),
+  actorsModalContainer: document.querySelector('.actors'),
   openActorsModalBtn: document.querySelector('[data-actors-modal-open]'),
   closeActorsModalBtn: document.querySelector('[data-actors-modal-close]'),
   actorsModalBackdrop: document.querySelector('[data-actors-modal-backdrop]'),
@@ -109,6 +112,7 @@ export const refs = {
   // genere
   // movie
   movieGallery: document.querySelector('.movie-gallery'),
+  scrolltopBtn: document.querySelector('.scrolltop'),
   // footer
   goItStud: document.querySelector('.goItStud-js'),
   // modalMovie
@@ -154,4 +158,5 @@ export const refs = {
   signInForm: document.querySelector('[data-signIn-form]'),
   signInErrorText: document.querySelector('[data-signin-errorText]'),
   noEmailText: document.querySelector('[data-signin-noEmailText]'),
+  paginationSection: document.querySelector('.pagination'),
 };

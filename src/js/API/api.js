@@ -88,11 +88,11 @@ export const dataAuthors = async id => {
 };
 
 // пошук фільмів по актору
-export const dataAuthorMovie = async id => {
+export const dataAuthorMovie = async (id, page = 1) => {
   const language = whatLanguage();
   try {
     const server = await serverMovie.get(
-      `3/person/${id}/movie_credits?api_key=${KEY}&language=${language}`
+      `3/person/${id}/movie_credits?api_key=${KEY}&language=${language}&page=${page}`
     );
     const data = await server.data;
     return data;

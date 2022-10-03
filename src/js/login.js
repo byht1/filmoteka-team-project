@@ -127,7 +127,6 @@ export function toggleHeaderBtnValue() {
 
 async function getSignUpRes(userInfo) {
   const res = await signUp(userInfo);
-  console.log(res);
   if (res === 409) {
     accountCreatedText.classList.toggle('none');
   } else {
@@ -173,7 +172,6 @@ function onSignInModalBtn(event) {
 
 async function signInModalRes(userData) {
   const res = await logIn(userData);
-  console.log(res);
   if (res === 401) {
     signInErrorText.classList.remove('none');
     noEmailText.classList.add('none');
@@ -189,6 +187,5 @@ async function signInModalRes(userData) {
       `<p data-hello>Hello, ${userData.email}</p>`
     );
     localStorage.setItem(TOKEN, res.token);
-    console.log(localStorage.getItem(TOKEN));
   }
 }
