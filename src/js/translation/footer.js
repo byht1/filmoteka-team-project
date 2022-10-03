@@ -7,9 +7,13 @@ const footerEng = '2022 | All Rights Reserved | Developed with';
 export function changeLanguageFooter() {
     if (refs.html.getAttribute('lang') == 'uk') {
         refs.footerTextChangeLanguage.textContent = footerUk;
+
         refs.footerByChangeLanguage.textContent = 'командою';
     } else {
         refs.footerTextChangeLanguage.textContent = footerEng;
         refs.footerByChangeLanguage.textContent = 'by';
     }
 }
+
+console.log('~ refs.footerByChangeLanguage', refs.footerByChangeLanguage);
+console.log('~ refs.footerTextChangeLanguage', refs.footerTextChangeLanguage);
