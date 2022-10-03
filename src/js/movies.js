@@ -38,11 +38,17 @@ export async function renderFilmGallery(movies) {
 
       return `<li class="movie-card" data-id="${movie.id}">
       <div class="img-wrap">
-      <img class = "movie-img" src="${IMG_URL + movie.poster_path} 
-      " alt="${movie.original_title}" loading="lazy"/>
+      <img class = "movie-img" src="${
+        movie.poster_path
+          ? IMG_URL + movie.poster_path
+          : 'https://www.electiondataservices.com/wp-content/uploads/2014/10/sorry-image-not-available.jpg'
+      }"
+          alt="${movie.original_title}" loading="lazy"/>
       </div>
         <p class="movie-name">${movie.title}</p><div class="movie-info">
-        <p class="movie-genre">${genresList} | ${
+        <p class="movie-genre">${
+          movie.genre_ids.length > 0 ? genresList : 'Good movie'
+        } | ${
         movie.release_date ? movie.release_date.slice(0, 4) : 'none'
       }</p><span class="movie-raiting">${movie.vote_average.toFixed(
         1

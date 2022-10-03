@@ -6,7 +6,7 @@ import { allQueue, allWatched } from './API/userData';
 refs.loadWathedBtn.addEventListener('click', getAllWatched);
 refs.loadQueueBtn.addEventListener('click', getAllQueue);
 
-async function getAllWatched() {
+export async function getAllWatched() {
   const {
     data: { data: results },
   } = await allWatched();
@@ -14,7 +14,7 @@ async function getAllWatched() {
   await renderMovies(movie);
 }
 
-async function getAllQueue() {
+export async function getAllQueue() {
   const {
     data: { data: results },
   } = await allQueue();
