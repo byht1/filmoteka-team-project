@@ -20,6 +20,7 @@ const {
   signInForm,
   signInErrorText,
   noEmailText,
+  body,
 } = refs;
 
 let TOKEN = 'token';
@@ -32,7 +33,7 @@ loginReload();
 export function onSignInBtn() {
   backdropSignIn.classList.toggle('is-hidden');
   signInErrorText.classList.add('none');
-
+  body.classList.add('hidden');
   // add event listner on document/escape
   document.addEventListener('keydown', onEscapeClick);
   // add event listner on backdrop/click
@@ -49,7 +50,7 @@ function onSignUp() {
 function closeAllModalClose() {
   backdropSignUp.classList.add('is-hidden');
   backdropSignIn.classList.add('is-hidden');
-
+  body.classList.remove('hidden');
   // delete event listener on escape and backdrop
   document.removeEventListener('keydown', onEscapeClick);
   backdropSignIn.removeEventListener('click', onBackdropClick);
@@ -75,6 +76,7 @@ function onBackdropClick(evt) {
 
 function onModalClose() {
   backdropSignIn.classList.toggle('is-hidden');
+  body.classList.remove('hidden');
 }
 
 function onSignUpClose(evt) {
