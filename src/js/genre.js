@@ -22,7 +22,6 @@ export function genreRender() {
   const genreBox = document.querySelector('.genre__elements-box');
 
   if (!genreBox && i === 0) {
-    console.log(1);
     i += 1;
     outputGenre();
   }
