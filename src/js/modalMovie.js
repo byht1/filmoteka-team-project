@@ -1,6 +1,9 @@
 import { IMG_URL, dataMovie } from './API/api';
 import { renderActorsModal, clearActorsModalMarkup } from './modalActors';
+import { renderVideo } from './modalTrailer';
 import { refs } from './refs';
+
+const body = document.querySelector('body');
 
 refs.openMovieModal.addEventListener('click', openMovieModal);
 refs.closeMovieModalBtn.addEventListener('click', closeMovieModal);
@@ -10,9 +13,10 @@ let movieId = '';
 async function renderMovieModal(id) {
     const movieData = await dataMovie(id);
 
-    const moviePosterMarkup = ({ poster_path }) => {
-        return `<img
-            class="movie-image"
+
+  const moviePosterMarkup = ({ poster_path }) => {
+    return `<img
+            class="movie-image" data-movie="${id}"
             src="${
                 poster_path
                     ? `${IMG_URL}${poster_path}`
@@ -83,15 +87,20 @@ function openMovieModal(event) {
 
     refs.movieModal.classList.add('is-open');
 
-    renderMovieModal(movieId);
-    renderActorsModal(movieId);
+  renderMovieModal(movieId);
+  renderActorsModal(movieId);
+  // renderVideo(movieId);
 
     addEventListenerOnMovieModal();
 }
 
 export function addEventListenerOnMovieModal() {
-    document.addEventListener('keydown', onEscapeClick);
-    refs.movieModalBackdrop.addEventListener('click', onBackdropOfMovieModalClick);
+  document.addEventListener('keydown', onEscapeClick);
+  body.classList.add('hidden');
+  refs.movieModalBackdrop.addEventListener(
+    'click',
+    onBackdropOfMovieModalClick
+  );
 }
 
 function onEscapeClick(event) {
@@ -107,7 +116,8 @@ function onBackdropOfMovieModalClick(event) {
 }
 
 export function closeMovieModal() {
-    refs.movieModal.classList.remove('is-open');
+  refs.movieModal.classList.remove('is-open');
+  body.classList.remove('hidden');
 
     removeEventListenerFromMovieModal();
 }
@@ -115,4 +125,33 @@ export function closeMovieModal() {
 export function removeEventListenerFromMovieModal() {
     document.removeEventListener('keydown', onEscapeClick);
     refs.movieModalBackdrop.removeEventListener('click', onBackdropOfMovieModalClick);
+}
+
+const playBox = document.querySelector('.trailer-backdrop');
+const box = document.querySelector('.image__wrapper');
+
+box.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const id = document.querySelector('.movie-image').dataset.movie;
+  renderVideo(id);
+  playBox.classList.remove('is-hidden3');
+  document.removeEventListener('keydown', onEscapeClick);
+});
+
+playBox.addEventListener('click', function (e) {
+  if (e.target !== e.currentTarget) return;
+
+  playBox.classList.add('is-hidden3');
+  document.addEventListener('keydown', onEscapeClick);
+});
+
+document.addEventListener('keydown', escVideo);
+
+function escVideo(e) {
+  if (e.key == 'Escape') {
+    playBox.classList.add('is-hidden3');
+    document.addEventListener('keydown', onEscapeClick);
+    document.removeEventListener('keydown', escVideo);
+  }
 }

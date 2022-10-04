@@ -56,7 +56,7 @@ function libBtnClick(e) {
   refs.watchedButton.classList.remove('library-button__active');
 }
 
-async function getAllQueue() {
+export async function getAllQueue() {
   const {
     data: { data: results },
   } = await allQueue();

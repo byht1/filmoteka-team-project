@@ -109,6 +109,15 @@ export const dataTrailer = async id => {
       `3/movie/${id}/videos?api_key=${KEY}&language=${language}`
     );
     const data = await server.data;
+
+    if (language === 'uk-UA' && data.results.length === 0) {
+      const server = await serverMovie.get(
+        `3/movie/${id}/videos?api_key=${KEY}&language=en-US`
+      );
+      const data = await server.data;
+      return data;
+    }
+
     return data;
   } catch (error) {
     console.error(error);

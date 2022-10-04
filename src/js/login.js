@@ -171,21 +171,22 @@ function onSignInModalBtn(event) {
 // async function validationRes
 
 async function signInModalRes(userData) {
-    const res = await logIn(userData);
+  const res = await logIn(userData);
 
-    if (res === 401) {
-        signInErrorText.classList.remove('none');
-        noEmailText.classList.add('none');
-    } else if (!res.isActivate) {
-        noEmailText.classList.remove('none');
-        signInErrorText.classList.add('none');
-        // backdropSignIn.classList.toggle('is-hidden');
-    } else {
-        backdropSignIn.classList.toggle('is-hidden');
-        toggleHeaderBtnValue();
-        addHelloText(userData);
-        localStorage.setItem(TOKEN, res.token);
-    }
+  if (res === 401) {
+    signInErrorText.classList.remove('none');
+    noEmailText.classList.add('none');
+  } else if (!res.isActivate) {
+    noEmailText.classList.remove('none');
+    signInErrorText.classList.add('none');
+    // backdropSignIn.classList.toggle('is-hidden');
+  } else {
+    backdropSignIn.classList.toggle('is-hidden');
+    toggleHeaderBtnValue();
+    addHelloText(userData);
+    localStorage.setItem(TOKEN, res.token);
+    body.classList.remove('hidden');
+  }
 }
 
 function addHelloText(userData) {
