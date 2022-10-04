@@ -3,7 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 9px;
+  margin-bottom: 2px;
+  @include tablet {
+    margin-bottom: 12px;
+  }
 }
 
 .searchbar-container {
@@ -14,8 +17,10 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   border: none;
+  height: 20px;
   @include tablet {
     width: 336px;
+    margin-bottom: 6px;
   }
 
   @include desktop {
