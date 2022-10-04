@@ -3,7 +3,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 9px;
+  margin-bottom: 2px;
+
+  @include tablet {
+    margin-bottom: 12px;
+  }
 }
 
 .searchbar-container {
@@ -14,9 +18,11 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   border: none;
-  color: red;
+  height: 20px;
+
   @include tablet {
     width: 336px;
+    margin-bottom: 6px;
   }
 
   @include desktop {
@@ -36,6 +42,7 @@
 
   outline: 0;
   color: var(--header-color-text);
+
   &::placeholder {
     color: var(--header-color-text);
     font-style: normal;
@@ -43,8 +50,10 @@
     font-size: 14px;
     line-height: 16px;
   }
+
   &:focus {
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     &::placeholder {
       color: transparent;
     }
@@ -65,8 +74,10 @@
   font-size: 14px;
   line-height: 16px;
   opacity: 1;
+  pointer-events: none;
 
   transition: opacity 250ms linear;
+
   @include tablet {
     width: auto;
   }
@@ -85,6 +96,7 @@
   background-color: transparent;
 
   position: relative;
+
   &:focus {
     transform: scale(1.2);
   }
