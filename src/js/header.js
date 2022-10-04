@@ -5,11 +5,13 @@ import { renderMovies } from './movies';
 import { onSignInBtn } from './login';
 import { allQueue } from './API/userData';
 import { show } from './shearch';
+import { genreRender } from './genre';
 
 window.addEventListener('resize', function () {
   if (window.innerWidth < 767) {
     refs.logoText.classList.add('visually-hidden');
   }
+  genreRender();
   refs.logoText.classList.remove('visually-hidden');
 });
 

@@ -11,7 +11,27 @@ showGenreButton.addEventListener('click', function (e) {
   genreBox.classList.toggle('general-show');
 });
 
-outputGenre();
+// outputGenre();
+let i = 0;
+
+export function genreRender() {
+  if (window.innerWidth < 767) {
+    return;
+  }
+
+  const genreBox = document.querySelector('.genre__elements-box');
+
+  if (!genreBox && i === 0) {
+    console.log(1);
+    i += 1;
+    outputGenre();
+  }
+
+  // if (i === 0 && window.innerWidth > 767) {
+  //   i = 1;
+  //   outputGenre();
+  // }
+}
 
 export async function outputGenre() {
   const allGenres = await dataGenre();
