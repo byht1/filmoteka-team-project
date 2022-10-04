@@ -66,3 +66,5 @@ function callTranslationFunctions() {
   changeLanguageLogin();
   changeLanguageGenre();
 }
+
+// console.log(refs.noEmailText.textContent);

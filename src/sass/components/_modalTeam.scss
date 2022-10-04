@@ -59,8 +59,8 @@
 
 .modal-close-btn {
     background-color: var(--modal-background-color);
-    border: solid 1px var(--params-name);
-    border-radius: 50%;
+    //   border: solid 1px var(--params-name);
+    //   border-radius: 50%;
 
     position: absolute;
     top: 8px;
@@ -74,8 +74,12 @@
     width: 30px;
     height: 30px;
 
+    transform: rotate(0deg);
+    transition: all var(--transition-cubic) 500ms;
+
     &:hover,
     &:focus {
+        transform: rotate(180deg);
         svg {
             fill: var(--accent);
         }
@@ -97,18 +101,45 @@
 .logo-team {
     width: 210px;
     height: 140px;
-    background-color: rgb(165, 159, 159);
+    background-color: var(--modal-background-color);
     border-radius: 5px;
     margin: 0 auto;
 
     @include tablet {
         width: 270px;
-        height: 160px;
+        height: 180px;
     }
 
     @include desktop {
         width: 280px;
         height: 140px;
+    }
+}
+
+.logo-team img {
+    object-fit: contain;
+    border-radius: 5px;
+
+    width: 210px;
+    height: 140px;
+    @include tablet {
+        width: 270px;
+        height: 180px;
+    }
+
+    @include desktop {
+        width: 280px;
+        height: 140px;
+    }
+}
+
+.team-info-box {
+    @include tablet {
+        width: 270px;
+    }
+
+    @include desktop {
+        min-width: 280px;
     }
 }
 
@@ -132,6 +163,10 @@
     margin-top: 12px;
     text-align: center;
 
+    @include tablet {
+        margin-top: 0;
+    }
+
     & a {
         color: var(--color-title);
         font-style: normal;
@@ -142,7 +177,7 @@
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
         @include desktop {
-            font-size: 30px;
+            font-size: 22px;
         }
     }
 
@@ -155,7 +190,8 @@
 
 .team-info-list {
     margin-top: 8px;
-    @include tablet {
+
+    @include desktop {
         margin-top: 12px;
     }
 }

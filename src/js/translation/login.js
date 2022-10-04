@@ -13,6 +13,7 @@ export function changeLanguageLogin() {
 
         refs.modalLoginBtn.textContent = logInTextUk;
         refs.modalLoginErrorText.textContent = 'Електронна пошта або пароль невірні';
+        refs.noEmailText.textContent = 'Ви не підтвердили свою електронну пошту';
 
         refs.modalLoginRememberText.textContent = "Запам'ятати мене";
 
@@ -43,6 +44,7 @@ export function changeLanguageLogin() {
 
         refs.modalLoginBtn.textContent = logInTextEng;
         refs.modalLoginErrorText.textContent = 'Email or password is wrong';
+        refs.noEmailText.textContent = 'You have not verified your email';
 
         refs.modalLoginRememberText.textContent = 'Remember me';
 
