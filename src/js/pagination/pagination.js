@@ -58,7 +58,7 @@ export default class Pagination {
     if (start === end) {
       return;
     }
-    
+
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
       showLast = !isCollapsed && i == end && hasEllipsisRight;
@@ -94,9 +94,13 @@ export default class Pagination {
     if (isPage) {
       el.classList.add('pagination-button');             
       el.addEventListener('click', () => {
-          this.current = value;
-          this.options.onChange(value);
-          this.render();
+        if (Number(el.textContent) === this.current) {
+          el.blur();
+          return;
+        }
+        this.current = value;
+        this.options.onChange(value);
+        this.render();
       });
       
       if (value == this.current) {
@@ -118,6 +122,7 @@ export default class Pagination {
   }
 
   nextPage() {
+    
     nextBtn.addEventListener('click', () => {
       if (this.current === this.options.total) {
         return;
