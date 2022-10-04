@@ -29,6 +29,7 @@ export default class Pagination {
   }
   
   removeItems() {
+    refs.paginationList.innerHTML = '';
     this.items.forEach(item => item.remove());
     this.items = [];
   }
@@ -54,6 +55,10 @@ export default class Pagination {
     if (hasEllipsisLeft) ellipsisPos.push(isCollapsed ? start : start + 1);
     if (hasEllipsisRight) ellipsisPos.push(isCollapsed ? end : end - 1);
 
+    if (start === end) {
+      return;
+    }
+    
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
       showLast = !isCollapsed && i == end && hasEllipsisRight;
