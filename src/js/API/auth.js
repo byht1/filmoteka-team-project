@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const server = axios.create({
-  baseURL: 'https://filmoteka-server.herokuapp.com',
+  baseURL: 'https://server-filmoteka.herokuapp.com',
 });
 
 export const token = {
