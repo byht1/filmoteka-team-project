@@ -1,86 +1,92 @@
 .genere-section {
-  display: none;
-  position: relative;
-  background-color: var(--footer-background-color);
-
-  transition: background-color 250ms linear;
-
-  @include tablet {
-    display: block;
-  }
-
-  .container {
+    display: none;
     position: relative;
-    z-index: 3;
-  }
+    background-color: var(--footer-background-color);
+
+    transition: background-color 250ms linear;
+
+    @include tablet {
+        display: block;
+    }
+
+    .container {
+        position: relative;
+        z-index: 3;
+    }
 }
 
-.genere-section.general-show {
-}
+// .genere-section.general-show {
+// }
 .genre-box {
-  position: absolute;
-  top: 0;
+    position: absolute;
+    top: 0;
 
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
 
-  margin: 0 auto;
+    margin: 0 auto;
 
-  transition: transform 250ms linear, opacity 250ms linear;
+    transition: transform 250ms linear, opacity 250ms linear;
 
-  @include tablet {
-    display: block;
-    width: 704px;
-  }
+    @include tablet {
+        display: block;
+        width: 704px;
+    }
 
-  @include desktop {
-    width: 1216px;
-  }
+    @include desktop {
+        width: 1216px;
+    }
 }
 
 .genre-box.general-show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
 }
 
 .text {
-  font-weight: bold;
-  color: rgb(55, 49, 49);
-  writing-mode: vertical-lr;
-  text-orientation: upright;
+    font-weight: bold;
+    color: rgb(55, 49, 49);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
 }
 
 .genre-box-button {
-  margin: 0 auto;
-  padding: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  background-color: rgba($color: #000000, $alpha: 0.5);
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
 .genre__button {
-  padding: 10px;
-  border-radius: 4px;
-  background-color: var(--accent);
-  min-width: 100px;
-  color: var(--color-title);
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--accent);
+    min-width: 100px;
+    color: var(--color-title);
 }
 
 .show-burron-general {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 
-  font-size: 24px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+    font-size: 24px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
 
-  background-color: transparent;
+    background-color: transparent;
 
-  color: var(--header-color-text);
+    color: var(--header-color-text);
+
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    padding-bottom: 5px;
 }
