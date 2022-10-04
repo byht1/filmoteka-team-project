@@ -86,6 +86,9 @@ export default class Pagination {
   }
 
   renderElement(value) {
+    if (nextBtn.hasAttribute('disabled')) {
+      nextBtn.removeAttribute('disabled');
+    }
     const isPage = typeof value === 'number';
     const el = document.createElement(isPage ? 'button' : 'span');
     el.classList.add('pagination-item');             
@@ -101,6 +104,11 @@ export default class Pagination {
         this.current = value;
         this.options.onChange(value);
         this.render();
+        
+        this.current === this.options.total
+          ? nextBtn.setAttribute('disabled', 'disabled')
+          : nextBtn.removeAttribute('disabled');
+        
       });
       
       if (value == this.current) {
@@ -122,7 +130,6 @@ export default class Pagination {
   }
 
   nextPage() {
-    
     nextBtn.addEventListener('click', () => {
       if (this.current === this.options.total) {
         return;
