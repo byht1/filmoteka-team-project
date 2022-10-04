@@ -58,7 +58,7 @@ export default class Pagination {
     if (start === end) {
       return;
     }
-    
+
     for (i = start; i <= end; i++) {
       showFirst = !isCollapsed && i == start && hasEllipsisLeft;
       showLast = !isCollapsed && i == end && hasEllipsisRight;
@@ -86,6 +86,9 @@ export default class Pagination {
   }
 
   renderElement(value) {
+    if (nextBtn.hasAttribute('disabled')) {
+      nextBtn.removeAttribute('disabled');
+    }
     const isPage = typeof value === 'number';
     const el = document.createElement(isPage ? 'button' : 'span');
     el.classList.add('pagination-item');             
@@ -94,9 +97,18 @@ export default class Pagination {
     if (isPage) {
       el.classList.add('pagination-button');             
       el.addEventListener('click', () => {
-          this.current = value;
-          this.options.onChange(value);
-          this.render();
+        if (Number(el.textContent) === this.current) {
+          el.blur();
+          return;
+        }
+        this.current = value;
+        this.options.onChange(value);
+        this.render();
+        
+        this.current === this.options.total
+          ? nextBtn.setAttribute('disabled', 'disabled')
+          : nextBtn.removeAttribute('disabled');
+        
       });
       
       if (value == this.current) {
