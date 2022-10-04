@@ -34,11 +34,14 @@ async function renderMovieModal(id) {
     genres,
     overview,
   }) => {
+    const language = localStorage.getItem('lang');
     return `
           <h2 class="data__title">${title}</h2>
           <ul class="data__list list">
             <li class="list__item">
-              <p class="data__item">Vote / Votes</p>
+              <p class="data__item">${
+                language === 'uk' ? 'Рейтинг/Голосів' : 'Vote / Votes'
+              }</p>
               <p class="data__info">
                 <span class="data__span data__span--orange">${vote_average}</span>
                 <span> / </span>
@@ -46,25 +49,33 @@ async function renderMovieModal(id) {
               </p>
             </li>
             <li class="list__item">
-              <p class="data__item">Popularity</p>
+              <p class="data__item">${
+                language === 'uk' ? 'Популярність' : 'Popularity'
+              }</p>
               <p class="data__info">${popularity}</p>
             </li>
             <li class="list__item">
-              <p class="data__item">Original Title</p>
+              <p class="data__item">${
+                language === 'uk' ? 'Оригінальна назва' : 'Original Title'
+              }</p>
               <p class="data__info data__info--upper">${original_title}</p>
             </li>
             <li class="list__item">
-              <p class="data__item">Genre</p>
+              <p class="data__item">${language === 'uk' ? 'Жанри' : 'Genre'}</p>
               <p class="data__info">${genres
                 .map(genre => genre.name)
                 .join(', ')}</p>
             </li>
             <li class="list__item">
-              <p class="data__item">Actors</p>
-              <button type="button" class="data__button">Show me</button>
+              <p class="data__item">${
+                language === 'uk' ? 'Актори' : 'Actors'
+              }</p>
+              <button type="button" class="data__button">${
+                language === 'uk' ? 'Показати' : 'Show me'
+              }</button>
             </li>
           </ul>
-          <p class="data__about">About</p>
+          <p class="data__about">${language === 'uk' ? 'Про що' : 'About'}</p>
           <p class="data__about-text">${overview}</p> `;
   };
 
